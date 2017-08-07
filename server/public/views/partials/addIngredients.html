@@ -1,0 +1,128 @@
+<!-- RIGHT COLUMN FOR RECIPE INGREDIENTS -->
+<div layout="column" flex="50">
+  <div layout="row" flex>
+    <h3>Add Ingredients Below: </h3>
+    <label for="yield">Batch Size (in gallons):</label>
+    <input type="text" ng-model="rc.yield" />
+  </div>
+  <div id="maltsInput" layout="row" flex>
+    <div layout="column" flex="50">
+      <div layout="row" flex>
+        <label for="maltType">Malt Type:</label>
+        <input type="text" ng-model="rc.maltType" />
+      </div>
+      <div layout="row" flex>
+        <label for="maltAmt">Malt Amt:</label>
+        <input type="text" ng-model="rc.maltAmt" />
+        <md-button class="md-fab md-mini">Add</md-button>
+      </div>
+    </div>
+    <div layout="column" flex="50">
+      <table>
+        <tr>
+          <th>Amount</th>
+          <th>Malt Type</th>
+        </tr>
+        <tr>
+          <td>10 lbs.</td>
+          <td>Pale Ale Malt</td>
+        </tr>
+        <tr>
+          <td>1.5 lbs.</td>
+          <td>Chocolate Malt</td>
+        </tr>
+        <tr>
+          <td>2 lbs.</td>
+          <td>Flaked Oats</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="hopsInput" layout="row" flex>
+    <div layout="column" flex="50">
+      <label for="hopType">Hop Type:</label>
+      <input type="text" ng-model="rc.hopType" />
+      <label for="hopAmt">Hop Amt:</label>
+      <input type="text" ng-model="rc.hopAmt" />
+      <label for="hopTime">Hop Timing:</label>
+      <input type="text" ng-model="rc.hopTime" />
+      <md-button class="md-fab md-mini">Add</md-button>
+    </div>
+    <div layout="column" flex="50">
+      <table>
+        <tr>
+          <th>Amount</th>
+          <th>Hop Type</th>
+          <th>Time to Addition</th>
+        </tr>
+        <tr>
+          <td>1 oz</td>
+          <td>Kent-Goldings pellets</td>
+          <td>at 0 min</td>
+        </tr>
+        <tr>
+          <td>0.5 oz</td>
+          <td>Northern Brewer pellets</td>
+          <td>at 0 min</td>
+        </tr>
+        <tr>
+          <td>1 oz</td>
+          <td>Kent-Goldings pellets</td>
+          <td>at 50 min</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div id="yeastInput" layout="row" flex>
+    <div layout="column" flex="50">
+      <label for="yeastType">Yeast Type:</label>
+      <input type="text" ng-model="rc.yeastForm" />
+      <label for="rehydrate">Rehydrate?</label>
+      <input id="rehydrate" type="checkbox" ng-model="rc.yeastRehydrate" />
+      <md-button class="md-fab md-mini">Add</md-button>
+    </div>
+    <div layout="column" flex="50">
+      <table>
+        <tr>
+          <th>Yeast Type</th>
+          <th>Rehydrate?</th>
+        </tr>
+        <tr>
+          <td>Wyeast 1084 Irish Ale yeast</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div id="otherAddsInput" layout="row" flex>
+    <div layout="column" flex="50">
+      <label for="otherType">Other Addition:</label>
+      <input type="text" ng-model="rc.otherAddType" />
+      <label for="otherAmt">Addtion Amt:</label>
+      <input type="text" ng-model="rc.otherAddAmt" />
+      <label for="otherNotes">Notes on addition:</label>
+      <input type="text" ng-model="rc.otherAddNotes" />
+      <md-button class="md-fab md-mini">Add</md-button>
+    </div>
+    <div layout="column" flex="50">
+      <table>
+        <tr>
+          <th>Amount</th>
+          <th>Other Addition Type</th>
+          <th>Notes</th>
+        </tr>
+        <tr>
+          <td>1 tbsp</td>
+          <td>Irish Moss</td>
+          <td>Add during last 10 min of boil</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Rice hulls</td>
+          <td>Filter through hulls into fermenter</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div> <!-- END OF RIGHT COL -->

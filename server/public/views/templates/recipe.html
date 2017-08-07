@@ -1,2 +1,64 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<h2>Prepare Recipe</h2>
+
+<div class="container" flex>
+
+  <!-- TOP ROW FOR RECIPE NAME & STYLE + SAVE BUTTON -->
+  <div layout="row" flex>
+    <h2>Prepare Recipe</h2>
+    <label for="name">Recipe Name:</label>
+    <input type="text" ng-model="rc.name" />
+    <label for="style">Beer Style:</label>
+    <input type="text" ng-model="rc.style" />
+    <md-button class="md-raised md-primary">Save Recipe</md-button>
+  </div>
+
+  <div layout="row" flex>
+    <!-- LEFT COLUMN FOR RECIPE TYPE, FERMENT LENGTH, DESCRIPTION, PROCEDURE & NOTES -->
+    <div class="leftCol" layout="column" flex="50">
+      <div layout="row" flex>
+        <div layout="row" flex>
+          <label for="recipeType">Recipe Type:</label>
+          <input type="text" ng-model="rc.recipeType" />
+        </div>
+        <div layout="row" flex>
+          <label for="primeFerment">Primary Fermentation:</label>
+          <input type="text" placeholder="Enter length" ng-model="rc.primeFerment" />
+        </div>
+        <div layout="row" flex>
+          <label for="secondFerment">Secondary Fermentation:</label>
+          <input type="text" placeholder="Enter length" ng-model="rc.secondFerment" />
+        </div>
+      </div>
+      <div class="descriptionBox" flex>
+        <form class="" action="" method="post">
+          <textarea name="recipeDescription" rows="8" cols="50">Enter a description for your recipe.</textarea>
+          <br>
+          <input type="submit">
+        </form>
+      </div>
+      <div class="procedureBox" flex>
+        <form class="" action="" method="post">
+          <textarea name="procedureDescription" rows="10" cols="50">Enter the procedure for your recipe.</textarea>
+          <br>
+          <input type="submit">
+        </form>
+      </div>
+      <div class="notesBox" flex>
+        <form class="" action="" method="post">
+          <textarea name="recipeNotes" rows="8" cols="50">Enter any additional notes for your recipe.</textarea>
+          <br>
+          <input type="submit">
+        </form>
+      </div>
+    </div>
+
+<div layout="column" flex="50" ng-include="'views/partials/addIngredients.html'"></div>
+
+    <div layout="row" flex>
+      <label for="recipeSrc">Recipe Source:</label>
+      <input type="text" ng-model="rc.recipeSrc" />
+    </div>
+
+  </div> <!-- End of the main body -->
+
+</div> <!-- End of container -->
