@@ -1,20 +1,99 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-    <div class="welcome">
-      <h1 id="welcome" class="lead">Welc&oslash;me to the M&aring;in Menu, {{uc.userObject.userName}}!</h1>
+<div class="container" layout="row" flex>
+  <div id="recipe_ls" layout="column" flex="60">
+    <div layout="row">
+      <div layout="column" flex>
+        <!-- LEFT SIDE TOP: PREPARED RECIPES -->
+        <div layout="row" flex>
+          <div layout="column" flex="50">
+            <h2>Prepared Br&uuml; Recipes</h2>
+          </div>
+          <div layout="column" flex="40">
+            <md-button class="md-raised md-primary">Prep New Recipe</md-button>
+          </div>
+        </div>
+        <div>
+          <table id="preparedRecipes">
+            <thead>
+              <th></th>
+              <th>Recipe Name</th>
+              <th>Edit Recipe?</th>
+              <th>Delete Recipe?</th>
+              <th>Brew the Recipe?</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fa fa-beer" aria-hidden="true"></i></td>
+                <td>Double Chocolate Oatmeal Stout</td>
+                <td><md-button><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-primary">Brew!</md-button></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-beer" aria-hidden="true"></i></td>
+                <td>Surly Furious, clone</td>
+                <td><md-button><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-primary">Brew!</md-button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  <div class="leftSide">
-    <div class="top">
-
-    </div>
-    <div class="bottom">
-
+    <!-- LEFT SIDE: BOTTOM STATUS OF BREWS -->
+    <div layout="row">
+      <div layout="column" flex>
+        <div>
+          <h2>St&aring;tus of your Br&uuml;s</h2>
+        </div>
+        <div>
+          <table id="brewStatus">
+            <thead>
+              <th></th>
+              <th>Recipe Name</th>
+              <th>Brewing Stage</th>
+              <th>Edit?</th>
+              <th>Delete?</th>
+              <th>Bottle?</th>
+              <th>Drink?</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="fa fa-beer" aria-hidden="true"></i></td>
+                <td>Irish Cream Stout</td>
+                <td>Primary Fermentation</td>
+                <td><md-button><i class="fa fa-2x  fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-primary" ng-disabled="false">Bottle!</md-button></td>
+                <td><md-button class="md-primary" ng-disabled="false">Drink!</md-button></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-beer" aria-hidden="true"></i></td>
+                <td>Wild Rice Pale Ale</td>
+                <td>Bottle Conditioning</td>
+                <td><md-button><i class="fa fa-2x  fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
+                <td><md-button class="md-primary" ng-disabled="true">Bottle!</md-button></td>
+                <td><md-button class="md-primary" ng-disabled="false">Drink!</md-button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="rightSide">
 
+  <!-- RIGHT SIDE: CALENDAR, SETTINGS & IMAGE [STRETCH GOALS] -->
+  <div id="recipe_rs" layout="column" flex="30">
+    <div layout="row">
+      <p><i class="fa fa-calendar fa-5x" aria-hidden="true"></i></p>
+    </div>
+    <div layout="row">
+      <p><i class="fa fa-cog fa-2x" aria-hidden="true"></i> User Settings</p>
+    </div>
+    <div layout="row">
+      <img ng-src="../../assets/img/drinkingGuy.jpg" alt="Drinking guy icon" width="200" height="200">
+    </div>
   </div>
-
-
-
 </div>

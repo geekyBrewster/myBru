@@ -6,18 +6,24 @@ body, html {
 }
 
 div {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
-
 .colorLogo {
   width: 100px;
 }
-.logo {
-  width: 100px;
+#loginImage {
+  width: 600px;
 }
-.title {
-  width: 200px;
+
+#registerImage{
+  width: 400px;
 }
+
+
+
+
+
+
 
 .instructions .container h1 {
   font-size: 32px;

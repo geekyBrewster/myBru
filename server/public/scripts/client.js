@@ -31,6 +31,33 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/recipe', {
+      templateUrl: '/views/templates/recipe.html',
+      controller: 'RecipeController as rc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/brew', {
+      templateUrl: '/views/templates/brew.html',
+      controller: 'BrewController as bc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/drink', {
+      templateUrl: '/views/templates/finalProduct.html',
+      controller: 'DrinkController as dc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });
