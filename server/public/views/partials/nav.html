@@ -1,8 +1,21 @@
-<div class="navbar">
-  <div class="container">
-    <ul>
-      <li><a href="#/user">User Home</a></li>
-      <li><a href="#/info">Info Page</a></li>
-    </ul>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <div class="welcomeMsg" flex=85>
+      <md-truncate>Welcome {{uc.userObject.userName}}!!</md-truncate>
+    </div>
+    <div class="menu" flex=15>
+      <md-menu>
+        <md-button aria-label="Open popup menu" ng-click="uc.userService.openMenu($mdMenu, $event)"><i class="fa fa-bars" aria-hidden="true"></i></md-button>
+        <md-menu-content width="4">
+          <md-menu-item> <a href="#/user">M&aring;in Menu</a> </md-menu-item>
+          <md-menu-item> <a href="#/recipe">Pr&ecirc;p Recipe</a> </md-menu-item>
+          <md-menu-item> <a href="#/brew">Brew Br&uuml;</a> </md-menu-item>
+          <md-menu-item> <a href="#/drink">Drink Br&uuml;</a> </md-menu-item>
+          <md-menu-divider></md-menu-divider>
+          <md-menu-item> <a href="#/info">Us&ecirc;r Settings and C&aring;lendar</a> </md-menu-item>
+          <md-button class="btn btn-default" ng-click="uc.userService.logout()" flex=25>Log Out</md-button>
+        </md-menu-content>
+      </md-menu>
+    </div>
   </div>
-</div>
+</md-toolbar>

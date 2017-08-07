@@ -5,6 +5,20 @@ body, html {
   font-size: 14px;
 }
 
+div {
+  border: 1px solid blue;
+}
+
+.colorLogo {
+  width: 100px;
+}
+.logo {
+  width: 100px;
+}
+.title {
+  width: 200px;
+}
+
 .instructions .container h1 {
   font-size: 32px;
   font-weight: 600;
