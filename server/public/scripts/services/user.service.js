@@ -33,7 +33,7 @@ myApp.factory('UserService', function($http, $location){
       });
     },
 
-    openMenu : function($mdMenu, ev){
+    openMenu : function($mdMenu, ev) {
       originatorEv = ev;
       $mdMenu.open(ev);
     }
