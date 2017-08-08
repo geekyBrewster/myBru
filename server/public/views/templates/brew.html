@@ -6,7 +6,39 @@
   <!-- LEFT SIDE: RECIPE SUMMARY -->
     <div class="leftSide" layout="column" flex="50">
       <div layout="row" flex>
-        <h2>Brew Recipe:</h2>
+        <md-content>
+          <h2>Brew Recipe</h2>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Recipe Name:</h3>
+                <p>Chocolate Oatmeal Stout</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Beer Style:</h3>
+                <p>Stout, Oatmeal</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Recipe Type:</h3>
+                <p>All-grain</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Primary Fermentation:</h3>
+                <p>2 weeks</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Secondary Fermentation:</h3>
+                <p>18 days</p>
+              </div>
+            </md-list-item>
+        </md-content>
       </div>
       <div layout="row" flex>
         <h3>Procedure: </h3>
@@ -26,10 +58,31 @@
       </div>
       <div layout="row">
         <table>
-          <th>Ingredient</th>
-          <th>Amount</th>
-          <th>Timing</th>
-          <th>Added?</th>
+          <tr>
+            <th>Ingredient</th>
+            <th>Amount</th>
+            <th>Timing</th>
+            <th>Added?</th>
+          </tr>
+          <tr>
+            <td>Pale Malt</td>
+            <td>10 lbs</td>
+            <td></td>
+            <td><md-checkbox>Added</md-checkbox></td>
+          </tr>
+          <tr>
+            <td>Hallertau hops</td>
+            <td>1 oz</td>
+            <td>0 min</td>
+            <td><md-checkbox>Added</md-checkbox></td>
+          </tr>
+          <tr>
+            <td>Centennial hops</td>
+            <td>1 oz</td>
+            <td>50 min</td>
+            <td><md-checkbox>Added</md-checkbox></td>
+          </tr>
+
         </table>
       </div>
     </div>
