@@ -4,9 +4,8 @@
   <div class="upperHalf" layout="row">
 
   <!-- LEFT SIDE: RECIPE SUMMARY -->
-    <div class="leftSide" layout="column" flex="50">
+    <div class="leftSide" layout="column" layout-padding flex="50">
       <div layout="row" flex>
-        <div layout="column" flex>
           <md-content>
             <div layout="row" flex>
               <h2>Brew Br&uuml;</h2>
@@ -46,16 +45,16 @@
             </div>
           </md-content>
 
-        </div>
       </div>
-      <div layout="row" flex>
+      <div layout="row" flex="none">
         <h3>Procedure: </h3>
-        <textarea ng-model="rc.procedure" rows="8" cols="50"></textarea>
+        <textarea ng-model="rc.procedure" rows="10" cols="50"></textarea>
       </div>
     </div>
 
+
   <!-- RIGHT SIDE: INGREDIENT SUMMARY -->
-    <div class="rightSide" layout="column" flex="50">
+    <div class="rightSide" layout="column" layout-padding flex>
       <div layout="row">
         <div layout="column" layout-align="end start" flex="33">
           <h3>Ingredients:</h3>
@@ -66,10 +65,12 @@
             <input type="date" ng-model="re.brewDate">
           </md-input-container>
         </div>
+
         <div layout="column" layout-align="center end"flex="33">
           <md-button class="md-raised md-primary">Save Brew Notes</md-button>
         </div>
       </div>
+      <fieldset>
       <div layout="row">
         <table>
           <tr>
@@ -101,7 +102,9 @@
       </div>
     </div>
   </div>
+  </fieldset>
 
+  <fieldset>
   <!-- BOTTOM ROW: RECIPE & BREWING NOTES -->
   <div class="bottomRow" layout="row">
     <div layout="column" flex="33">
@@ -123,5 +126,5 @@
       </md-input-container>
     </div>
   </div>
-
+</fieldset>
 </div>

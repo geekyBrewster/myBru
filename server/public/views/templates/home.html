@@ -1,7 +1,6 @@
 <div class="container">
   <div layout="row" flex>
-    <div layout="column" flex=33></div>
-    <div class="login" layout="column" flex=33>
+    <div class="login" layout="column" layout-align="center center" flex=60>
       <h1 class="lead">L&oslash;gin</h1>
         <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
         <form ng-submit="lc.login()">
@@ -15,13 +14,16 @@
           </div>
           <div>
               <input class="btn btn-default" type="submit" name="submit" value="Log In" />
-              <a href="#register">New User? Please Register here.</a>
+              <a href="#register">New User? Please Register.</a>
           </div>
         </form>
     </div>
-    <div layout="column" flex=33></div>
+    <div layout="column" flex></div>
   </div>
   <div layout="row" flex>
-    <div layout="column"><img id="loginImage" ng-src="../../assets/img/instructionGuy_lg.jpg" alt="Instructions for beer: water, grain, hops, yeast"></div>
+    <div layout="column"><img class="loginImage" ng-src="../../assets/img/instructionGuy_lg.jpg" alt="Instructions for beer: water, grain, hops, yeast"></div>
+  </div>
+  <div layout="row" flex>
+    <img class="breweryDBlogo" ng-src="../../assets/img/Powered-By-BreweryDB.png" alt="BreweryDB logo">
   </div>
 </div>

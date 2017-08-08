@@ -1,9 +1,12 @@
 <md-toolbar>
-  <div class="md-toolbar-tools">
-    <div class="welcomeMsg" flex=85>
-      <md-truncate>Wilkommen, {{uc.userObject.userName}}! What would you like to brew today?</md-truncate>
+  <div class="md-toolbar-tools" layout="row">
+    <div class="welcomeMsg" layout="column" flex=70>
+      <md-truncate>What would you like to brew today?</md-truncate>
     </div>
-    <div class="menu" flex=15>
+    <div class="userName" layout="column" layout-align="center end" flex=15>
+      <h4>{{uc.userObject.userName}}'s Brews</h4>
+    </div>
+    <div class="menu" layout="column" flex=15>
       <md-menu>
         <md-button aria-label="Open popup menu" ng-mouseover="$mdMenu.open()" ng-click="uc.userService.openMenu($mdMenu, $event)"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></md-button>
         <md-menu-content width="4">
