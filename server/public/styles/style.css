@@ -6,7 +6,7 @@ body, html {
 }
 
 div {
-  /*border: 1px solid blue;*/
+  border: 1px solid blue;
 }
 .colorLogo {
   width: 100px;
@@ -20,6 +20,13 @@ div {
 }
 .ingredientIcon {
   width: 100px;
+}
+textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width: 100%;
 }
 
 

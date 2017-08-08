@@ -1,2 +1,87 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<h2>Drink Recipe</h2>
+
+<div class="container" layout="row">
+  <!-- LEFT SIDE: RECIPE SUMMARY -->
+  <div layout="column" flex="40">
+    <div layout="row" flex>
+      <div layout="column" flex>
+        <md-content>
+          <div layout="row" flex>
+            <h2>Drink Br&uuml;</h2>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Recipe Name:</h3>
+                <p>Chocolate Oatmeal Stout</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Beer Style:</h3>
+                <p>Stout, Oatmeal</p>
+              </div>
+            </md-list-item>
+          </div>
+          <div layout="row" flex>
+
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Recipe Type:</h3>
+                <p>All-grain</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Primary Fermentation:</h3>
+                <p>2 weeks</p>
+              </div>
+            </md-list-item>
+            <md-list-item class="md-2-line">
+              <div class="md-list-item-text">
+                <h3>Secondary Fermentation:</h3>
+                <p>18 days</p>
+              </div>
+            </md-list-item>
+          </div>
+        </md-content>
+
+      </div>
+    </div>
+    <!-- LEFT SIDE: RECIPE DESCRIPTION -->
+    <div layout="row" flex>
+      <h3>Recipe Description: </h3>
+      <textarea ng-model="rc.description" rows="8" cols="50"></textarea>
+    </div>
+    <!-- LEFT SIDE: ADD IMAGE & VIEW PREVIOUS NOTES -->
+    <div layout="row" flex>
+      <div layout="column" flex="60">
+        <h3>Add image</h3>
+      </div>
+      <div layout="column" flex="40">
+        <md-button>Review Recipe</md-button>
+        <md-button>Review Brew Notes</md-button>
+        <md-button ng-disabled="true">Review Bottling Notes</md-button>
+      </div>
+    </div>
+  </div> <!-- end of left side -->
+
+  <!-- RIGHT SIDE: BREW EVALUATION -->
+  <div layout="column" flex="60">
+  <!-- ADD DRINK DATE AND SAVE BEER NOTES -->
+    <div layout="row">
+      Drink date
+    </div>
+    <div layout="row">
+      Eval notes
+    </div>
+
+    <!-- Link to partial HTML depending on if a good beer or bad beer -->
+    <div layout="row" flex>
+      <div layout="column" flex>
+        <div ng-include="'views/partials/goodBeer.html'"></div>
+      </div>
+    </div>
+
+
+  </div> <!-- end of right side -->
+
+</div> <!-- end of container -->
