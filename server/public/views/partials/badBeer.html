@@ -1,0 +1,87 @@
+<div class="container">
+  <div layout="row">
+    <div layout="column" flex="50">
+      <md-input-container class="md-block">
+        <label>Aroma</label>
+        <textarea ng-model="rc.aroma" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+    <div layout="column" flex="50">
+      <md-input-container class="md-block">
+        <label>Appearance</label>
+        <textarea ng-model="rc.appearance" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+  </div>
+  <div layout="row">
+    <div layout="column" flex="50">
+      <md-input-container class="md-block">
+        <label>Flavor</label>
+        <textarea ng-model="rc.flavor" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+    <div layout="column" flex="50">
+      <md-input-container class="md-block">
+        <label>Mouthfeel</label>
+        <textarea ng-model="rc.mouthfeel" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="bottomHalf" layout="row">
+    <!-- OFF FLAVORS COLUMN -->
+    <div layout="column" flex="50">
+      <div layout="row">
+        <h3>Select the off flavors you detect.</h3>
+      </div>
+      <div layout="row">
+        <div layout="column" flex="50">
+          Off flavor pulldown menu
+        </div>
+        <div layout="column" flex="50">
+          <md-button class="md-fab">Add</md-button>
+        </div>
+      </div>
+      <div layout="row">
+        <md-input-container class="md-block">
+          <label>Off Flavor Description</label>
+          <textarea ng-model="rc.offFlavorDesc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <table>
+          <tr>
+            <th>Off Flavor</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>Banana (Isoamyl Acetate)</td>
+            <td>Fruity, Estery, Bananas, Pear, Peardrops, nail polish-like at higher levels.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- OVERALL IMPRESSION AND NOTES COLUMN -->
+    <div layout="column" flex="50">
+      <div layout="row">
+        <md-input-container class="md-block">
+          <label>Overall Impresisons</label>
+          <textarea ng-model="rc.impressions" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container class="md-block">
+          <label>Other Notes or Issues?</label>
+          <textarea ng-model="rc.drinkNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container class="md-block">
+          <label>Suspected Causes of Issues?</label>
+          <textarea ng-model="rc.causes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+      </div>
+    </div>
+
+  </div> <!-- end of bottom section -->
+
+</div> <!-- end of container -->
