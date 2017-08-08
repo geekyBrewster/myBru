@@ -1,2 +1,60 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<h2>Brew Recipe</h2>
+
+<div class="container">
+  <div class="upperHalf" layout="row">
+
+  <!-- LEFT SIDE: RECIPE SUMMARY -->
+    <div class="leftSide" layout="column" flex="50">
+      <div layout="row" flex>
+        <h2>Brew Recipe:</h2>
+      </div>
+      <div layout="row" flex>
+        <h3>Procedure: </h3>
+        <textarea ng-model="rc.procedure" rows="8" cols="50"></textarea>
+      </div>
+    </div>
+
+  <!-- RIGHT SIDE: INGREDIENT SUMMARY -->
+    <div class="rightSide" layout="column" flex="50">
+      <div layout="row">
+        <div layout="column" flex="50">
+          <h3>Ingredients:</h3>
+        </div>
+        <div layout="column" flex="50">
+          <md-button>Save Brew Notes</md-button>
+        </div>
+      </div>
+      <div layout="row">
+        <table>
+          <th>Ingredient</th>
+          <th>Amount</th>
+          <th>Timing</th>
+          <th>Added?</th>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM ROW: RECIPE & BREWING NOTES -->
+  <div class="bottomRow" layout="row">
+    <div layout="column" flex="33">
+      <md-input-container class="md-block">
+        <label>Recipe Notes</label>
+        <textarea ng-model="rc.recipeNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+    <div layout="column" flex="33">
+      <md-input-container class="md-block">
+        <label>Brewing Notes</label>
+        <textarea ng-model="rc.brewNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+    <div layout="column" flex="33">
+      <md-input-container class="md-block">
+        <label>MAsh Notes</label>
+        <textarea ng-model="rc.mashNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+    </div>
+  </div>
+
+</div>

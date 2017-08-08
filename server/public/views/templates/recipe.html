@@ -2,139 +2,147 @@
 
 <div class="container" layout="row" flex>
   <div class="leftSide" layout="column" flex="40">
+    <md-content>
+      <!-- RECIPE HEADER: NAME, STYLE, BATCH TYPE & YIELD -->
+      <div class="recipeHeader" layout="column" flex>
+        <div layout="row" flex>
+          <h2>Prepare Recipe:</h2>
+          &nbsp
+          <md-input-container>
+            <label>Recipe Name</label>
+            <input ng-model="rc.recipeName">
+          </md-input-container>
 
-  <md-content>
-<!-- RECIPE HEADER: NAME, STYLE, BATCH TYPE & YIELD -->
-    <div class="recipeHeader" layout="column" flex>
-      <div layout="row" flex>
-        <md-input-container>
-          <label>Recipe Name</label>
-          <input ng-model="rc.recipeName">
-        </md-input-container>
-
-        <md-input-container>
-          <label>Beer Style</label>
-          <input ng-model="re.beerStyle">
-        </md-input-container>
-      </div>
-
-      <div layout="row" flex>
-        <md-input-container>
-          <label>Recipe Type:</label>
-          <input type="text" ng-model="rc.recipeType" />
-        </md-input-container>
-
-        <md-input-container>
-          <label>Batch Size (in gallons):</label>
-          <input type="text" ng-model="rc.yield" />
-        </md-input-container>
-
-      </div>
-
-    </div> <!-- End Recipe header -->
-
-<!-- FERMENTATION DETAILS & RECIPE DESCRIPTION -->
-    <div layout="row" flex>
-      <div class="fermentationBlock" layout="column" flex="50">
-        <md-input-container>
-          <label>Primary Fermentation:</label>
-          <input type="text" placeholder="Enter length" ng-model="rc.primeFerment" />
-        </md-input-container>
-
-        <md-input-container>
-          <label>Secondary Fermentation:</label>
-          <input type="text" placeholder="Enter length" ng-model="rc.secondFerment" />
-        </md-input-container>
-      </div>
-
-      <div class="descriptionBlock" layout="column" flex>
-        <md-input-container class="md-block">
-          <label>Description</label>
-          <textarea ng-model="rc.description" md-maxlength="250" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-      </div>
-    </div>
-
-<!-- RECIPE PROCEDURE & ADDITIONAL NOTES -->
-    <div layout="row" flex>
-      <div class="recipeText" layout="column" flex="50">
-        <md-input-container class="md-block">
-          <label>Procedure</label>
-          <textarea ng-model="rc.procedure" md-maxlength="500" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-      </div>
-
-      <div class="recipeText" layout="column" flex>
-        <md-input-container class="md-block">
-          <label>Additional Notes</label>
-          <textarea ng-model="rc.recipeNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-      </div>
-    </div>
-<!-- RECIPE SOURCE -->
-    <div layout="row">
-      <label>Recipe Source:</label>
-      <input type="text" ng-model="rc.recipeSrc" />
-    </div>
-  </md-content>
-</div> <!-- End of Left side -->
-
-<!-- RIGHT SIDE: INGREDIENTS -->
-<div class="leftSide" layout="column" flex>
-  <div layout="row">
-    <div layout="column" layout-align="center start" flex="50">
-      <h2>Add Ingredients:</h2>
-    </div>
-    <div layout="column" layout-align="center end" flex="50">
-      <md-button class="md-raised md-primary">Save Recipe</md-button>
-    </div>
-  </div>
-
-<!-- MALTS -->
-  <div class="maltBlock" layout="row" flex>
-    <!--IMAGE-->
-    <div layout="column" layout-align="start center" flex="20">
-      <img class="ingredientIcon" ng-src="../../assets/img/grainIcon.jpg" alt="">
-    </div>
-    <!--MALT INPUTS-->
-    <div layout="column" flex="40">
-      <md-content>
-        <div layout="row" layout-align="start start" flex>
-              <md-input-container>
-                <label>Malt Type:</label>
-                <input type="text" ng-model="rc.maltType" />
-              </md-input-container>
-
-              <md-input-container>
-                <label>Malt Amt:</label>
-                <input type="text" ng-model="rc.maltAmt" />
-              </md-input-container>
-
-              <md-button class="md-primary">Add Malt</md-button>
 
         </div>
-      </md-content>
-    </div>
-    <!--MALTS - LIST OF ADDITIONS -->
-    <div layout="column" flex="40">
-      <table>
-        <tr>
-          <th>Amount</th>
-          <th>Type</th>
-        </tr>
-        <tr>
-          <td>10 lbs.</td>
-          <td>Pale Ale Malt</td>
-        </tr>
-        <tr>
-          <td>1 lbs.</td>
-          <td>Chocolate Malt</td>
-        </tr>
-      </table>
-    </div>
-  </div> <!-- END OF MALT BLOCK -->
 
-  <!-- HOPS -->
+        <div layout="row" flex>
+          <md-input-container>
+            <label>Beer Style</label>
+            <input ng-model="re.beerStyle">
+          </md-input-container>
+
+          <md-input-container>
+            <label>Recipe Type:</label>
+            <input type="text" ng-model="rc.recipeType" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Batch Size (in gallons):</label>
+            <input type="text" ng-model="rc.yield" />
+          </md-input-container>
+
+        </div>
+
+      </div> <!-- End Recipe header -->
+
+      <!-- FERMENTATION DETAILS & RECIPE DESCRIPTION -->
+      <div layout="row" flex>
+        <div class="fermentationBlock" layout="column" flex="50">
+          <md-input-container>
+            <label>Primary Fermentation:</label>
+            <input type="text" placeholder="Enter length" ng-model="rc.primeFerment" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Secondary Fermentation:</label>
+            <input type="text" placeholder="Enter length" ng-model="rc.secondFerment" />
+          </md-input-container>
+        </div>
+
+        <div class="descriptionBlock" layout="column" flex>
+          <md-input-container class="md-block">
+            <label>Description</label>
+            <textarea ng-model="rc.description" md-maxlength="250" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+      </div>
+
+      <!-- RECIPE PROCEDURE & ADDITIONAL NOTES -->
+      <div layout="row" flex>
+        <div class="recipeText" layout="column" flex="50">
+          <md-input-container class="md-block">
+            <label>Procedure</label>
+            <textarea ng-model="rc.procedure" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+
+        <div class="recipeText" layout="column" flex>
+          <md-input-container class="md-block">
+            <label>Additional Notes</label>
+            <textarea ng-model="rc.recipeNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+      </div>
+      <!-- RECIPE SOURCE -->
+      <div layout="row">
+        <md-input-container class="md-block">
+          <label>Recipe Source:</label>
+          <input type="text" ng-model="rc.recipeSrc" />
+        </md-input-container>
+      </div>
+    </md-content>
+    <div layout="row" layout-align="center start">
+      <img ng-src="../../assets/img/instructionGuy.png" width="350px" height="300px" alt="">
+    </div>
+  </div> <!-- End of Left side -->
+
+  <!-- RIGHT SIDE: INGREDIENTS -->
+  <div class="rightSide" layout="column" flex>
+    <div layout="row">
+      <div layout="column" layout-align="center start" flex="50">
+        <h2>Add Ingredients:</h2>
+      </div>
+      <div layout="column" layout-align="center end" flex="50">
+        <md-button class="md-raised md-primary">Save Recipe</md-button>
+      </div>
+    </div>
+
+    <!-- MALTS -->
+    <div class="maltBlock" layout="row" flex>
+      <!--IMAGE-->
+      <div layout="column" layout-align="start center" flex="20">
+        <img class="ingredientIcon" ng-src="../../assets/img/grainIcon.jpg" alt="">
+      </div>
+      <!--MALT INPUTS-->
+      <div layout="column" flex="40">
+        <md-content>
+          <div layout="row" layout-align="start start" flex>
+            <md-input-container>
+              <label>Malt Type:</label>
+              <input type="text" ng-model="rc.maltType" />
+            </md-input-container>
+
+            <md-input-container>
+              <label>Malt Amt:</label>
+              <input type="text" ng-model="rc.maltAmt" />
+            </md-input-container>
+
+            <md-button class="md-primary">Add Malt</md-button>
+
+          </div>
+        </md-content>
+      </div>
+      <!--MALTS - LIST OF ADDITIONS -->
+      <div layout="column" flex="40">
+        <table>
+          <tr>
+            <th>Amount</th>
+            <th>Type</th>
+          </tr>
+          <tr>
+            <td>10 lbs.</td>
+            <td>Pale Ale Malt</td>
+          </tr>
+          <tr>
+            <td>1 lbs.</td>
+            <td>Chocolate Malt</td>
+          </tr>
+        </table>
+      </div>
+    </div> <!-- END OF MALT BLOCK -->
+
+    <!-- HOPS -->
     <div class="hopBlock" layout="row" flex>
       <!--IMAGE-->
       <div layout="column" layout-align="center center" flex="20">
@@ -144,25 +152,25 @@
       <div layout="column" layout-align="start start" flex="40">
         <md-content>
           <div layout="row" flex>
-                <md-input-container>
-                  <label>Hop Type:</label>
-                  <input type="text" ng-model="rc.hopType" />
-                </md-input-container>
+            <md-input-container>
+              <label>Hop Type:</label>
+              <input type="text" ng-model="rc.hopType" />
+            </md-input-container>
 
-                <md-input-container>
-                  <label>Hop Amt:</label>
-                  <input type="text" ng-model="rc.hopAmt" />
-                </md-input-container>
+            <md-input-container>
+              <label>Hop Amt:</label>
+              <input type="text" ng-model="rc.hopAmt" />
+            </md-input-container>
           </div>
           <div layout="row" flex>
-                <md-input-container>
-                  <label>Hop Timing:</label>
-                  <input type="text" ng-model="rc.hopTiming" />
-                </md-input-container>
+            <md-input-container>
+              <label>Hop Timing:</label>
+              <input type="text" ng-model="rc.hopTiming" />
+            </md-input-container>
 
-                <md-button class="md-primary">Add Hops</md-button>
+            <md-button class="md-primary">Add Hops</md-button>
           </div>
-          </md-content>
+        </md-content>
       </div>
       <!--HOPS - LIST OF ADDITIONS -->
       <div layout="column" flex="40">
@@ -192,91 +200,91 @@
     </div> <!-- END OF HOP BLOCK -->
 
     <!-- YEAST -->
-      <div class="yeastBlock" layout="row" flex>
-        <!--IMAGE-->
-        <div layout="column" layout-align="start center" flex="20">
-          <img class="ingredientIcon" ng-src="../../assets/img/yeastIcon.jpg" alt="">
-        </div>
-        <!--YEAST INPUTS-->
-        <div layout="column" layout-align="start start" flex="40">
-          <md-content>
-            <div layout="row" flex>
-                  <md-input-container>
-                    <label>Yeast Type:</label>
-                    <input type="text" ng-model="rc.yeastType" />
-                  </md-input-container>
+    <div class="yeastBlock" layout="row" flex>
+      <!--IMAGE-->
+      <div layout="column" layout-align="start center" flex="20">
+        <img class="ingredientIcon" ng-src="../../assets/img/yeastIcon.jpg" alt="">
+      </div>
+      <!--YEAST INPUTS-->
+      <div layout="column" layout-align="start start" flex="40">
+        <md-content>
+          <div layout="row" flex>
+            <md-input-container>
+              <label>Yeast Type:</label>
+              <input type="text" ng-model="rc.yeastType" />
+            </md-input-container>
 
-                  <md-input-container>
-                    <label>Rehydrate?</label>
-                    <input type="text" ng-model="rc.rehydrateYeast" />
-                  </md-input-container>
+            <md-input-container>
+              <label>Rehydrate?</label>
+              <input type="text" ng-model="rc.rehydrateYeast" />
+            </md-input-container>
 
-                  <md-button class="md-primary">Add Yeast</md-button>
-            </div>
-          </md-content>
-        </div>
-        <!--YEAST - LIST OF ADDITIONS -->
-        <div layout="column" flex="40">
-          <table>
-            <tr>
-              <th>Type</th>
-              <th>Rehydrate?</th>
-            </tr>
-            <tr>
-              <td>Wyeast 1084 Irish Ale yeast</td>
-              <td>No</td>
-            </tr>
-          </table>
-        </div>
-      </div> <!-- END OF YEAST BLOCK -->
-
-      <!-- OTHER ADDITIONS -->
-        <div class="otherAddsBlock" layout="row" flex>
-          <!--IMAGE-->
-          <div layout="column" layout-align="center center" flex="20">
-            <i class="fa fa-5x fa-puzzle-piece" aria-hidden="true"></i>
+            <md-button class="md-primary">Add Yeast</md-button>
           </div>
-          <!--OTHER ADDITIONS INPUTS-->
-          <div layout="column" layout-align="start start" flex="40">
-            <md-content>
-              <div layout="row" flex>
-                    <md-input-container>
-                      <label>Other Addition Type:</label>
-                      <input type="text" ng-model="rc.otherAddType" />
-                    </md-input-container>
+        </md-content>
+      </div>
+      <!--YEAST - LIST OF ADDITIONS -->
+      <div layout="column" flex="40">
+        <table>
+          <tr>
+            <th>Type</th>
+            <th>Rehydrate?</th>
+          </tr>
+          <tr>
+            <td>Wyeast 1084 Irish Ale yeast</td>
+            <td>No</td>
+          </tr>
+        </table>
+      </div>
+    </div> <!-- END OF YEAST BLOCK -->
 
-                    <md-input-container>
-                      <label>Addition Amt:</label>
-                      <input type="text" ng-model="rc.otherAddAmt" />
-                    </md-input-container>
-              </div>
-              <div layout="row" flex>
-                    <md-input-container>
-                      <label>Addition Notes:</label>
-                      <input type="text" ng-model="rc.otherAddNotes" />
-                    </md-input-container>
+    <!-- OTHER ADDITIONS -->
+    <div class="otherAddsBlock" layout="row" flex>
+      <!--IMAGE-->
+      <div layout="column" layout-align="center center" flex="20">
+        <i class="fa fa-5x fa-puzzle-piece" aria-hidden="true"></i>
+      </div>
+      <!--OTHER ADDITIONS INPUTS-->
+      <div layout="column" layout-align="start start" flex="40">
+        <md-content>
+          <div layout="row" flex>
+            <md-input-container>
+              <label>Other Addition Type:</label>
+              <input type="text" ng-model="rc.otherAddType" />
+            </md-input-container>
 
-                    <md-button class="md-primary">Add Ingredient</md-button>
-              </div>
-              </md-content>
+            <md-input-container>
+              <label>Addition Amt:</label>
+              <input type="text" ng-model="rc.otherAddAmt" />
+            </md-input-container>
           </div>
-          <!--HOPS - LIST OF ADDITIONS -->
-          <div layout="column" flex="40">
-            <table>
-              <tr>
-                <th>Amount</th>
-                <th>Type</th>
-                <th>Notes</th>
-              </tr>
-              <tr>
-                <td>1 tbsp</td>
-                <td>Irish Moss</td>
-                <td>Add during last 5 min of boil</td>
-              </tr>
-            </table>
-          </div>
-        </div> <!-- END OF HOP BLOCK -->
+          <div layout="row" flex>
+            <md-input-container>
+              <label>Addition Notes:</label>
+              <input type="text" ng-model="rc.otherAddNotes" />
+            </md-input-container>
 
-</div> <!-- End of right side -->
+            <md-button class="md-primary">Add Ingredient</md-button>
+          </div>
+        </md-content>
+      </div>
+      <!--HOPS - LIST OF ADDITIONS -->
+      <div layout="column" flex="40">
+        <table>
+          <tr>
+            <th>Amount</th>
+            <th>Type</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>1 tbsp</td>
+            <td>Irish Moss</td>
+            <td>Add during last 5 min of boil</td>
+          </tr>
+        </table>
+      </div>
+    </div> <!-- END OF HOP BLOCK -->
+
+  </div> <!-- End of right side -->
 
 </div> <!-- End of container -->
