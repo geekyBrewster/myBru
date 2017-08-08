@@ -34,19 +34,26 @@
         <h3>Select the off flavors you detect.</h3>
       </div>
       <div layout="row">
-        <div layout="column" flex="50">
-          Off flavor pulldown menu
-        </div>
-        <div layout="column" flex="50">
-          <md-button class="md-fab">Add</md-button>
-        </div>
+        <fieldset flex>
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Off Flavors</label>
+            <md-select ng-model="dc.badFlavor">
+              <md-option ng-repeat="flavor in offFlavors" value="{{offFlavors.flavor}}">
+                {{offFlavors.flavor}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Off Flavor Description</label>
+            <textarea ng-model="rc.offFlavorDesc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+
+          <md-button class="md-fab md-primary">Add</md-button>
+        </fieldset>
+
       </div>
-      <div layout="row">
-        <md-input-container class="md-block">
-          <label>Off Flavor Description</label>
-          <textarea ng-model="rc.offFlavorDesc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-      </div>
+
       <div layout="row">
         <table>
           <tr>
@@ -62,24 +69,23 @@
     </div>
     <!-- OVERALL IMPRESSION AND NOTES COLUMN -->
     <div layout="column" flex="50">
-      <div layout="row">
+      <fieldset>
         <md-input-container class="md-block">
           <label>Overall Impresisons</label>
           <textarea ng-model="rc.impressions" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
-      </div>
-      <div layout="row">
+
         <md-input-container class="md-block">
           <label>Other Notes or Issues?</label>
           <textarea ng-model="rc.drinkNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
-      </div>
-      <div layout="row">
+
         <md-input-container class="md-block">
           <label>Suspected Causes of Issues?</label>
           <textarea ng-model="rc.causes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
-      </div>
+      </fieldset>
+
     </div>
 
   </div> <!-- end of bottom section -->

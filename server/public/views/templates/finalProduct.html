@@ -1,73 +1,80 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div class="container" layout="row">
-  <!-- LEFT SIDE: RECIPE SUMMARY -->
-  <div layout="column" flex="40">
-    <div layout="row" flex>
+  <section class="leftSide" layout="column" flex="40">
+    <div layout="row" flex="none">
+      <h2>Drink Br&uuml;</h2>
+    </div>
+  <!-- RECIPE SUMMARY -->
+    <div layout="row" flex="nogrow">
+      <div layout="column" flex="50">
+        <md-list>
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Recipe Name:</h3>
+              <p>Chocolate Oatmeal Stout</p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Beer Style:</h3>
+              <p>Stout, Oatmeal</p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Recipe Type:</h3>
+              <p>All-grain</p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Primary Fermentation:</h3>
+              <p>2 weeks</p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Secondary Fermentation:</h3>
+              <p>18 days</p>
+            </div>
+          </md-list-item>
+
+          <md-list-item class="md-2-line">
+            <div class="md-list-item-text">
+              <h3>Bottle Conditioning:</h3>
+              <p>2 weeks</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </div>
       <div layout="column" flex>
-        <md-content>
-          <div layout="row" flex>
-            <h2>Drink Br&uuml;</h2>
-            <md-list-item class="md-2-line">
-              <div class="md-list-item-text">
-                <h3>Recipe Name:</h3>
-                <p>Chocolate Oatmeal Stout</p>
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <div class="md-list-item-text">
-                <h3>Beer Style:</h3>
-                <p>Stout, Oatmeal</p>
-              </div>
-            </md-list-item>
-          </div>
-          <div layout="row" flex>
-
-            <md-list-item class="md-2-line">
-              <div class="md-list-item-text">
-                <h3>Recipe Type:</h3>
-                <p>All-grain</p>
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <div class="md-list-item-text">
-                <h3>Primary Fermentation:</h3>
-                <p>2 weeks</p>
-              </div>
-            </md-list-item>
-            <md-list-item class="md-2-line">
-              <div class="md-list-item-text">
-                <h3>Secondary Fermentation:</h3>
-                <p>18 days</p>
-              </div>
-            </md-list-item>
-          </div>
-        </md-content>
-
+        <h3>Recipe Description: </h3>
+        <textarea ng-model="rc.description" rows="15" cols="15"></textarea>
       </div>
     </div>
-    <!-- LEFT SIDE: RECIPE DESCRIPTION -->
-    <div layout="row" flex>
-      <h3>Recipe Description: </h3>
-      <textarea ng-model="rc.description" rows="8" cols="50"></textarea>
-    </div>
-    <!-- LEFT SIDE: ADD IMAGE & VIEW PREVIOUS NOTES -->
-    <div layout="row" flex>
-      <div layout="column" flex="60">
-        <h3>Add image</h3>
-      </div>
+
+    <div class="addPhoto" layout="row">
       <div layout="column" flex="40">
+        Add Photo
+      </div>
+      <div layout="column" flex>
         <md-button>Review Recipe</md-button>
         <md-button>Review Brew Notes</md-button>
-        <md-button ng-disabled="true">Review Bottling Notes</md-button>
+        <md-button>Review Bottling Notes</md-button>
       </div>
-    </div>
-  </div> <!-- end of left side -->
 
-  <!-- RIGHT SIDE: BREW EVALUATION -->
-  <div layout="column" flex="60">
-  <!-- ADD DRINK DATE AND SAVE BEER NOTES -->
-    <div layout="row">
+    </div>
+  </section>
+<!-- RIGHT SIDE: VERDICT AND NOTES -->
+  <section class="rightSide" layout="column" flex="60">
+
+    <!-- TOP BAR WITH DATE AND SAVE BUTTON -->
+    <div class="topBar" layout="row" flex="none">
       <div layout="column" layout-align="end start" flex="33">
         <h3>Evaluate your Beer:</h3>
       </div>
@@ -80,36 +87,38 @@
       <div layout="column" layout-align="center end"flex="33">
         <md-button class="md-raised md-primary">Save Final Product Notes</md-button>
       </div>
-    <!-- Radio Button eval menu and notes boxes -->
     </div>
-    <div layout="row">
-      <div layout="column" flex="40">
 
+    <!-- MIDDLE ROW WITH VERDICT RADIO BUTTONS AND NOTES -->
+    <div id="verdict" layout="row">
+      <div class="vote" layout="column" flex="25">
+        <fieldset class="rating">
+          <legend>Rank your Br&uuml;</legend>
+          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">Outstanding</md-checkbox>
+          <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2">Exceeds Expectations</md-checkbox>
+          <md-checkbox ng-model="data.cb3" aria-label="Checkbox 3">Acceptible</md-checkbox>
+          <md-checkbox ng-model="data.cb4" aria-label="Checkbox 4">Poor</md-checkbox>
+          <md-checkbox ng-model="data.cb5" aria-label="Checkbox 5">Dreadful</md-checkbox>
+        </fieldset>
       </div>
-      <div layout="column" flex="60">
-        <div layout="row">
+      <div class="verdictNotes" layout="column" flex>
+        <fieldset>
           <md-input-container class="md-block">
             <label>Is the Br&uuml; worth repeating? Why or why not?</label>
-            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="3" md-select-on-focus></textarea>
           </md-input-container>
-        </div>
-        <div layout="row">
           <md-input-container class="md-block">
-            <label>Is the Br&uuml; worth repeating? Why or why not?</label>
-            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <label>What would you change next time?</label>
+            <textarea ng-model="rc.batchChanges" md-maxlength="150" rows="3" md-select-on-focus></textarea>
           </md-input-container>
-        </div>
+        </fieldset>
       </div>
     </div>
 
-    <!-- Link to partial HTML depending on if a good beer or bad beer -->
-    <div layout="row" flex>
-      <div layout="column" flex>
-        <div ng-include="'views/partials/badBeer.html'"></div>
-      </div>
+    <!-- BOTTOM ROW WITH VARIABLE NOTES SPACE -->
+    <div>
+      <div ng-include="'views/partials/badBeer.html'"></div>
     </div>
-
-
-  </div> <!-- end of right side -->
+  </section>
 
 </div> <!-- end of container -->
