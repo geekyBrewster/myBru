@@ -68,10 +68,38 @@
   <div layout="column" flex="60">
   <!-- ADD DRINK DATE AND SAVE BEER NOTES -->
     <div layout="row">
-      Drink date
+      <div layout="column" layout-align="end start" flex="33">
+        <h3>Evaluate your Beer:</h3>
+      </div>
+      <div layout="column" flex="33">
+        <md-input-container>
+          <label>Drink Date</label>
+          <input type="date" ng-model="re.drinkDate">
+        </md-input-container>
+      </div>
+      <div layout="column" layout-align="center end"flex="33">
+        <md-button class="md-raised md-primary">Save Final Product Notes</md-button>
+      </div>
+    <!-- Radio Button eval menu and notes boxes -->
     </div>
     <div layout="row">
-      Eval notes
+      <div layout="column" flex="40">
+
+      </div>
+      <div layout="column" flex="60">
+        <div layout="row">
+          <md-input-container class="md-block">
+            <label>Is the Br&uuml; worth repeating? Why or why not?</label>
+            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+        <div layout="row">
+          <md-input-container class="md-block">
+            <label>Is the Br&uuml; worth repeating? Why or why not?</label>
+            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+      </div>
     </div>
 
     <!-- Link to partial HTML depending on if a good beer or bad beer -->

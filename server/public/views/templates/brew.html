@@ -57,11 +57,17 @@
   <!-- RIGHT SIDE: INGREDIENT SUMMARY -->
     <div class="rightSide" layout="column" flex="50">
       <div layout="row">
-        <div layout="column" flex="50">
+        <div layout="column" layout-align="end start" flex="33">
           <h3>Ingredients:</h3>
         </div>
-        <div layout="column" flex="50">
-          <md-button>Save Brew Notes</md-button>
+        <div layout="column" flex="33">
+          <md-input-container>
+            <label>Brew Date</label>
+            <input type="date" ng-model="re.brewDate">
+          </md-input-container>
+        </div>
+        <div layout="column" layout-align="center end"flex="33">
+          <md-button class="md-raised md-primary">Save Brew Notes</md-button>
         </div>
       </div>
       <div layout="row">
