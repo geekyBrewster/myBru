@@ -94,11 +94,11 @@
       <div class="vote" layout="column" flex="25">
         <fieldset class="rating">
           <legend>Rank your Br&uuml;</legend>
-          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">Outstanding</md-checkbox>
-          <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2">Exceeds Expectations</md-checkbox>
-          <md-checkbox ng-model="data.cb3" aria-label="Checkbox 3">Acceptible</md-checkbox>
-          <md-checkbox ng-model="data.cb4" aria-label="Checkbox 4">Poor</md-checkbox>
-          <md-checkbox ng-model="data.cb5" aria-label="Checkbox 5">Dreadful</md-checkbox>
+          <md-checkbox ng-model="data.cb1" ng-click="dc.toggleNotes(true)">Outstanding</md-checkbox>
+          <md-checkbox ng-model="data.cb2" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-checkbox>
+          <md-checkbox ng-model="data.cb3" ng-click="dc.toggleNotes(true)">Acceptible</md-checkbox>
+          <md-checkbox ng-model="data.cb4" ng-click="dc.toggleNotes(false)">Poor</md-checkbox>
+          <md-checkbox ng-model="data.cb5" ng-click="dc.toggleNotes(false)">Dreadful</md-checkbox>
         </fieldset>
       </div>
       <div class="verdictNotes" layout="column" flex>
@@ -117,7 +117,7 @@
 
     <!-- BOTTOM ROW WITH VARIABLE NOTES SPACE -->
     <div>
-      <div ng-include="'views/partials/badBeer.html'"></div>
+      <div ng-include=dc.view></div>
     </div>
   </section>
 
