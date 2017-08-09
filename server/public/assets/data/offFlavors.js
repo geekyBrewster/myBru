@@ -99,5 +99,3 @@ var offFlavorsDB = [
     causedBy: ['Lactic Acid from lactic acid bacteria', 'Acetic Acid from Acetobacter', 'Pediococcus', 'Lactobacillus', 'Poor sanitation', 'High fermentaton temps', 'Excessive acid rest', 'Mashing too long', 'Storage at warm temps', "Poor yeast strain"]
   }
 ];
-
-module.exports = offFlavorsDB;
