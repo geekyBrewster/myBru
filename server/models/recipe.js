@@ -36,18 +36,11 @@ var OffFlavorSchema = new Schema ({
   causedBy: Array
 });
 
-//FOR EACH RECIPE YOU CAN HAVE MULTIPLE BATCHES
-var BatchSchema = new Schema ({
-  //BATCH TRACKING INFO
-  batchID: {type: Number, default: 1, required: true},
-  batchStatus:{type: String, default: 'Prepared Recipe', required: true},
-  //FROM BREW.HTML
-    brewDate: {type: Date, default: Date.now, required: true},
-    brewNotes: String,
-    mashNotes: String,
+var FinalProductSchema = new Schema ({
   //FROM BOTTLE.HTML
     bottleDate: {type: Date, default: Date.now},
   //FROM DRINK.HTML
+    fromBatchID: Number,
     drinkDate: {type: Date, default: Date.now, required: true},
     batchRank: Number,
     worthRepeating: String,
@@ -61,6 +54,17 @@ var BatchSchema = new Schema ({
     batchImage: String,
     offFlavors: [OffFlavorSchema],
     suspectedCauses: String
+});
+
+//FOR EACH RECIPE YOU CAN HAVE MULTIPLE BATCHES
+var BatchSchema = new Schema ({
+  //BATCH TRACKING INFO
+  batchID: {type: Number, default: 1, required: true},
+  batchStatus:{type: String, default: 'Recipe Prepared', required: true},
+  //FROM BREW.HTML
+    brewDate: {type: Date, default: Date.now, required: true},
+    brewNotes: String,
+    mashNotes: String
 });
 
 var RecipeSchema = new Schema({
@@ -83,8 +87,11 @@ var RecipeSchema = new Schema({
     yeasts: [YeastSchema],
     otherIngredients: [IngredientSchema],
 
-  //TRACK INDIVIDUAL BATCHES OF THIS RECIPE
-  batches: [BatchSchema]
+  //TRACK INDIVIDUAL BATCHES OF THIS RECIPE -- Initialize and update on "Save Brew Notes"
+  batches: [BatchSchema],
+
+  //TRACK INDIVIDUAL FINAL PRODUCTS FOR EACH BATCH -- Initialize and update on "Save Final Product Notes"
+  finalBrew: [FinalProductSchema]
 });
 
 

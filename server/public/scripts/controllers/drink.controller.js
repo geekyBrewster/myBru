@@ -29,8 +29,9 @@ myApp.controller('DrinkController', function(UserService, $scope) {
   };
 
 //SAVE FINAL PRODUCT NOTES -- ON CLICK
+  //POST REQUEST TO /drink INITIALIZE finalBrew[] in recipe -- use fromBatchID = batchID and drinkDate (use default Date.now)
   //BUILD DATA OBJECT TO SEND TO SERVER
-  //POST REQUEST TO /drink
+  //POST REQUEST TO /drink/update
 
 
 
