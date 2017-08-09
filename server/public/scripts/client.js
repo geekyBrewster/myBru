@@ -50,7 +50,7 @@ myApp.config(function($routeProvider, $locationProvider) {
       }
     })
     .when('/drink', {
-      templateUrl: '/views/templates/finalProduct.html',
+      templateUrl: '/views/templates/drink.html',
       controller: 'DrinkController as dc',
       resolve: {
         getuser : function(UserService){

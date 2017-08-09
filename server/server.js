@@ -12,6 +12,9 @@ var db = require('./modules/db.config.js');
 var indexRouter = require('./routes/index.router');
 var userRouter = require('./routes/user.router');
 var registerRouter = require('./routes/register.router');
+var recipeRouter = require('./routes/recipe.router');
+var brewRouter = require('./routes/brew.router');
+var drinkRouter = require('./routes/drink.router');
 
 var port = process.env.PORT || 5000;
 
