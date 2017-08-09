@@ -1,17 +1,23 @@
-myApp.controller('UserController', function(UserService) {
+myApp.controller('UserController', function($http, $location, UserService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
   //Prep New Recipe -- On click
-    //Switch to recipe.html
-    //Create new Recipe object with username, batchID = 1, batchStatus = "Prep Recipe"
+  vm.newRecipe = function(){
+    //Switch to recipe.html using $location.path(/recipe)
+    $location.path('/recipe');
+  };
 
   //Brew existing recipe -- On click
+  vm.brewBatch = function(recipeName){
     //Switch to brew.html
+    $location.path('/brew');
     //Confirm batchID = 1 if no other IDs exist; otherwise increment ID by 1
     //batchStatus = "Brewing Batch"
+  };
+
 
 //** STRETCH GOALS **//
   //Edit Recipe -- on click
@@ -29,8 +35,12 @@ myApp.controller('UserController', function(UserService) {
     //batchStatus = "Bottling Batch"
 
   //Drink batch -- On click
-    //Switch to drink.html
-    //batchStatus = "Drinking Batch"
+    vm.drinkBatch = function(recipeName){
+      //Switch to drink.html
+      $location.path('/drink');
+        //batchStatus = "Drinking Batch"
+    };
 
 
-});
+
+}); //end of controller

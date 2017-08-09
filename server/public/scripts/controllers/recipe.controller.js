@@ -41,6 +41,7 @@ myApp.controller('RecipeController', function(UserService) {
 
 
 //SAVE RECIPE - ON CLICK
+  //Create new Recipe object with username, batchID = 1, batchStatus = "Prepping Recipe"
   //BUILD DATA OBJECT TO SEND TO SERVER
   // POST REQUEST TO /Recipe
 

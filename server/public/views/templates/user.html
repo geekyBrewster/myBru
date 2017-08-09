@@ -10,7 +10,7 @@
           </div>
           <div layout="column" flex="40">
              <!--** NEED BUTTON FUNCTION - CREATE NEW RECIPE **-->
-            <md-button class="md-raised md-primary">Prep New Recipe</md-button>
+            <md-button class="md-raised md-primary" ng-click="uc.newRecipe()">Prep New Recipe</md-button>
           </div>
         </div>
         <div>
@@ -29,14 +29,14 @@
                 <td>Double Chocolate Oatmeal Stout</td>
                 <td><md-button><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
-                <td><md-button class="md-primary">Brew!</md-button></td>
+                <td><md-button class="md-primary" ng-click="uc.brewBatch(uc.recipeName)">Brew!</md-button></td>
               </tr>
               <tr>
                 <td><i class="fa fa-beer" aria-hidden="true"></i></td>
                 <td>Surly Furious, clone</td>
                 <td><md-button><i class="fa fa-2x fa-pencil-square-o" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
-                <td><md-button class="md-primary">Brew!</md-button></td>
+                <td><md-button class="md-primary" ng-click="uc.brewBatch(uc.recipeName)">Brew!</md-button></td>
               </tr>
             </tbody>
           </table>
@@ -69,7 +69,7 @@
                 <td><md-button><i class="fa fa-eye fa-2x" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-primary" ng-disabled="false">Bottle!</md-button></td>
-                <td><md-button class="md-primary" ng-disabled="false">Drink!</md-button></td>
+                <td><md-button class="md-primary" ng-disabled="false" ng-click="uc.drinkBatch(uc.recipeName)">Drink!</md-button></td>
               </tr>
               <tr>
                 <td><i class="fa fa-beer" aria-hidden="true"></i></td>
@@ -78,7 +78,7 @@
                 <td><md-button><i class="fa fa-eye fa-2x" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash" aria-hidden="true"></i></md-button></td>
                 <td><md-button class="md-primary" ng-disabled="true">Bottle!</md-button></td>
-                <td><md-button class="md-primary" ng-disabled="false">Drink!</md-button></td>
+                <td><md-button class="md-primary" ng-disabled="false" ng-click="uc.drinkBatch(uc.recipeName)">Drink!</md-button></td>
               </tr>
             </tbody>
           </table>

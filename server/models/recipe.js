@@ -40,7 +40,7 @@ var OffFlavorSchema = new Schema ({
 var BatchSchema = new Schema ({
   //BATCH TRACKING INFO
   batchID: {type: Number, default: 1, required: true},
-  batchStatus:{type: String, default: 'Ready to Brew', required: true},
+  batchStatus:{type: String, default: 'Prepared Recipe', required: true},
   //FROM BREW.HTML
     brewDate: {type: Date, default: Date.now, required: true},
     brewNotes: String,
