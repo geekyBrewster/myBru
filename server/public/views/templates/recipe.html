@@ -18,7 +18,7 @@
         <div layout="row" flex>
           <md-input-container>
             <label>Beer Style</label>
-            <input ng-model="re.beerStyle">
+            <input ng-model="rc.beerStyle">
           </md-input-container>
 
           <md-input-container>
@@ -28,7 +28,7 @@
 
           <md-input-container>
             <label>Batch Size (in gallons):</label>
-            <input type="text" ng-model="rc.yield" />
+            <input type="text" placeholder="Enter number of gallons" ng-model="rc.batchSize" />
           </md-input-container>
 
         </div>
@@ -39,19 +39,19 @@
         <div class="fermentationBlock" layout="column" flex="50">
           <md-input-container>
             <label>Primary Fermentation:</label>
-            <input type="text" placeholder="Enter length" ng-model="rc.primeFerment" />
+            <input type="text" placeholder="Enter length in days" ng-model="rc.primaryFermentLength" />
           </md-input-container>
 
           <md-input-container>
             <label>Secondary Fermentation:</label>
-            <input type="text" placeholder="Enter length" ng-model="rc.secondFerment" />
+            <input type="text" placeholder="Enter length in days" ng-model="rc.secondFermentLength" />
           </md-input-container>
         </div>
 
         <div class="descriptionBlock" layout="column" flex>
           <md-input-container class="md-block">
-            <label>Description</label>
-            <textarea ng-model="rc.description" md-maxlength="250" rows="5" md-select-on-focus></textarea>
+            <label>Recipe Description</label>
+            <textarea ng-model="rc.recipeDescription" md-maxlength="250" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>
@@ -108,13 +108,26 @@
           <md-content>
             <div layout="row" layout-align="start start" flex>
               <md-input-container>
-                <label>Malt Type:</label>
-                <input type="text" ng-model="rc.maltType" />
+                <md-menu>
+                  <md-button ng-click="rc.userService.openMenu($mdMenu, $event)">Malt Type</md-button>
+                  <md-menu-content width="3">
+                    <md-menu-item>Base Malt</md-menu-item>
+                    <md-menu-item>Specialty Malt</md-menu-item>
+                    <md-menu-item>Caramel Malt</md-menu-item>
+                    <md-menu-item>Roasted Malt</md-menu-item>
+                    <md-menu-item>Other Malt</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
               </md-input-container>
-
               <md-input-container>
-                <label>Malt Amt:</label>
-                <input type="text" ng-model="rc.maltAmt" />
+                <label>Malt Name:</label>
+                <input type="text" ng-model="rc.maltName" />
+              </md-input-container>
+            </div>
+            <div layout="row" layout-align="start start" flex>
+              <md-input-container>
+                <label>Malt Amount:</label>
+                <input type="text" placeholder="Enter in pounds" ng-model="rc.maltAmt" />
               </md-input-container>
 
               <md-button class="md-primary">Add Malt</md-button>
@@ -126,14 +139,17 @@
         <div layout="column" flex="40">
           <table>
             <tr>
-              <th>Amount</th>
               <th>Type</th>
+              <th>Amount</th>
+              <th>Name</th>
             </tr>
             <tr>
+              <td>Base malt</td>
               <td>10 lbs.</td>
               <td>Pale Ale Malt</td>
             </tr>
             <tr>
+              <td>Roasted Malt</td>
               <td>1 lbs.</td>
               <td>Chocolate Malt</td>
             </tr>
@@ -157,14 +173,14 @@
               </md-input-container>
 
               <md-input-container>
-                <label>Hop Amt:</label>
-                <input type="text" ng-model="rc.hopAmt" />
+                <label>Hop Amount:</label>
+                <input type="text" placeholder="Enter in ounces" ng-model="rc.hopAmt" />
               </md-input-container>
             </div>
             <div layout="row" flex>
               <md-input-container>
                 <label>Hop Timing:</label>
-                <input type="text" ng-model="rc.hopTiming" />
+                <input type="text" placeholder="Min. from start of boil" ng-model="rc.hopTime" />
               </md-input-container>
 
               <md-button class="md-primary">Add Hops</md-button>
@@ -209,15 +225,30 @@
           <md-content>
             <div layout="row" flex>
               <md-input-container>
-                <label>Yeast Type:</label>
-                <input type="text" ng-model="rc.yeastType" />
+                <md-menu>
+                  <md-button ng-click="rc.userService.openMenu($mdMenu, $event)">Yeast Supplier</md-button>
+                  <md-menu-content width="3">
+                    <md-menu-item>Danstar</md-menu-item>
+                    <md-menu-item>Muntons</md-menu-item>
+                    <md-menu-item>Omega</md-menu-item>
+                    <md-menu-item>Safale</md-menu-item>
+                    <md-menu-item>White Labs</md-menu-item>
+                    <md-menu-item>Wyeast</md-menu-item>
+                    <md-menu-item>Other</md-menu-item>
+                  </md-menu-content>
+                </md-menu>
               </md-input-container>
 
               <md-input-container>
-                <label>Rehydrate?</label>
-                <input type="text" ng-model="rc.rehydrateYeast" />
+                <label>Yeast Type:</label>
+                <input type="search" ng-model="rc.yeastType" />
               </md-input-container>
-
+            </div>
+            <div layout="row" flex>
+              <md-input-container>
+                <label>Rehydrate?</label>
+                <input type="text" placeholder="Yes or No" ng-model="rc.rehydrate" />
+              </md-input-container>
               <md-button class="md-primary">Add Yeast</md-button>
             </div>
           </md-content>
@@ -226,11 +257,13 @@
         <div layout="column" flex="40">
           <table>
             <tr>
+              <th>Supplier</th>
               <th>Type</th>
               <th>Rehydrate?</th>
             </tr>
             <tr>
-              <td>Wyeast 1084 Irish Ale yeast</td>
+              <td>Wyeast</td>
+              <td>1084 Irish Ale yeast</td>
               <td>No</td>
             </tr>
           </table>
@@ -238,7 +271,7 @@
       </div> <!-- END OF YEAST BLOCK -->
 
       <!-- OTHER ADDITIONS -->
-      <div class="otherAddsBlock" layout="row" flex>
+      <div id="otherIngredientsBlock" layout="row" flex>
         <!--IMAGE-->
         <div layout="column" layout-align="center center" flex="20">
           <i class="fa fa-5x fa-puzzle-piece" aria-hidden="true"></i>
@@ -248,19 +281,19 @@
           <md-content>
             <div layout="row" flex>
               <md-input-container>
-                <label>Other Addition Type:</label>
-                <input type="text" ng-model="rc.otherAddType" />
+                <label>Other Ingredient Type:</label>
+                <input type="text" ng-model="rc.ingredientType" />
               </md-input-container>
 
               <md-input-container>
-                <label>Addition Amt:</label>
-                <input type="text" ng-model="rc.otherAddAmt" />
+                <label>Ingredient Amount:</label>
+                <input type="text" ng-model="rc.ingredientAmt" />
               </md-input-container>
             </div>
             <div layout="row" flex>
               <md-input-container>
                 <label>Addition Notes:</label>
-                <input type="text" ng-model="rc.otherAddNotes" />
+                <input type="text" ng-model="rc.ingredientNotes" />
               </md-input-container>
 
               <md-button class="md-primary">Add Ingredient</md-button>

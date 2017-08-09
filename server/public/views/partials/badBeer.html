@@ -3,13 +3,13 @@
     <div layout="column" flex="50">
       <md-input-container class="md-block">
         <label>Aroma</label>
-        <textarea ng-model="rc.aroma" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="dc.aroma" md-maxlength="150" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
     <div layout="column" flex="50">
       <md-input-container class="md-block">
         <label>Appearance</label>
-        <textarea ng-model="rc.appearance" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="dc.appearance" md-maxlength="150" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
   </div>
@@ -17,13 +17,13 @@
     <div layout="column" flex="50">
       <md-input-container class="md-block">
         <label>Flavor</label>
-        <textarea ng-model="rc.flavor" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="dc.flavor" md-maxlength="150" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
     <div layout="column" flex="50">
       <md-input-container class="md-block">
         <label>Mouthfeel</label>
-        <textarea ng-model="rc.mouthfeel" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="dc.mouthfeel" md-maxlength="150" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
   </div>
@@ -37,18 +37,18 @@
       <!-- OFF FLAVORS INPUT FIELD -->
       <div layout="row">
         <fieldset flex>
-          <md-input-container class="md-block" flex-gt-sm>
-            <label>Off Flavors</label>
-            <md-select ng-model="dc.badFlavor">
-              <md-option ng-repeat="flavor in offFlavors" value="{{offFlavors.flavor}}">
-                {{offFlavors.flavor}}
-              </md-option>
-            </md-select>
+          <md-input-container>
+            <md-menu ng-model="dc.offFlavorName">
+              <md-button ng-click="dc.userService.openMenu($mdMenu, $event)">Off Flavor</md-button>
+              <md-menu-content width="3">
+                <md-menu-item>Off Flavors go here</md-menu-item>
+              </md-menu-content>
+            </md-menu>
           </md-input-container>
 
           <md-input-container class="md-block">
             <label>Off Flavor Description</label>
-            <textarea ng-model="rc.offFlavorDesc" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="dc.offFlavorDescription" md-maxlength="150" rows="5" md-select-on-focus></textarea>
           </md-input-container>
 
           <md-button class="md-fab md-primary">Add</md-button>
@@ -73,12 +73,12 @@
       <div layout="row">
         <md-input-container class="md-block">
           <label>Other Notes or Issues?</label>
-          <textarea ng-model="rc.drinkNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          <textarea ng-model="dc.batchNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
 
         <md-input-container class="md-block">
           <label>Suspected Causes of Issues?</label>
-          <textarea ng-model="rc.causes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          <textarea ng-model="dc.suspectedCauses" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
       </div>
       <div layout="row" layout-align="center center">

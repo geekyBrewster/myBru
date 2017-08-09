@@ -48,7 +48,7 @@
       </div>
       <div layout="row" flex="none">
         <h3>Procedure: </h3>
-        <textarea ng-model="rc.procedure" rows="10" cols="50"></textarea>
+        <textarea class="procedureText" rows="10" cols="50"></textarea>
       </div>
     </div>
 
@@ -62,7 +62,7 @@
         <div layout="column" flex="33">
           <md-input-container>
             <label>Brew Date</label>
-            <input type="date" ng-model="re.brewDate">
+            <input type="date" ng-model="bc.brewDate">
           </md-input-container>
         </div>
 
@@ -116,13 +116,13 @@
     <div layout="column" flex="33">
       <md-input-container class="md-block">
         <label>Brewing Notes</label>
-        <textarea ng-model="rc.brewNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="bc.brewNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
     <div layout="column" flex="33">
       <md-input-container class="md-block">
         <label>Mash Notes and Temperatures</label>
-        <textarea ng-model="rc.mashNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="bc.mashNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
       </md-input-container>
     </div>
   </div>

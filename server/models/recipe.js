@@ -10,12 +10,14 @@ var HopSchema = new Schema ({
 });
 
 var MaltSchema = new Schema ({
-  maltType: {type: String, required: true},
+  maltName: {type: String, required: true},
+  maltType: {type: String, default: 'base'},
   maltAmt: Number,
   maltAdded: {type: Boolean, default: false}
 });
 
 var YeastSchema = new Schema ({
+  yeastSupplier: String,
   yeastType: {type: String, required: true},
   rehydrate: {type: Boolean, default: false},
   yeastAdded: {type: Boolean, default: false}
@@ -31,11 +33,11 @@ var IngredientSchema = new Schema ({
 var OffFlavorSchema = new Schema ({
   offFlavorName: String,
   offFlavorDescription: String,
-  causedBy: String
+  causedBy: Array
 });
 
 //FOR EACH RECIPE YOU CAN HAVE MULTIPLE BATCHES
-var BatchSchema = newSchema ({
+var BatchSchema = new Schema ({
   //BATCH TRACKING INFO
   batchID: {type: Number, default: 1, required: true},
   batchStatus:{type: String, default: 'Ready to Brew', required: true},
@@ -65,7 +67,7 @@ var RecipeSchema = new Schema({
   //FROM RECIPE.HTML
     username: {type: String, required: true},
     recipeName: {type: String, required: true},
-    recipeStyle: {type: String, required: true},
+    beerStyle: {type: String, required: true},
     recipeType: String,
     recipeDescription: String,
     procedure: String,
