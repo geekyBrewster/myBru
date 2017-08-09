@@ -2,9 +2,87 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Mongoose Schema
+var HopSchema = new Schema ({
+  hopType: {type: String, required: true},
+  hopAmt: Number,
+  hopTime: Number,
+  hopAdded: {type: Boolean, default: false}
+});
+
+var MaltSchema = new Schema ({
+  maltType: {type: String, required: true},
+  maltAmt: Number,
+  maltAdded: {type: Boolean, default: false}
+});
+
+var YeastSchema = new Schema ({
+  yeastType: {type: String, required: true},
+  rehydrate: {type: Boolean, default: false},
+  yeastAdded: {type: Boolean, default: false}
+});
+
+var IngredientSchema = new Schema ({
+  ingredientType: String,
+  ingredientAmt: String,
+  ingredientNotes: String,
+  ingredientAdded: {type: Boolean, default: false}
+});
+
+var OffFlavorSchema = new Schema ({
+  offFlavorName: String,
+  offFlavorDescription: String,
+  causedBy: String
+});
+
+//FOR EACH RECIPE YOU CAN HAVE MULTIPLE BATCHES
+var BatchSchema = newSchema ({
+  //BATCH TRACKING INFO
+  batchID: {type: Number, default: 1, required: true},
+  batchStatus:{type: String, default: 'Ready to Brew', required: true},
+  //FROM BREW.HTML
+    brewDate: {type: Date, default: Date.now, required: true},
+    brewNotes: String,
+    mashNotes: String,
+  //FROM BOTTLE.HTML
+    bottleDate: {type: Date, default: Date.now},
+  //FROM DRINK.HTML
+    drinkDate: {type: Date, default: Date.now, required: true},
+    batchRank: Number,
+    worthRepeating: String,
+    batchChanges: String,
+    aroma: String,
+    appearance: String,
+    flavor: String,
+    mouthfeel: String,
+    batchImpressions: String,
+    batchNote: String,
+    batchImage: String,
+    offFlavors: [OffFlavorSchema],
+    suspectedCauses: String
+});
+
 var RecipeSchema = new Schema({
-    username: {type: String, required: true, index: {unique: true}},
-    password: {type: String, required: true}
+  //FROM RECIPE.HTML
+    username: {type: String, required: true},
+    recipeName: {type: String, required: true},
+    recipeStyle: {type: String, required: true},
+    recipeType: String,
+    recipeDescription: String,
+    procedure: String,
+    batchSize: {type: Number, default: 5},
+    primaryFermentLength: Number,
+    secondFermentLength: Number,
+    recipeNotes: String,
+    recipeSrc: String,
+
+  //FROM RECIPE.HTML -- ARRAY OF OBJECTS
+    hops: [HopSchema],
+    malts: [MaltSchema],
+    yeasts: [YeastSchema],
+    otherIngredients: [IngredientSchema],
+
+  //TRACK INDIVIDUAL BATCHES OF THIS RECIPE
+  batches: [BatchSchema]
 });
 
 
