@@ -84,34 +84,47 @@
           <input type="date" ng-model="re.drinkDate">
         </md-input-container>
       </div>
-      <div layout="column" layout-align="center end"flex="33">
+      <div layout="column" layout-align="center end" flex="33">
         <md-button class="md-raised md-primary">Save Final Product Notes</md-button>
       </div>
     </div>
 
     <!-- MIDDLE ROW WITH VERDICT RADIO BUTTONS AND NOTES -->
-    <div id="verdict" layout="row">
-      <div class="vote" layout="column" flex="25">
-        <fieldset class="rating">
-          <legend>Rank your Br&uuml;</legend>
-          <md-checkbox ng-model="data.cb1" ng-click="dc.toggleNotes(true)">Outstanding</md-checkbox>
-          <md-checkbox ng-model="data.cb2" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-checkbox>
-          <md-checkbox ng-model="data.cb3" ng-click="dc.toggleNotes(true)">Acceptible</md-checkbox>
-          <md-checkbox ng-model="data.cb4" ng-click="dc.toggleNotes(false)">Poor</md-checkbox>
-          <md-checkbox ng-model="data.cb5" ng-click="dc.toggleNotes(false)">Dreadful</md-checkbox>
-        </fieldset>
-      </div>
-      <div class="verdictNotes" layout="column" flex>
+    <div id="verdict">
+      <fieldset>
+
+      <div class="vote" layout="row" flex>
         <fieldset>
-          <md-input-container class="md-block">
-            <label>Is the Br&uuml; worth repeating? Why or why not?</label>
-            <textarea ng-model="rc.worthRepeating" md-maxlength="150" rows="3" md-select-on-focus></textarea>
-          </md-input-container>
-          <md-input-container class="md-block">
-            <label>What would you change next time?</label>
-            <textarea ng-model="rc.batchChanges" md-maxlength="150" rows="3" md-select-on-focus></textarea>
-          </md-input-container>
-        </fieldset>
+          <!-- Rank beer radio buttons -->
+          <legend>Rank your Br&uuml;</legend>
+          <md-checkbox ng-model="rank.cb1" ng-click="dc.toggleNotes(true)">Outstanding</md-checkbox>
+          <md-checkbox ng-model="rank.cb2" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-checkbox>
+          <md-checkbox ng-model="rank.cb3" ng-click="dc.toggleNotes(true)">Acceptible</md-checkbox>
+          <md-checkbox ng-model="rank.cb4" ng-click="dc.toggleNotes(false)">Poor</md-checkbox>
+          <md-checkbox ng-model="rank.cb5" ng-click="dc.toggleNotes(false)">Dreadful</md-checkbox>
+      </div>
+      <div layout="row">
+        <div class="verdictNotes" layout="column" flex="50">
+          <!-- Worth repeating recipe radio buttons -->
+            <label>Is this recipe worth repeating?</label>
+            <md-radio-group ng-model="worthRepeating" layout="row">
+              <md-radio-button value="Yes" class="md-primary">Yes</md-radio-button>
+              <md-radio-button value="No" class="md-primary"> No </md-radio-button>
+              <md-radio-button value="Maybe" class="md-primary">Maybe, with changes</md-radio-button>
+            </md-radio-group>
+
+            <md-input-container class="md-block">
+              <label>What would you change next time?</label>
+              <textarea ng-model="rc.batchChanges" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
+          <!-- OVERALL IMPRESSION TEXT INPUT -->
+        <div layout="column" flex>
+            <md-input-container class="md-block">
+              <label>Overall Impresisons</label>
+              <textarea ng-model="rc.impressions" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+        </div>
       </div>
     </div>
 
