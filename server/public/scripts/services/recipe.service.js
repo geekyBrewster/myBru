@@ -6,8 +6,6 @@ myApp.factory('RecipeService', function($http, $location){
 
   return {
 
-    allRecipes: allRecipes,
-    
     //OPEN MENU FUNCTIONALITY NEEDED FOR NAV BAR
     openMenu : function($mdMenu, ev) {
       originatorEv = ev;
@@ -21,7 +19,9 @@ myApp.factory('RecipeService', function($http, $location){
         allRecipes.data = response.data;
         console.log('All recipes: ', allRecipes);
       });
-    }
+    },
+
+      allRecipes: allRecipes
 
 
 

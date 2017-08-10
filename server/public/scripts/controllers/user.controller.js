@@ -1,8 +1,10 @@
-myApp.controller('UserController', function($http, $location, UserService) {
+myApp.controller('UserController', function($http, $location, UserService, RecipeService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
+  vm.recipeService = RecipeService;
+  vm.allRecipes = RecipeService.allRecipes;
 
   //Prep New Recipe -- On click
   vm.newRecipe = function(){
@@ -17,6 +19,10 @@ myApp.controller('UserController', function($http, $location, UserService) {
     //Confirm batchID = 1 if no other IDs exist; otherwise increment ID by 1
     //batchStatus = "Brewing Batch"
   };
+
+  //GET data using recipe.service to display on DOM
+  vm.recipeService.getAllRecipes();
+  console.log(vm.allRecipes);
 
 
 //** STRETCH GOALS **//
