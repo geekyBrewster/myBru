@@ -35,6 +35,9 @@ app.use(passport.session());
 // Routes
 app.use('/register', registerRouter);
 app.use('/user', userRouter);
+app.use('/recipe', recipeRouter);
+app.use('/brew', brewRouter);
+app.use('/drink', drinkRouter);
 
 // Catch all bucket, must be last!
 app.use('/', indexRouter);

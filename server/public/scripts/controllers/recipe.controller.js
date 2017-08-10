@@ -1,4 +1,4 @@
-myApp.controller('RecipeController', function(UserService) {
+myApp.controller('RecipeController', function(UserService, $http) {
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
@@ -13,7 +13,7 @@ myApp.controller('RecipeController', function(UserService) {
   vm.yeasts = [];
   vm.otherIngredients = [];
   vm.recipe = {};
-
+  var allRecipes = {};
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
@@ -111,9 +111,25 @@ myApp.controller('RecipeController', function(UserService) {
     };
     console.log("recipe data: ", vm.recipe);
 
+    // POST /recipe to create new Recipe object on server side
+    $http.post('/recipe', vm.recipe).then(function(response){
+      console.log('Sending recipe to server.');
+      if(response){
+        console.log('The server sent something back: ', response);
+      }
+    });
+  }; //end of saveRecipe
+
+
+// GET /recipe to verify data was sent to server and saved in DB
+  var getRecipes = function(){
+    $http.get('/recipe').then(function(response){
+      console.log('Retrieving recipes from DB: ', response.data);
+      allRecipes.data = response.data;
+      console.log('All recipes: ', allRecipes);
+    });
   };
-  // POST /recipe to create new Recipe object on server side
 
-
+getRecipes();
 
 }); //end of controller
