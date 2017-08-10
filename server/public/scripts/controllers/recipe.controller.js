@@ -22,7 +22,8 @@ myApp.controller('RecipeController', function(UserService) {
     var singleMalt = {
       maltType: maltType,
       maltName: maltName,
-      maltAmt: maltAmt
+      maltAmt: maltAmt,
+      maltAdded: false
     };
     // console.log("Single malt: ", singleMalt);
     vm.malts.push(singleMalt);
@@ -40,7 +41,8 @@ myApp.controller('RecipeController', function(UserService) {
     var singleHop = {
       hopType: hopType,
       hopAmt: hopAmt,
-      hopTime: hopTime
+      hopTime: hopTime,
+      hopAdded: false
     };
     // console.log("Single hop: ", singleHop);
     vm.hops.push(singleHop);
@@ -57,7 +59,8 @@ myApp.controller('RecipeController', function(UserService) {
     var singleYeast = {
       yeastSupplier: yeastSupplier,
       yeastType: yeastType,
-      rehydrate: rehydrate
+      rehydrate: rehydrate,
+      yeastAdded: false
     };
     // console.log("Single yeast: ", singleYeast);
     vm.yeasts.push(singleYeast);
@@ -75,7 +78,8 @@ myApp.controller('RecipeController', function(UserService) {
     var singleIngredient = {
       ingredientType: ingredientType,
       ingredientAmt: ingredientAmt,
-      ingredientNotes: ingredientNotes
+      ingredientNotes: ingredientNotes,
+      ingredientAdded: false
     };
     //console.log("Single ingredient: ", singleIngredient);
     vm.otherIngredients.push(singleIngredient);
@@ -99,6 +103,7 @@ myApp.controller('RecipeController', function(UserService) {
       secondFermentLength: secondFermentLength,
       recipeNotes: notes,
       recipeSrc: recipeSrc,
+      batchesBrewed: 0,
       hops: vm.hops,
       malts: vm.malts,
       yeasts: vm.yeasts,
@@ -107,9 +112,8 @@ myApp.controller('RecipeController', function(UserService) {
     console.log("recipe data: ", vm.recipe);
 
   };
-  //Initial POST /recipe to create new Recipe object using username, recipeName on server side
+  // POST /recipe to create new Recipe object on server side
 
-  // POST REQUEST TO /recipe/update to add rest of data to the Recipe in
 
 
 }); //end of controller

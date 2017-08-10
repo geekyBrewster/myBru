@@ -59,8 +59,9 @@ var FinalProductSchema = new Schema ({
 //FOR EACH RECIPE YOU CAN HAVE MULTIPLE BATCHES
 var BatchSchema = new Schema ({
   //BATCH TRACKING INFO
-  batchID: {type: Number, default: 1, required: true},
-  batchStatus:{type: String, default: 'Recipe Prepared', required: true},
+  //BatchID will be tied to Recipe.batchesBrewed
+  batchID: Number,
+  batchStatus:{type: String, default: 'Ready to Brew', required: true},
   //FROM BREW.HTML
     brewDate: {type: Date, default: Date.now, required: true},
     brewNotes: String,
@@ -80,6 +81,7 @@ var RecipeSchema = new Schema({
     secondFermentLength: Number,
     recipeNotes: String,
     recipeSrc: String,
+    batchesBrewed: {type: Number, default: 0, required: true},
 
   //FROM RECIPE.HTML -- ARRAY OF OBJECTS
     hops: [HopSchema],

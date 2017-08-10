@@ -4,14 +4,33 @@ myApp.controller('BrewController', function(UserService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
 
+  //DATA OBJECTS
+  vm.recipe = {};
+  vm.batch = {};
+
 //GET RECIPE DATA FROM SERVER
   // GET REQUEST
   // APPEND DATA TO DOM
+  // Figure out how to update ingredientAdded when checkbox is clicked
 
 //SAVE BREW NOTES -- ON CLICK
-  // POST REQUEST TO /brew INITIALIZE batches[] in recipe -- use batchID = 1 and batchStatus = "Brewing"
-  // BUILD DATA OBJECT TO SEND TO SERVER
-  // POST REQUEST TO /brew/update to update batches[]
+  vm.saveBatch = function(date, brewNotes, mashNotes){
+    // INCREMENT BATCH COUNTER IN RECIPE BY 1
+    //vm.recipe.batchesBrewed += 1;
+    // BUILD DATA OBJECT TO SEND TO SERVER
+    vm.batch = {
+      // batchID: vm.recipe.batchesBrewed,
+      batchID: 1,
+      batchStatus: "Batch brewed",
+      brewDate: date,
+      brewNotes: brewNotes,
+      mashNotes: mashNotes
+    };
+    console.log("Batch data: ", vm.batch);
+
+    // POST TO /brew to add batches[] to recipe{}
+  };
+
 
 
 
