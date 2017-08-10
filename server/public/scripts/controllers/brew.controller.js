@@ -4,14 +4,16 @@ myApp.controller('BrewController', function(UserService, RecipeService) {
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
+  vm.allRecipes = RecipeService.allRecipes;
 
   //DATA OBJECTS
   vm.recipe = {};
   vm.batch = {};
 
 //GET RECIPE DATA FROM SERVER
-  // GET REQUEST
-  // APPEND DATA TO DOM
+  // GET REQUEST FOR ALL RECIPES
+  vm.recipeService.getAllRecipes();
+  // APPEND REQUIRED RECIPE DATA TO DOM
   // Figure out how to update ingredientAdded when checkbox is clicked
 
 //SAVE BREW NOTES -- ON CLICK

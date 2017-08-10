@@ -18,6 +18,7 @@
             <thead>
               <th></th>
               <th>Recipe Name</th>
+              <th>Beer Style</th>
               <th>Edit Recipe?</th>
               <th>Delete Recipe?</th>
               <th>Brew the Recipe?</th>
@@ -27,6 +28,7 @@
               <tr ng-repeat="recipe in uc.allRecipes.data">
                 <td><i class="fa fa-beer"></i></td>
                 <td>{{recipe.recipeName}}</td>
+                <td>{{recipe.beerStyle}}</td>
                 <td><md-button><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-primary" ng-click="uc.brewBatch(uc.recipeName)">Brew!</md-button></td>

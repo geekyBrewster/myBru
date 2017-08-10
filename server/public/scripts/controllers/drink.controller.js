@@ -4,6 +4,7 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
+  vm.allRecipes = RecipeService.allRecipes;
 
   //DATA OBJECTS
   vm.recipe = {};
@@ -90,7 +91,10 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
     //POST TO /drink to add drink[] to recipe{}
   };
 
-
+  //GET RECIPE DATA FROM SERVER
+    // GET REQUEST FOR ALL RECIPES
+    vm.recipeService.getAllRecipes();
+    // APPEND REQUIRED RECIPE DATA TO DOM
 
 
 
