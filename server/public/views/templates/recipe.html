@@ -107,6 +107,7 @@
         <div layout="column" flex="40">
           <md-content>
             <div layout="row" layout-align="start start" flex>
+              <!-- Malt type pulldown menu -->
               <md-input-container style="margin-right: 10px;">
                 <label>Malt Type</label>
                 <md-select ng-model="rc.maltType">
@@ -139,7 +140,7 @@
             </tr>
             <tr ng-repeat="malt in rc.malts">
               <td>{{malt.maltType}}</td>
-              <td>{{malt.maltAmt}}</td>
+              <td>{{malt.maltAmt}} lbs.</td>
               <td>{{malt.maltName}}</td>
             </tr>
           </table>
@@ -172,7 +173,7 @@
                 <input type="text" placeholder="Min. from start of boil" ng-model="rc.hopTime" />
               </md-input-container>
 
-              <md-button class="md-primary">Add Hops</md-button>
+              <md-button class="md-primary" ng-click="rc.addHop(rc.hopType, rc.hopAmt, rc.hopTime)">Add Hops</md-button>
             </div>
           </md-content>
         </div>
@@ -184,20 +185,10 @@
               <th>Type</th>
               <th>Timing</th>
             </tr>
-            <tr>
-              <td>1 oz</td>
-              <td>Kenneth Golding pellet</td>
-              <td>at 0 min</td>
-            </tr>
-            <tr>
-              <td>0.1 oz</td>
-              <td>Northern Brewer pellet</td>
-              <td>at 0 min</td>
-            </tr>
-            <tr>
-              <td>1 oz</td>
-              <td>Kenneth Golding pellet</td>
-              <td>at 50 min</td>
+            <tr ng-repeat="hop in rc.hops">
+              <td>{{hop.hopAmt}} oz.</td>
+              <td>{{hop.hopType}}</td>
+              <td>at {{hop.hopTime}} min</td>
             </tr>
           </table>
         </div>
@@ -213,9 +204,10 @@
         <div layout="column" layout-align="start start" flex="40">
           <md-content>
             <div layout="row" flex>
+              <!-- Yeast Supplier dropdown menu -->
               <md-input-container style="margin-right: 10px;">
                 <label>Yeast Supplier</label>
-                <md-select ng-model="yeastSupplier">
+                <md-select ng-model="rc.yeastSupplier">
                     <md-option ng-repeat="yeastSupplier in rc.ingredients.yeastSuppliers" value="{{yeastSupplier}}">{{yeastSupplier}}</md-option>
                 </md-select>
               </md-input-container>
@@ -230,7 +222,7 @@
                 <label>Rehydrate?</label>
                 <input type="text" placeholder="Yes or No" ng-model="rc.rehydrate" />
               </md-input-container>
-              <md-button class="md-primary">Add Yeast</md-button>
+              <md-button class="md-primary" ng-click="rc.addYeast(rc.yeastSupplier, rc.yeastType, rc.rehydrate)">Add Yeast</md-button>
             </div>
           </md-content>
         </div>
@@ -242,10 +234,10 @@
               <th>Type</th>
               <th>Rehydrate?</th>
             </tr>
-            <tr>
-              <td>Wyeast</td>
-              <td>1084 Irish Ale yeast</td>
-              <td>No</td>
+            <tr ng-repeat="yeast in rc.yeasts">
+              <td>{{yeast.yeastSupplier}}</td>
+              <td>{{yeast.yeastType}}</td>
+              <td>{{yeast.rehydrate}}</td>
             </tr>
           </table>
         </div>
@@ -277,7 +269,7 @@
                 <input type="text" ng-model="rc.ingredientNotes" />
               </md-input-container>
 
-              <md-button class="md-primary">Add Ingredient</md-button>
+              <md-button class="md-primary" ng-click="rc.addIngredient(rc.ingredientType, rc.ingredientAmt, rc.ingredientNotes)">Add Ingredient</md-button>
             </div>
           </md-content>
         </div>
@@ -289,10 +281,10 @@
               <th>Type</th>
               <th>Notes</th>
             </tr>
-            <tr>
-              <td>1 tbsp</td>
-              <td>Irish Moss</td>
-              <td>Add during last 5 min of boil</td>
+            <tr ng-repeat="ingredient in rc.otherIngredients">
+              <td>{{ingredient.ingredientAmt}}</td>
+              <td>{{ingredient.ingredientType}}</td>
+              <td>{{ingredient.ingredientNotes}}</td>
             </tr>
           </table>
         </div>

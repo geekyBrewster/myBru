@@ -12,8 +12,9 @@ myApp.controller('RecipeController', function(UserService) {
 
 
 //** MALT FUNCTIONS **/
-  // addMalt(maltType, maltName, maltAmt)
+  // addMalt() button function
   vm.addMalt = function(maltType, maltName, maltAmt){
+    // Push single malt object into malts[]
     var singleMalt = {
       maltType: maltType,
       maltName: maltName,
@@ -22,38 +23,61 @@ myApp.controller('RecipeController', function(UserService) {
     console.log("Single malt: ", singleMalt);
     vm.malts.push(singleMalt);
     console.log('malt array: ', vm.malts);
+    // Appends to DOM via vm.malts
   };
-    // Push single malt object into malts[]
-    // Append to DOM
-
-  // Malt Type dropdown menu
-    // Create data object for the pulldown menu
 
   // search function for malt name data from API
     // should use malt type to filter
 
 //** HOP FUNCTIONS **/
-  // addHop()
+  // addHop() button function
+  vm.addHop = function(hopType, hopAmt, hopTime){
     // Push single hop object into hops[]
-    // Append to DOM
+    var singleHop = {
+      hopType: hopType,
+      hopAmt: hopAmt,
+      hopTime: hopTime
+    };
+    console.log("Single hop: ", singleHop);
+    vm.hops.push(singleHop);
+    console.log('hop array: ', vm.hops);
+    // Appends to DOM via vm.hops
+  };
 
   // search function for hop data from API
 
 //** YEAST FUNCTIONS **/
-  // addYeast()
+  // addYeast() button function
+  vm.addYeast = function(yeastSupplier, yeastType, rehydrate){
     // Push single yeast object into yeasts[]
-    // Append to DOM
-
-  // Yeast Supplier dropdown menu
-    // Create data object for the pulldown menu
+    var singleYeast = {
+      yeastSupplier: yeastSupplier,
+      yeastType: yeastType,
+      rehydrate: rehydrate
+    };
+    console.log("Single yeast: ", singleYeast);
+    vm.yeasts.push(singleYeast);
+    console.log('yeast array: ', vm.yeasts);
+    // Appends to DOM via vm.yeasts
+  };
 
   // search function for yeast data from API
     // should use yeast supplier to filter
 
 //** OTHER INGREDIENTS FUNCTIONS **/
-  // addIngredient()
-    // Push single ingredient object into otherIngredients[]
-    // Append to DOM
+  // addIngredient() button function
+  vm.addIngredient = function(ingredientType, ingredientAmt, ingredientNotes){
+    // Push single yeast object into yeasts[]
+    var singleIngredient = {
+      ingredientType: ingredientType,
+      ingredientAmt: ingredientAmt,
+      ingredientNotes: ingredientNotes
+    };
+    console.log("Single ingredient: ", singleIngredient);
+    vm.otherIngredients.push(singleIngredient);
+    console.log('ingredients array: ', vm.otherIngredients);
+    // Appends to DOM via vm.yeasts
+  };
 
 
 //SAVE RECIPE - ON CLICK
