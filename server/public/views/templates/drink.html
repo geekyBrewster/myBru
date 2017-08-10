@@ -85,7 +85,9 @@
         </md-input-container>
       </div>
       <div layout="column" layout-align="center end" flex="33">
-        <md-button class="md-raised md-primary">Save Final Product Notes</md-button>
+        <md-button class="md-raised md-primary" ng-click="dc.saveFinalProduct(dc.drinkDate, dc.batchRank,
+        dc.worthRepeating, dc.batchImpressions, dc.batchChanges, dc.aroma, dc.appearance, dc.flavor,
+        dc.mouthfeel, dc.batchNotes, dc.suspectedCauses)">Save Final Product Notes</md-button>
       </div>
     </div>
 
@@ -100,11 +102,11 @@
 
               <md-radio-group ng-model="dc.batchRank">
 
-                <md-radio-button value="Outstanding" class="md-primary" ng-click="dc.toggleNotes(true)">Outstanding</md-radio-button>
-                <md-radio-button value="Exceeds Expectations" class="md-primary" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-radio-button>
-                <md-radio-button value="Acceptible" class="md-primary" ng-click="dc.toggleNotes(true)">Acceptible</md-radio-button>
-                <md-radio-button value="Poor" ng-click="dc.toggleNotes(false)">Poor</md-radio-button>
-                <md-radio-button value="Dreadful" ng-click="dc.toggleNotes(false)">Dreadful</md-radio-button>
+                <md-radio-button value="5" class="md-primary" ng-click="dc.toggleNotes(true)">Outstanding</md-radio-button>
+                <md-radio-button value="4" class="md-primary" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-radio-button>
+                <md-radio-button value="3" class="md-primary" ng-click="dc.toggleNotes(true)">Acceptible</md-radio-button>
+                <md-radio-button value="2" ng-click="dc.toggleNotes(false)">Poor</md-radio-button>
+                <md-radio-button value="1" ng-click="dc.toggleNotes(false)">Dreadful</md-radio-button>
 
               </md-radio-group>
             </form>
