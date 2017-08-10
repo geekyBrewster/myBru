@@ -107,17 +107,11 @@
         <div layout="column" flex="40">
           <md-content>
             <div layout="row" layout-align="start start" flex>
-              <md-input-container>
-                <md-menu>
-                  <md-button ng-click="rc.userService.openMenu($mdMenu, $event)">Malt Type</md-button>
-                  <md-menu-content width="3">
-                    <md-menu-item>Base Malt</md-menu-item>
-                    <md-menu-item>Specialty Malt</md-menu-item>
-                    <md-menu-item>Caramel Malt</md-menu-item>
-                    <md-menu-item>Roasted Malt</md-menu-item>
-                    <md-menu-item>Other Malt</md-menu-item>
-                  </md-menu-content>
-                </md-menu>
+              <md-input-container style="margin-right: 10px;">
+                <label>Malt Type</label>
+                <md-select ng-model="rc.maltType">
+                    <md-option ng-repeat="maltType in rc.ingredients.maltTypes" value="{{maltType}}">{{maltType}}</md-option>
+                </md-select>
               </md-input-container>
               <md-input-container>
                 <label>Malt Name:</label>
@@ -130,7 +124,7 @@
                 <input type="text" placeholder="Enter in pounds" ng-model="rc.maltAmt" />
               </md-input-container>
 
-              <md-button class="md-primary">Add Malt</md-button>
+              <md-button class="md-primary" ng-click="rc.addMalt(rc.maltType, rc.maltName, rc.maltAmt)">Add Malt</md-button>
 
             </div>
           </md-content>
@@ -143,15 +137,10 @@
               <th>Amount</th>
               <th>Name</th>
             </tr>
-            <tr>
-              <td>Base malt</td>
-              <td>10 lbs.</td>
-              <td>Pale Ale Malt</td>
-            </tr>
-            <tr>
-              <td>Roasted Malt</td>
-              <td>1 lbs.</td>
-              <td>Chocolate Malt</td>
+            <tr ng-repeat="malt in rc.malts">
+              <td>{{malt.maltType}}</td>
+              <td>{{malt.maltAmt}}</td>
+              <td>{{malt.maltName}}</td>
             </tr>
           </table>
         </div>
@@ -224,19 +213,11 @@
         <div layout="column" layout-align="start start" flex="40">
           <md-content>
             <div layout="row" flex>
-              <md-input-container>
-                <md-menu>
-                  <md-button ng-click="rc.userService.openMenu($mdMenu, $event)">Yeast Supplier</md-button>
-                  <md-menu-content width="3">
-                    <md-menu-item>Danstar</md-menu-item>
-                    <md-menu-item>Muntons</md-menu-item>
-                    <md-menu-item>Omega</md-menu-item>
-                    <md-menu-item>Safale</md-menu-item>
-                    <md-menu-item>White Labs</md-menu-item>
-                    <md-menu-item>Wyeast</md-menu-item>
-                    <md-menu-item>Other</md-menu-item>
-                  </md-menu-content>
-                </md-menu>
+              <md-input-container style="margin-right: 10px;">
+                <label>Yeast Supplier</label>
+                <md-select ng-model="yeastSupplier">
+                    <md-option ng-repeat="yeastSupplier in rc.ingredients.yeastSuppliers" value="{{yeastSupplier}}">{{yeastSupplier}}</md-option>
+                </md-select>
               </md-input-container>
 
               <md-input-container>

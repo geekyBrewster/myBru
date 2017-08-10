@@ -1,5 +1,7 @@
 var ingredients = {};
 
+var maltTypes = ['Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Other malt'];
+
 var maltsDB = [
 '2 row', 'Biscuit Malt', 'Black Patent', 'CaraPils', 'Chocolate Malt', 'Crystal 10L', 'Crystal 40L',
 'Crystal 60L', 'Crystal 80L', 'Crystal 120L', 'Crystal 150L', 'Flaked Oats',
@@ -14,7 +16,7 @@ var hopsDB = [
 
 var yeastTypes = ['ale', 'wheat', 'lager'];
 var yeastForm = ['liquid', 'dry', 'both'];
-var yeastSupplier = ['Danstar', 'Muntons', 'Omega', 'Safale', 'White Labs', 'Wyeast'];
+var yeastSupplier = ['Danstar', 'Muntons', 'Omega', 'Safale', 'White Labs', 'Wyeast', 'Other'];
 
 var yeastsDB = [
 'Wyeast 3787 Trappist High Gravity', 'Wyeast 1968 London ESB', 'Danstar Munich Wheat Beer', 'Muntons Ale Dry Yeast',
@@ -28,7 +30,11 @@ var otherIngredientsDB = [
 'Muntons DME Light', 'Whirlfloc Tablets', 'Vanilla Beans', 'Honey', 'Coffee Beans', 'Fizz Drops'
 ];
 
-ingredients.malts = maltsDB;
-ingredients.hops = hopsDB;
-ingredients.yeasts = yeastsDB;
-ingredients.otherIngredients = otherIngredientsDB;
+ingredients.maltTypes = maltTypes;
+ingredients.maltNames = maltsDB;
+ingredients.hopNames = hopsDB;
+ingredients.yeastTypes = yeastTypes;
+ingredients.yeastForms = yeastForm;
+ingredients.yeastSuppliers = yeastSupplier;
+ingredients.yeastsNames = yeastsDB;
+ingredients.otherIngredientNames = otherIngredientsDB;

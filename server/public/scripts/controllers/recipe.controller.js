@@ -3,10 +3,26 @@ myApp.controller('RecipeController', function(UserService) {
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
+  vm.ingredients = ingredients;
+  // console.log(vm.ingredients);
+  vm.malts = [];
+  vm.hops = [];
+  vm.yeasts = [];
+  vm.otherIngredients = [];
 
 
 //** MALT FUNCTIONS **/
   // addMalt(maltType, maltName, maltAmt)
+  vm.addMalt = function(maltType, maltName, maltAmt){
+    var singleMalt = {
+      maltType: maltType,
+      maltName: maltName,
+      maltAmt: maltAmt
+    };
+    console.log("Single malt: ", singleMalt);
+    vm.malts.push(singleMalt);
+    console.log('malt array: ', vm.malts);
+  };
     // Push single malt object into malts[]
     // Append to DOM
 
