@@ -2,8 +2,7 @@ myApp.factory('UserService', function($http, $location){
   console.log('UserService Loaded');
 
   var userObject = {};
-  var originatorEv;
-
+  
   return {
     userObject : userObject,
 
@@ -31,12 +30,8 @@ myApp.factory('UserService', function($http, $location){
         console.log('UserService -- logout -- logged out');
         $location.path("/home");
       });
-    },
-
-    openMenu : function($mdMenu, ev) {
-      originatorEv = ev;
-      $mdMenu.open(ev);
     }
+
 
   }; // END OF RETURN
 

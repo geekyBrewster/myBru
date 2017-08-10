@@ -1,14 +1,14 @@
-<md-toolbar>
+<md-toolbar ng-controller="NavController as nc">
   <div class="md-toolbar-tools" layout="row">
     <div class="welcomeMsg" layout="column" flex=70>
       <md-truncate>What would you like to brew today?</md-truncate>
     </div>
     <div class="userName" layout="column" layout-align="center end" flex=15>
-      <h4>{{uc.userObject.userName}}'s Brews</h4>
+      <h4>{{nc.userObject.userName}}'s Brews</h4>
     </div>
     <div class="menu" layout="column" flex=15>
       <md-menu>
-        <md-button aria-label="Open popup menu" ng-mouseover="$mdMenu.open()" ng-click="uc.userService.openMenu($mdMenu, $event)"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></md-button>
+        <md-button aria-label="Open popup menu" ng-click="nc.openMenu($mdMenu, $event)"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></md-button>
         <md-menu-content width="4">
           <md-menu-item> <a href="#/user">M&aring;in Menu</a> </md-menu-item>
           <md-menu-item> <a href="#/recipe">Pr&ecirc;p Recipe</a> </md-menu-item>
@@ -16,7 +16,7 @@
           <md-menu-item> <a href="#/drink">Drink Br&uuml;</a> </md-menu-item>
           <md-menu-divider></md-menu-divider>
           <md-menu-item> <a href="#/info">Us&ecirc;r Settings and C&aring;lendar</a> </md-menu-item>
-          <md-button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</md-button>
+          <md-button class="btn btn-default" ng-click="nc.userService.logout()">Log Out</md-button>
         </md-menu-content>
       </md-menu>
     </div>

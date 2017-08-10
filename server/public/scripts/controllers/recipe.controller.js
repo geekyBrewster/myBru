@@ -5,10 +5,14 @@ myApp.controller('RecipeController', function(UserService) {
   vm.userObject = UserService.userObject;
   vm.ingredients = ingredients;
   // console.log(vm.ingredients);
+  console.log("user object: ", vm.userObject);
+
+  //DATA CONTAINERS
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
+  vm.recipe = {};
 
 
 //** MALT FUNCTIONS **/
@@ -20,9 +24,9 @@ myApp.controller('RecipeController', function(UserService) {
       maltName: maltName,
       maltAmt: maltAmt
     };
-    console.log("Single malt: ", singleMalt);
+    // console.log("Single malt: ", singleMalt);
     vm.malts.push(singleMalt);
-    console.log('malt array: ', vm.malts);
+    // console.log('malt array: ', vm.malts);
     // Appends to DOM via vm.malts
   };
 
@@ -38,9 +42,9 @@ myApp.controller('RecipeController', function(UserService) {
       hopAmt: hopAmt,
       hopTime: hopTime
     };
-    console.log("Single hop: ", singleHop);
+    // console.log("Single hop: ", singleHop);
     vm.hops.push(singleHop);
-    console.log('hop array: ', vm.hops);
+    // console.log('hop array: ', vm.hops);
     // Appends to DOM via vm.hops
   };
 
@@ -55,9 +59,9 @@ myApp.controller('RecipeController', function(UserService) {
       yeastType: yeastType,
       rehydrate: rehydrate
     };
-    console.log("Single yeast: ", singleYeast);
+    // console.log("Single yeast: ", singleYeast);
     vm.yeasts.push(singleYeast);
-    console.log('yeast array: ', vm.yeasts);
+    // console.log('yeast array: ', vm.yeasts);
     // Appends to DOM via vm.yeasts
   };
 
@@ -73,16 +77,38 @@ myApp.controller('RecipeController', function(UserService) {
       ingredientAmt: ingredientAmt,
       ingredientNotes: ingredientNotes
     };
-    console.log("Single ingredient: ", singleIngredient);
+    //console.log("Single ingredient: ", singleIngredient);
     vm.otherIngredients.push(singleIngredient);
-    console.log('ingredients array: ', vm.otherIngredients);
+    //console.log('ingredients array: ', vm.otherIngredients);
     // Appends to DOM via vm.yeasts
   };
 
-
 //SAVE RECIPE - ON CLICK
+  vm.saveRecipe = function(name, style, recipeType, batchSize, primaryFermentLength,
+    secondFermentLength, description, procedure, notes, recipeSrc){
+    // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
+    vm.recipe = {
+      username: vm.userObject.userName,
+      recipeName: name,
+      beerStyle: style,
+      recipeType: recipeType,
+      recipeDescription: description,
+      procedure: procedure,
+      batchSize: batchSize,
+      primaryFermentLength: primaryFermentLength,
+      secondFermentLength: secondFermentLength,
+      recipeNotes: notes,
+      recipeSrc: recipeSrc,
+      hops: vm.hops,
+      malts: vm.malts,
+      yeasts: vm.yeasts,
+      otherIngredients: vm.otherIngredients
+    };
+    console.log("recipe data: ", vm.recipe);
+
+  };
   //Initial POST /recipe to create new Recipe object using username, recipeName on server side
-  // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
+
   // POST REQUEST TO /recipe/update to add rest of data to the Recipe in
 
 
