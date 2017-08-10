@@ -1,6 +1,6 @@
 var ingredients = {};
 
-var maltTypes = ['Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Other malt'];
+var maltTypes = ['Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Malt Extract', 'Other malt'];
 
 var maltsDB = [
 '2 row', 'Biscuit Malt', 'Black Patent', 'CaraPils', 'Chocolate Malt', 'Crystal 10L', 'Crystal 40L',
@@ -11,7 +11,7 @@ var maltsDB = [
 var hopsDB = [
 'Amarillo', 'Cascade', 'Centennial', 'Chinook', 'Citra', ' Crystal', 'CTZ', 'Fuggle',
 'Golding', 'Kenneth Golding', 'Lambic', 'Magnum', 'Mosaic', 'Mt. Hood', 'Northern Brewer', 'Nugget', 'Perle',
-'Saaz', 'Simcoe', 'Tardif de Bourgogne', 'Willamette'
+'Saaz', 'Simcoe', 'Tardif de Bourgogne', 'Willamette', 'Hop Extract'
 ];
 
 var yeastTypes = ['ale', 'wheat', 'lager'];

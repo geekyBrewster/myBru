@@ -1,8 +1,9 @@
-myApp.controller('RecipeController', function(UserService, $http) {
+myApp.controller('RecipeController', function(UserService, RecipeService, $http) {
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
+  vm.recipeService = RecipeService;
   vm.ingredients = ingredients;
   // console.log(vm.ingredients);
   console.log("user object: ", vm.userObject);
@@ -13,7 +14,6 @@ myApp.controller('RecipeController', function(UserService, $http) {
   vm.yeasts = [];
   vm.otherIngredients = [];
   vm.recipe = {};
-  var allRecipes = {};
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
@@ -88,8 +88,8 @@ myApp.controller('RecipeController', function(UserService, $http) {
   };
 
 //SAVE RECIPE - ON CLICK
-  vm.saveRecipe = function(name, style, recipeType, batchSize, primaryFermentLength,
-    secondFermentLength, description, procedure, notes, recipeSrc){
+  vm.saveRecipe = function(name, style, recipeType, batchSize, boilLength, mashLength,
+    originalGravity, finalGravity, description, procedure, notes, recipeSrc){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
     vm.recipe = {
       username: vm.userObject.userName,
@@ -99,8 +99,10 @@ myApp.controller('RecipeController', function(UserService, $http) {
       recipeDescription: description,
       procedure: procedure,
       batchSize: batchSize,
-      primaryFermentLength: primaryFermentLength,
-      secondFermentLength: secondFermentLength,
+      boilLength: boilLength,
+      mashLength: mashLength,
+      originalGravity: originalGravity,
+      finalGravity: finalGravity,
       recipeNotes: notes,
       recipeSrc: recipeSrc,
       batchesBrewed: 0,
@@ -122,14 +124,14 @@ myApp.controller('RecipeController', function(UserService, $http) {
 
 
 // GET /recipe to verify data was sent to server and saved in DB
-  var getRecipes = function(){
-    $http.get('/recipe').then(function(response){
-      console.log('Retrieving recipes from DB: ', response.data);
-      allRecipes.data = response.data;
-      console.log('All recipes: ', allRecipes);
-    });
-  };
+  // var getRecipes = function(){
+  //   $http.get('/recipe').then(function(response){
+  //     console.log('Retrieving recipes from DB: ', response.data);
+  //     allRecipes.data = response.data;
+  //     console.log('All recipes: ', allRecipes);
+  //   });
+  // };
 
-getRecipes();
+vm.recipeService.getAllRecipes();
 
 }); //end of controller

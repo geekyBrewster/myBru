@@ -1,8 +1,9 @@
-myApp.controller('BrewController', function(UserService) {
+myApp.controller('BrewController', function(UserService, RecipeService) {
   console.log('BrewController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
+  vm.recipeService = RecipeService;
 
   //DATA OBJECTS
   vm.recipe = {};

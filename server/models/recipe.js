@@ -37,6 +37,9 @@ var OffFlavorSchema = new Schema ({
 });
 
 var FinalProductSchema = new Schema ({
+  //FROM FERMENTATION NOTES
+    primaryFermentLength: Number,
+    secondFermentLength: Number,
   //FROM BOTTLE.HTML
     bottleDate: {type: Date, default: Date.now},
   //FROM DRINK.HTML
@@ -77,8 +80,10 @@ var RecipeSchema = new Schema({
     recipeDescription: String,
     procedure: String,
     batchSize: {type: Number, default: 5},
-    primaryFermentLength: Number,
-    secondFermentLength: Number,
+    boilLength: Number,
+    mashLength: Number,
+    originalGravity: Number,
+    finalGravity: Number,
     recipeNotes: String,
     recipeSrc: String,
     batchesBrewed: {type: Number, default: 0, required: true},
