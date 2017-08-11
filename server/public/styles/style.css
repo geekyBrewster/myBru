@@ -35,7 +35,7 @@ div {
   width: 300px;
   height: 300px;
 }
-#procedureText {
+#procedureText, #recipeDescriptionEval {
   width: 100%;
   height: 150px;
 }

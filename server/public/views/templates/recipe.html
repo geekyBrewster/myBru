@@ -61,7 +61,7 @@
         <div class="descriptionBlock" layout="column" flex>
           <md-input-container class="md-block">
             <label>Recipe Description</label>
-            <textarea ng-model="rc.recipeDescription" md-maxlength="350" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="rc.recipeDescription" md-maxlength="500" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>
@@ -82,7 +82,7 @@
           </md-input-container>
         </div>
       </div>
-      
+
       <!-- RECIPE SOURCE -->
       <div layout="row">
         <md-input-container class="md-block">
@@ -183,7 +183,7 @@
             <div layout="row" flex>
               <md-input-container>
                 <label>Hop Timing:</label>
-                <input type="text" placeholder="Min. from start of boil" ng-model="rc.hopTime" />
+                <input type="text" placeholder="Min. from end of boil" ng-model="rc.hopTime" />
               </md-input-container>
 
               <md-button class="md-primary" ng-click="rc.addHop(rc.hopType, rc.hopAmt, rc.hopTime)">Add Hops</md-button>

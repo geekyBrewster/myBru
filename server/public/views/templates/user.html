@@ -1,5 +1,6 @@
 <div ng-include="'views/partials/nav.html'"></div>
-<div class="container" layout="row" flex>
+<div class="container" ng-init="uc.displayBrewStatus()" layout="row" flex>
+  {{uc.batchesInProgress}}
   <div id="recipe_ls" layout="column" flex="60">
     <div layout="row">
       <div layout="column" flex>
@@ -56,24 +57,16 @@
               <th>Drink?</th>
             </thead>
             <!--** NEED FUNCTION - LOAD USER'S BATCHES IN DATABASE & DISPLAY BATCH STAGE **-->
+            <!--** LOAD RECIPES IN DB ONTO DOM **-->
             <tbody>
-              <tr>
-                <td><i class="fa fa-beer" aria-hidden="true"></i></td>
-                <td>Irish Cream Stout</td>
-                <td>Primary Fermentation</td>
-                <td><md-button><i class="fa fa-eye fa-2x"></i></md-button></td>
-                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash"></i></md-button></td>
-                <td><md-button class="md-primary" ng-disabled="false">Bottle!</md-button></td>
-                <td><md-button class="md-primary" ng-disabled="false" ng-click="uc.drinkBatch(uc.recipeName)">Drink!</md-button></td>
-              </tr>
-              <tr>
+              <tr ng-repeat="recipe in uc.allRecipes.data">
                 <td><i class="fa fa-beer"></i></td>
-                <td>Wild Rice Pale Ale</td>
-                <td>Bottle Conditioning</td>
-                <td><md-button><i class="fa fa-eye fa-2x"></i></md-button></td>
-                <td><md-button class="md-warn"><i class="fa fa-2x fa-trash"></i></md-button></td>
-                <td><md-button class="md-primary" ng-disabled="true">Bottle!</md-button></td>
-                <td><md-button class="md-primary" ng-disabled="false" ng-click="uc.drinkBatch(uc.recipeName)">Drink!</md-button></td>
+                <td>{{recipe.recipeName}}</td>
+                <td>{{recipe.batchStatus}}</td>
+                <td><md-button><i class="fa fa-2x fa-eye"></i></md-button></td>
+                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
+                <td><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>
+                <td><md-button class="md-primary" ng-click="uc.drinkBatch(recipe._id)">Prost!</md-button></td>
               </tr>
             </tbody>
           </table>

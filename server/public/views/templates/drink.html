@@ -1,6 +1,6 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div class="container" layout="row">
+<div class="container" layout="row" ng-init="dc.recipeService.loadRecipe()">
   <section class="leftSide" layout="column" flex="40">
     <div layout="row" flex="none">
       <h2>Drink Br&uuml;</h2>
@@ -12,35 +12,35 @@
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
               <h3>Recipe Name:</h3>
-              <p>Chocolate Oatmeal Stout</p>
+              <p>{{dc.recipe.data.recipeName}}</p>
             </div>
           </md-list-item>
 
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
               <h3>Beer Style:</h3>
-              <p>Stout, Oatmeal</p>
+              <p>{{dc.recipe.data.beerStyle}}</p>
             </div>
           </md-list-item>
 
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
               <h3>Recipe Type:</h3>
-              <p>All-grain</p>
+              <p>{{dc.recipe.data.recipeType}}</p>
             </div>
           </md-list-item>
 
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
-              <h3>Primary Fermentation:</h3>
-              <p>2 weeks</p>
+              <h3>Original Gravity:</h3>
+              <p>{{dc.recipe.data.originalGravity}}</p>
             </div>
           </md-list-item>
 
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
-              <h3>Secondary Fermentation:</h3>
-              <p>18 days</p>
+              <h3>Final Gravity:</h3>
+              <p>{{dc.recipe.data.finalGravity}}</p>
             </div>
           </md-list-item>
 
@@ -54,7 +54,7 @@
       </div>
       <div layout="column" flex>
         <h3>Recipe Description: </h3>
-        <textarea ng-model="rc.description" rows="15" cols="15"></textarea>
+        <p id="recipeDescriptionEval"> {{dc.recipe.data.recipeDescription}}</p>
       </div>
     </div>
 

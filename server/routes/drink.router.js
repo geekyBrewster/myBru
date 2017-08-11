@@ -13,7 +13,8 @@ router.put('/:id', function(req, res){
 
   //create new Final Product using data from client and batchSchema
   console.log('data from client PUT: ', req.body);
-  var addFinalProduct = new FinalBrew(req.body.finalBrew);
+  var addFinalProduct = new FinalProduct(req.body.finalBrew);
+  var updateStatus = req.body.batchStatus;
   var recipeID = req.params.id;
 
   //add batch data to the recipe object already in DB
@@ -23,8 +24,8 @@ router.put('/:id', function(req, res){
     {_id: recipeID},
     {$set:
       {
-        //batchStatus: 'Batch evaluated',
-        finalBrew: addFinalBrew
+        batchStatus: updateStatus,
+        finalBrew: addFinalProduct
       }
     },
     function(err, data){

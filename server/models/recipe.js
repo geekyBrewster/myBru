@@ -37,13 +37,9 @@ var OffFlavorSchema = new Schema ({
 });
 
 var FinalProductSchema = new Schema ({
-  //FROM FERMENTATION NOTES
-    primaryFermentLength: Number,
-    secondFermentLength: Number,
   //FROM BOTTLE.HTML
-    bottleDate: {type: Date, default: Date.now},
+    //bottleDate: {type: Date, default: Date.now},
   //FROM DRINK.HTML
-    fromBatchID: Number,
     drinkDate: {type: Date, default: Date.now, required: true},
     batchRank: Number,
     worthRepeating: String,
@@ -54,7 +50,7 @@ var FinalProductSchema = new Schema ({
     mouthfeel: String,
     batchImpressions: String,
     batchNote: String,
-    batchImage: String,
+    //batchImage: String,
     offFlavors: [OffFlavorSchema],
     suspectedCauses: String
 });

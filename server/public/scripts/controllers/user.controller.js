@@ -6,7 +6,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
   var selectedID;
-  var batchesInProgress = [];
+  vm.batchesInProgress = [];
 
   //Prep New Recipe -- On click
   vm.newRecipe = function(){
@@ -16,7 +16,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
   //GET data using recipe.service to display on DOM
   vm.recipeService.getAllRecipes();
-  console.log(vm.allRecipes);
+  console.log("Retrieving recipes: ", vm.allRecipes);
 
   //Brew existing recipe -- On click
   vm.brewBatch = function(id){
@@ -33,23 +33,25 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
     //Switch to brew.html
       $location.path('/drink');
   };
-
-  //Display recipes in progress
-  function displayBrewStatus(){
+/*
+  //Display recipes in progress -- HOW DO I DO THE COMPARISON LOGIC HERE
+  --**-- I'M ALSO GETTING AN EMPTY SEARCH ARRAY --**--
+  
+  vm.displayBrewStatus = function(){
     console.log('Time to sort recipes!!');
-    //Retrieve all recipes in DB
-    vm.recipeService.getAllRecipes();
-    console.log('REcipes to sort thru: ', vm.allRecipes);
+    var arrayToSort = vm.allRecipes.data;
+    console.log('REcipes to sort thru: ', arrayToSort);
     //Step through each object
-    for(var i = 0; i < vm.allRecipes.length; i++){
-      var batchStatus = vm.allRecipes[i].batchStatus;
+    for(var i = 0; i < arrayToSort.length; i++){
+      var batchStatus = arrayToSort[i].batchStatus;
+      console.log('Batch status = ', batchStatus);
       if(batchStatus !== 'Ready to Brew'){
-        batchesInProgress.push(vm.allRecipes[i]);
+        vm.batchesInProgress.push(arrayToSort[i]);
       }
     }
-  }
-  displayBrewStatus();
-
+    console.log('Non-recipe recipes: ', vm.batchesInProgress);
+  };
+*/
   //Delete Recipe -- on click
   vm.deleteSelectedRecipe = function(name, id, ev){
     //Confirm user wants to delete that recipe

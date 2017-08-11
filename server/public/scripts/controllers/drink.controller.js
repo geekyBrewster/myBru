@@ -1,4 +1,4 @@
-myApp.controller('DrinkController', function(UserService, RecipeService, $scope, $mdDialog) {
+myApp.controller('DrinkController', function($http, $location, UserService, RecipeService, $scope, $mdDialog) {
   console.log('DrinkController created');
   var vm = this;
   vm.userService = UserService;
@@ -8,7 +8,6 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
   vm.recipe = RecipeService.selectedRecipe;
 
   //DATA OBJECTS
-  vm.recipe = {};
   vm.finalProduct = {};
   vm.view = "views/partials/defaultImage.html";
 
@@ -82,8 +81,6 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
 
     //BUILD DATA OBJECT TO SEND TO SERVER
       vm.finalProduct = {
-        // fromBatchID: vm.batch.batchID,
-        fromBatchID: 1,
         drinkDate: date,
         batchRank: rank,
         worthRepeating: worthRepeating,
@@ -100,9 +97,10 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
       console.log('Drink data obj: ', vm.finalProduct);
 
       var dataToUpdate = {
+        batchStatus: 'Batch Evaluated',
         finalBrew: vm.finalProduct
       };
-      console.log("Final Bre data: ", dataToUpdate);
+      console.log("Final Brew data: ", dataToUpdate);
       //PUT TO /drink to update drink[] to recipe{}
 
 
@@ -119,21 +117,8 @@ myApp.controller('DrinkController', function(UserService, RecipeService, $scope,
       console.log('After updating: ', vm.allRecipes);
 
       //Return to main menu
-      // $location.path('/user');
-
-
-
-
+      $location.path('/user');
     };
-
-
-
-
-
-
-
-
-
 
     //GET RECIPE DATA FROM SERVER
     // GET REQUEST FOR ALL RECIPES
