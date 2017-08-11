@@ -6,12 +6,17 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
   var selectedID;
+  var batchesInProgress = [];
 
   //Prep New Recipe -- On click
   vm.newRecipe = function(){
     //Switch to recipe.html using $location.path(/recipe)
     $location.path('/recipe');
   };
+
+  //GET data using recipe.service to display on DOM
+  vm.recipeService.getAllRecipes();
+  console.log(vm.allRecipes);
 
   //Brew existing recipe -- On click
   vm.brewBatch = function(id){
@@ -21,17 +26,29 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
       $location.path('/brew');
   };
 
-  //GET data using recipe.service to display on DOM
-  vm.recipeService.getAllRecipes();
-  console.log(vm.allRecipes);
+  //Brew existing recipe -- On click
+  vm.drinkBatch = function(id){
+    //retreive selected recipe
+    vm.recipeService.getRecipeById(id);
+    //Switch to brew.html
+      $location.path('/drink');
+  };
 
-
-//** STRETCH GOALS **//
-  //Edit Recipe -- on click
-    //Switch to recipeEdit.html -- Make this a simpler layout that displays recipe details
-    //Get recipe data and repopulate the inputs
-    //Make inputs editable
-    //Allow user to save -- UPDATE route for /recipe
+  //Display recipes in progress
+  function displayBrewStatus(){
+    console.log('Time to sort recipes!!');
+    //Retrieve all recipes in DB
+    vm.recipeService.getAllRecipes();
+    console.log('REcipes to sort thru: ', vm.allRecipes);
+    //Step through each object
+    for(var i = 0; i < vm.allRecipes.length; i++){
+      var batchStatus = vm.allRecipes[i].batchStatus;
+      if(batchStatus !== 'Ready to Brew'){
+        batchesInProgress.push(vm.allRecipes[i]);
+      }
+    }
+  }
+  displayBrewStatus();
 
   //Delete Recipe -- on click
   vm.deleteSelectedRecipe = function(name, id, ev){
@@ -50,17 +67,19 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
     console.log(vm.allRecipes);
   };
 
+
+
+
+//** STRETCH GOALS **//
+  //Edit Recipe -- on click
+    //Switch to recipeEdit.html -- Make this a simpler layout that displays recipe details
+    //Get recipe data and repopulate the inputs
+    //Make inputs editable
+    //Allow user to save -- UPDATE route for /recipe
+
   //Bottle batch -- On click
     //Switch to bottle.html
     //batchStatus = "Bottling Batch"
-
-  //Drink batch -- On click
-    vm.drinkBatch = function(recipeName){
-      //Switch to drink.html
-      $location.path('/drink');
-        //batchStatus = "Drinking Batch"
-    };
-
 
 
 }); //end of controller

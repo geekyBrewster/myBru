@@ -14,6 +14,7 @@ router.put('/:id', function(req, res){
   console.log('data from client PUT: ', req.body);
   var addBatch = new Batch(req.body.batch);
   var newBatchCount = req.body.batchesBrewed;
+  var updateBatchStatus = req.body.batchStatus;
   var recipeID = req.params.id;
 
   //add batch data to the recipe object already in DB
@@ -25,6 +26,7 @@ router.put('/:id', function(req, res){
     {$set:
       {
         batchesBrewed: newBatchCount,
+        batchStatus: updateBatchStatus,
         batches: addBatch
       }
     },

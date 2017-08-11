@@ -64,7 +64,6 @@ var BatchSchema = new Schema ({
   //BATCH TRACKING INFO
   //BatchID will be tied to Recipe.batchesBrewed
   batchID: Number,
-  batchStatus:{type: String, default: 'Ready to Brew', required: true},
   //FROM BREW.HTML
     brewDate: {type: Date, default: Date.now, required: true},
     brewNotes: String,
@@ -87,6 +86,7 @@ var RecipeSchema = new Schema({
     recipeNotes: String,
     recipeSrc: String,
     batchesBrewed: {type: Number, default: 0, required: true},
+    batchStatus: {type: String, default: 'Ready to Brew', required: true},
 
   //FROM RECIPE.HTML -- ARRAY OF OBJECTS
     hops: [HopSchema],

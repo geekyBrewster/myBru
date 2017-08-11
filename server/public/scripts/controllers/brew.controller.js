@@ -28,13 +28,13 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
     // BUILD DATA OBJECT TO SEND TO SERVER
     vm.batch = {
       batchID: batchesBrewed,
-      batchStatus: "Batch brewed",
       brewDate: date,
       brewNotes: brewNotes,
       mashNotes: mashNotes
     };
     var dataToUpdate = {
       batchesBrewed: batchesBrewed,
+      batchStatus: 'Batch brewed',
       batch: vm.batch
     };
     console.log("Batch data: ", dataToUpdate);
@@ -52,15 +52,13 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
     console.log('After updating: ', vm.allRecipes);
 
     //Return to main menu
-    //$location.path('/user');
-
+    $location.path('/user');
 
   }; //end of save brew notes
 
   //GET data using recipe.service
   vm.recipeService.getAllRecipes();
   console.log(vm.allRecipes);
-
 
 
 }); //end of controller
