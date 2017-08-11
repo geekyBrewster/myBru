@@ -7,6 +7,7 @@ myApp.factory('RecipeService', function($http, $location){
 
   return {
     allRecipes: allRecipes,
+    selectedRecipe: selectedRecipe,
 
     //OPEN MENU FUNCTIONALITY NEEDED FOR NAV BAR
     openMenu : function($mdMenu, ev) {
@@ -33,14 +34,9 @@ myApp.factory('RecipeService', function($http, $location){
       });
     },
 
-    //LOAD SELECTED RECIPE AND MOVE TO BREW.html
-    loadSingleRecipe : function(id){
-      //Grab recipe's ID
-      console.log('recipe id: ', id);
-
-
-      //Confirm batchID = 1 if no other IDs exist; otherwise increment ID by 1
-      //batchStatus = "Brewing Batch"
+    //LOAD SINGLE RECIPE FOR USE ON PAGE
+    loadRecipe : function(){
+      console.log("Loading data from: ", selectedRecipe);
     }
 
 

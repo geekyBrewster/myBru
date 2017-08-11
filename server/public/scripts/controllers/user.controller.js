@@ -18,10 +18,8 @@ myApp.controller('UserController', function($http, $location, UserService, Recip
     //retreive selected recipe
     vm.recipeService.getRecipeById(id);
     //Switch to brew.html
-      // $location.path('/brew');
-
+      $location.path('/brew');
   };
-
 
   //GET data using recipe.service to display on DOM
   vm.recipeService.getAllRecipes();

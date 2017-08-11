@@ -81,7 +81,7 @@ var RecipeSchema = new Schema({
     procedure: String,
     batchSize: {type: Number, default: 5},
     boilLength: Number,
-    mashLength: Number,
+    mashLength: String,
     originalGravity: Number,
     finalGravity: Number,
     recipeNotes: String,
@@ -100,17 +100,6 @@ var RecipeSchema = new Schema({
   //TRACK INDIVIDUAL FINAL PRODUCTS FOR EACH BATCH -- Initialize and update on "Save Final Product Notes"
   finalBrew: [FinalProductSchema]
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 

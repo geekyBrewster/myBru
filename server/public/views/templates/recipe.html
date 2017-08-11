@@ -43,8 +43,8 @@
           </md-input-container>
 
           <md-input-container>
-            <label>Mash Length:</label>
-            <input type="text" placeholder="Enter length in minutes" ng-model="rc.mashLength" />
+            <label>Mash Length and Temperature:</label>
+            <input type="text" placeholder="Enter length and temp" ng-model="rc.mashLength" />
           </md-input-container>
 
           <md-input-container>
@@ -61,7 +61,7 @@
         <div class="descriptionBlock" layout="column" flex>
           <md-input-container class="md-block">
             <label>Recipe Description</label>
-            <textarea ng-model="rc.recipeDescription" md-maxlength="250" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="rc.recipeDescription" md-maxlength="350" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>
@@ -71,14 +71,14 @@
         <div class="recipeText" layout="column" flex="50">
           <md-input-container class="md-block">
             <label>Procedure</label>
-            <textarea ng-model="rc.procedure" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="rc.procedure" md-maxlength="900" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
 
         <div class="recipeText" layout="column" flex>
           <md-input-container class="md-block">
             <label>Additional Notes</label>
-            <textarea ng-model="rc.recipeNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+            <textarea ng-model="rc.recipeNotes" md-maxlength="350" rows="5" md-select-on-focus></textarea>
           </md-input-container>
         </div>
       </div>

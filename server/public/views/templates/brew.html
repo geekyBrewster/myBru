@@ -1,6 +1,6 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div class="container">
+<div class="container" ng-init="bc.recipeService.loadRecipe()">
   <div class="upperHalf" layout="row">
 
   <!-- LEFT SIDE: RECIPE SUMMARY -->
@@ -12,13 +12,13 @@
               <md-list-item class="md-2-line">
                 <div class="md-list-item-text">
                   <h3>Recipe Name:</h3>
-                  <p>Chocolate Oatmeal Stout</p>
+                  <p>{{bc.recipe.data.recipeName}}</p>
                 </div>
               </md-list-item>
               <md-list-item class="md-2-line">
                 <div class="md-list-item-text">
                   <h3>Beer Style:</h3>
-                  <p>Stout, Oatmeal</p>
+                  <p>{{bc.recipe.data.beerStyle}}</p>
                 </div>
               </md-list-item>
             </div>
@@ -27,19 +27,19 @@
               <md-list-item class="md-2-line">
                 <div class="md-list-item-text">
                   <h3>Recipe Type:</h3>
-                  <p>All-grain</p>
+                  <p>{{bc.recipe.data.recipeType}}</p>
                 </div>
               </md-list-item>
               <md-list-item class="md-2-line">
                 <div class="md-list-item-text">
-                  <h3>Primary Fermentation:</h3>
-                  <p>2 weeks</p>
+                  <h3>Boil Length:</h3>
+                  <p>{{bc.recipe.data.boilLength}}</p>
                 </div>
               </md-list-item>
               <md-list-item class="md-2-line">
                 <div class="md-list-item-text">
-                  <h3>Secondary Fermentation:</h3>
-                  <p>18 days</p>
+                  <h3>Mash Length and Temperature:</h3>
+                  <p>{{bc.recipe.data.mashLength}}</p>
                 </div>
               </md-list-item>
             </div>
@@ -47,8 +47,10 @@
 
       </div>
       <div layout="row" flex="none">
-        <h3>Procedure: </h3>
-        <textarea class="procedureText" rows="10" cols="50"></textarea>
+        <div id="procedureText">
+          <h3>Procedure: </h3>
+          <p>{{bc.recipe.data.procedure}}</p>
+        </div>
       </div>
     </div>
 
@@ -72,32 +74,42 @@
       </div>
       <fieldset>
       <div layout="row">
-        <table>
+        <table id="ingredientTable">
           <tr>
             <th>Ingredient</th>
             <th>Amount</th>
             <th>Timing</th>
+            <th>Notes</th>
             <th>Added?</th>
           </tr>
-          <tr>
-            <td>Pale Malt</td>
-            <td>10 lbs</td>
+          <tr ng-repeat="malt in bc.recipe.data.malts">
+            <td>{{malt.maltName}}</td>
+            <td>{{malt.maltAmt}} lbs.</td>
+            <td></td>
             <td></td>
             <td><md-checkbox>Added</md-checkbox></td>
           </tr>
-          <tr>
-            <td>Hallertau hops</td>
-            <td>1 oz</td>
-            <td>0 min</td>
+          <tr ng-repeat="hop in bc.recipe.data.hops">
+            <td>{{hop.hopType}}</td>
+            <td>{{hop.hopAmt}} oz.</td>
+            <td>at {{hop.hopTime}} min.</td>
+            <td></td>
             <td><md-checkbox>Added</md-checkbox></td>
           </tr>
-          <tr>
-            <td>Centennial hops</td>
-            <td>1 oz</td>
-            <td>50 min</td>
+          <tr ng-repeat="yeast in bc.recipe.data.yeasts">
+            <td>Yeast: {{yeast.yeastSupplier}}</td>
+            <td>{{yeast.yeastType}}</td>
+            <td></td>
+            <td>Rehydrate: {{yeast.rehydrate}}</td>
             <td><md-checkbox>Added</md-checkbox></td>
           </tr>
-
+          <tr ng-repeat="ingredient in bc.recipe.data.otherIngredients">
+            <td>{{ingredient.ingredientType}}</td>
+            <td>{{ingredient.ingredientAmt}}</td>
+            <td></td>
+            <td>{{ingredient.ingredientNotes}}</td>
+            <td><md-checkbox>Added</md-checkbox></td>
+          </tr>
         </table>
       </div>
     </div>
@@ -108,10 +120,10 @@
   <!-- BOTTOM ROW: RECIPE & BREWING NOTES -->
   <div class="bottomRow" layout="row">
     <div layout="column" flex="33">
-      <md-input-container class="md-block">
-        <label>Recipe Notes</label>
-        <textarea ng-model="rc.recipeNotes" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-      </md-input-container>
+        <div id="recipeNotesText">
+          <h3>Recipe Notes: </h3>
+          <p>{{bc.recipe.data.recipeNotes}}</p>
+        </div>
     </div>
     <div layout="column" flex="33">
       <md-input-container class="md-block">
