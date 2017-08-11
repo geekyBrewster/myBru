@@ -37,9 +37,16 @@ myApp.factory('RecipeService', function($http, $location){
     //LOAD SINGLE RECIPE FOR USE ON PAGE
     loadRecipe : function(){
       console.log("Loading data from: ", selectedRecipe);
+    },
+
+    //DELETE RECIPE
+    deleteRecipe : function(id){
+      console.log('I will delete: ', id);
+      //Create DELETE route to use recipe _id to delete that recipe
+      $http.delete('/recipe/' + id).then(function(response){
+        console.log('Recipe deleted');
+      });
     }
-
-
 
 
 

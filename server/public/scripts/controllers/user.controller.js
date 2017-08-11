@@ -1,4 +1,4 @@
-myApp.controller('UserController', function($http, $location, UserService, RecipeService) {
+myApp.controller('UserController', function($http, $location, $scope, $mdDialog, UserService, RecipeService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
@@ -34,8 +34,21 @@ myApp.controller('UserController', function($http, $location, UserService, Recip
     //Allow user to save -- UPDATE route for /recipe
 
   //Delete Recipe -- on click
+  vm.deleteSelectedRecipe = function(id, ev){
     //Confirm user wants to delete that recipe
-    //Create DELETE route to use recipe _id to delete that recipe
+    var confirm = $mdDialog.confirm()
+      .title('Are you sure you\'d like to delete: ' + id + ' ?')
+      .ok('You betcha')
+      .cancel('Not right now');
+
+    //Delete the recipe from DB
+    $mdDialog.show(confirm).then(vm.recipeService.deleteRecipe(id));
+    console.log('Deleted id: ', id);
+    
+    //Update DOM
+    vm.recipeService.getAllRecipes();
+    console.log(vm.allRecipes);
+  };
 
   //Bottle batch -- On click
     //Switch to bottle.html

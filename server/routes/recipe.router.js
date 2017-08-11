@@ -47,7 +47,7 @@ router.get('/all', function(req, res) {
 //GET - SEND SELECTED RECIPE TO CLIENT
 router.get('/one/:id', function(req, res) {
   console.log('in recipe GET to find single recipe');
-  // find (select) all documents in our collection
+  // find (select) recipe in the collection
   var recipeId = req.params.id;
   console.log('ID to search with: ', recipeId);
   Recipe.findOne({_id: recipeId}, function(err, data){
@@ -62,7 +62,19 @@ router.get('/one/:id', function(req, res) {
 });
 
 //DELETE -- DELETE EXISTING RECIPE
-
+router.delete('/:id', function(req, res) {
+  console.log('in recipe DELETE to delete id: ', req.params.id);
+  // delete selected recipe in our collection
+  Recipe.findByIdAndRemove(req.params.id, function(err, data){
+    if(err){
+      console.log('Deletion error: ', err);
+      res.sendStatus(500);
+    } else {
+      res.send(data);
+      console.log('success in deleting recipe');
+    }
+  });
+});
 
 
 
