@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var passport = require('passport');
-var Recipe = require('../models/recipe.js');
+var Models = require('../models/recipe.js');
+var Recipe = Models.Recipe;
 
 //POST -- RECEIVE RECIPE OBJECT AND ADD TO DB
 router.post('/', function(req, res){
@@ -23,8 +24,6 @@ router.post('/', function(req, res){
       res.sendStatus(201);
     }
   });
-
-  //GET recipes
 
 }); //end of POST
 

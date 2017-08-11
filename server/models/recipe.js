@@ -101,8 +101,11 @@ var RecipeSchema = new Schema({
   finalBrew: [FinalProductSchema]
 });
 
+var models = {
+  Recipe: mongoose.model('Recipe', RecipeSchema),
+  Batch: mongoose.model('Batch', BatchSchema),
+  FinalBrew: mongoose.model('FinalBrew', FinalProductSchema)
+};
 
-
-
-module.exports = mongoose.model('Recipe', RecipeSchema);
+module.exports = models;
 // Will need to require this in the routes: recipe.router.js, brew.router.js, drink.router.js
