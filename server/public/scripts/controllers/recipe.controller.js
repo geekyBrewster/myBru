@@ -88,8 +88,8 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
   };
 
 //SAVE RECIPE - ON CLICK
-  vm.saveRecipe = function(name, style, recipeType, batchSize, boilLength, mashLength,
-    originalGravity, finalGravity, description, procedure, notes, recipeSrc){
+  vm.saveRecipe = function(name, style, recipeType, procedure, batchSize,
+    boilLength, mashLength, originalGravity, finalGravity, description, notes, recipeSrc){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
     vm.recipe = {
       username: vm.userObject.userName,

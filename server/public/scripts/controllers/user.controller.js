@@ -34,17 +34,17 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
     //Allow user to save -- UPDATE route for /recipe
 
   //Delete Recipe -- on click
-  vm.deleteSelectedRecipe = function(id, ev){
+  vm.deleteSelectedRecipe = function(name, id, ev){
     //Confirm user wants to delete that recipe
     var confirm = $mdDialog.confirm()
-      .title('Are you sure you\'d like to delete: ' + id + ' ?')
+      .title('Are you sure you\'d like to delete: ' + name + ' ?')
       .ok('You betcha')
       .cancel('Not right now');
 
     //Delete the recipe from DB
     $mdDialog.show(confirm).then(vm.recipeService.deleteRecipe(id));
     console.log('Deleted id: ', id);
-    
+
     //Update DOM
     vm.recipeService.getAllRecipes();
     console.log(vm.allRecipes);
