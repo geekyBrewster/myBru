@@ -28,8 +28,8 @@ router.post('/', function(req, res){
 
 }); //end of POST
 
-//GET -- SEND RECIPE OBJECT TO CLIENT
-router.get('/', function(req, res) {
+//GET -- SEND ALL RECIPES TO CLIENT
+router.get('/all', function(req, res) {
   console.log('in recipe GET');
   // find (select) all documents in our collection
   Recipe.find({}, function(err, data) {
@@ -44,6 +44,22 @@ router.get('/', function(req, res) {
   });
 });
 
+//GET - SEND SELECTED RECIPE TO CLIENT
+router.get('/one/:id', function(req, res) {
+  console.log('in recipe GET to find single recipe');
+  // find (select) all documents in our collection
+  var recipeId = req.params.id;
+  console.log('ID to search with: ', recipeId);
+  Recipe.findOne({_id: recipeId}, function(err, data){
+    if(err){
+      console.log('Search error: ', err);
+      res.sendStatus(500);
+    } else {
+      res.send(data);
+      console.log('success in finding one recipe');
+    }
+  });
+});
 
 //DELETE -- DELETE EXISTING RECIPE
 

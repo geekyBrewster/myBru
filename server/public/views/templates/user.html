@@ -31,7 +31,7 @@
                 <td>{{recipe.beerStyle}}</td>
                 <td><md-button><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
                 <td><md-button class="md-warn"><i class="fa fa-2x fa-trash"></i></md-button></td>
-                <td><md-button class="md-primary" ng-click="uc.brewBatch(uc.recipeName)">Brew!</md-button></td>
+                <td><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>
               </tr>
             </tbody>
           </table>
@@ -88,7 +88,7 @@
       <img ng-src="../../assets/img/calendar.png" width="200px" height="200px" alt="calendar icon">
     </div>
     <div layout="row" layout-align="center center">
-      <p><i class="fa fa-cog fa-2x" aria-hidden="true"></i> User Settings</p>
+      <p><i class="fa fa-cog fa-2x"></i> User Settings</p>
     </div>
     <div layout="row" layout-align="center center">
       <img ng-src="../../assets/img/drinkingGuy.jpg" alt="Drinking guy icon" width="200" height="200">

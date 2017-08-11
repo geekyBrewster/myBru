@@ -5,6 +5,7 @@ myApp.controller('UserController', function($http, $location, UserService, Recip
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
+  var selectedID;
 
   //Prep New Recipe -- On click
   vm.newRecipe = function(){
@@ -13,12 +14,14 @@ myApp.controller('UserController', function($http, $location, UserService, Recip
   };
 
   //Brew existing recipe -- On click
-  vm.brewBatch = function(recipeName){
+  vm.brewBatch = function(id){
+    //retreive selected recipe
+    vm.recipeService.getRecipeById(id);
     //Switch to brew.html
-    $location.path('/brew');
-    //Confirm batchID = 1 if no other IDs exist; otherwise increment ID by 1
-    //batchStatus = "Brewing Batch"
+      // $location.path('/brew');
+
   };
+
 
   //GET data using recipe.service to display on DOM
   vm.recipeService.getAllRecipes();

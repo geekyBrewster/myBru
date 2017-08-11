@@ -1,4 +1,4 @@
-myApp.controller('RecipeController', function(UserService, RecipeService, $http) {
+myApp.controller('RecipeController', function(UserService, RecipeService, $http, $location) {
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
@@ -120,6 +120,12 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http)
         console.log('The server sent something back: ', response);
       }
     });
+    //GET data using recipe.service
+    vm.recipeService.getAllRecipes();
+    console.log(vm.allRecipes);
+
+    //Return to main menu
+    $location.path('/user');
   }; //end of saveRecipe
 
   //GET data using recipe.service
