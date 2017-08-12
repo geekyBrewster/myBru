@@ -47,6 +47,10 @@ div {
   width: 23%;
   text-align: left;
 }
+#maltTable th, #maltTable tr {
+  width: 23%;
+  text-align: left;
+}
 
 
 /* STYLING FROM BASE FILE */
