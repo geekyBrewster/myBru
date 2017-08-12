@@ -45,7 +45,7 @@ var otherIngredientsDB = [
 
 ingredients.maltTypes = maltTypes;
 ingredients.maltNames = maltsDB;
-ingredients.hopNames = hopsDB;
+ingredients.hopTypes = hopsDB;
 ingredients.hopUse = hopUse;
 ingredients.hopForm = hopForm;
 ingredients.yeastTypes = yeastTypes;

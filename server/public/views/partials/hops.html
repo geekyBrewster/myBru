@@ -1,3 +1,94 @@
-<h2 class="md-display-2">Add Hops</h2>
+<div id="hopBlock" layout="row" flex>
 
-<p>hop details go here</p>
+  <!--IMAGE -*- LEFTMOST COLUMN -->
+  <div layout="column" layout-align="start center" flex="20">
+    <img id="hopIcon" ng-src="../../assets/img/hopIcon.jpg" alt="Hop icon">
+  </div>
+
+  <!-- HOP INPUTS -*- MIDDLE COLUMN -->
+  <div layout="column" flex="40">
+    <md-content>
+      <div layout="row" flex>
+
+        <!-- Hop type pulldown menu -->
+        <md-input-container class="md-block">
+          <label>Hop Use</label>
+          <md-select ng-model="rc.hopUse">
+              <md-option ng-repeat="hopUse in rc.ingredients.hopUse" value="{{hopUse}}">{{hopUse}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Hop Type</label>
+          <md-select ng-model="rc.hopType">
+              <md-option ng-repeat="hopType in rc.ingredients.hopTypes" value="{{hopType}}">{{hopType}}</md-option>
+          </md-select>
+        </md-input-container>
+
+      <!-- PULLDOWN MENU TO BE REPLACED W/ AUTOCOMPLETE SEARCH BAR ONCE API ADDED-->
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Hop Name:</label>
+          <input type="text" ng-model="rc.hopName" />
+        </md-input-container>
+      </div>
+
+      <div layout="row" flex>
+        <div layout="column" flex="75">
+          <md-input-container class="md-block">
+            <label>Hop Form</label>
+            <md-select ng-model="rc.hopForm">
+                <md-option ng-repeat="hopForm in rc.ingredients.hopForm" value="{{hopForm}}">{{hopForm}}</md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Hop Amount:</label>
+            <input type="text" placeholder="Enter weight in ounces" ng-model="rc.hopAmt" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Hop Timing - Brewing:</label>
+            <input type="text" placeholder="Min. from end of boil" ng-model="rc.hopTimeBrew" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Hop Timing - Dry Hop:</label>
+            <input type="text" placeholder="Days into ferment." ng-model="rc.hopTimeDry" />
+          </md-input-container>
+        </div>
+
+        <div layout="column" layout-align="end end" flex>
+          <md-button class="md-fab md-primary" ng-click="rc.addHop(rc.hopType, rc.Form, rc.hopUse, rc.hopAmt, rc.hopTimeBrew, rc.hopTimeDry)">Add</md-button>
+        </div>
+
+      </div>
+    </md-content>
+  </div>
+
+  <!--MALTS - LIST OF ADDITIONS -->
+  <div layout="column" flex="40">
+    <table id="maltTable">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount (lbs.)</th>
+          <th>Amount (oz.)</th>
+          <th>Name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tr ng-repeat="malt in rc.malts">
+        <td>{{malt.maltType}}</td>
+        <td>{{malt.maltAmtLbs}} lbs.</td>
+        <td>{{malt.maltAmtOz}} oz.</td>
+        <td>{{malt.maltName}}</td>
+        <td><md-button ng-disabled="true">Edit</md-button></td>
+        <td><md-button ng-disabled="true">Delete</md-button></td>
+      </tr>
+    </table>
+  </div>
+
+
+</div> <!-- END OF HOP BLOCK -->
