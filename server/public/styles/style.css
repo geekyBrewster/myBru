@@ -6,7 +6,7 @@ body, html {
 }
 
 div {
-  /*border: 1px solid blue;*/
+  border: 1px solid blue;
 }
 .colorLogo {
   width: 100px;

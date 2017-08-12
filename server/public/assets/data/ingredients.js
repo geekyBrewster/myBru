@@ -1,5 +1,15 @@
 var ingredients = {};
 
+var recipeTypes = ['All-grain', 'Partial-grain', 'Extract', 'Brew in a Bag', 'Other'];
+
+var beerStyles = ['Altbier', 'Amber / Red Ale', 'American Lager', 'American Pale Ale', 'American Pale Lager', 'Barleywine', 'Belgian / French Ale', 'Bière de Garde', 'Black Ale', 'Blonde Ale', 'Bock', 'Brown Ale',
+'California Common / Steam Beer', 'Cream Ale', 'Czech Lager', 'Czech Pilsner', 'Doppelbock', 'Double IPA', 'Dubbel', 'Dunkelweizen', 'English Ale', 'English Pale Ale', 'Extra Special Bitter (ESB)',
+'Fruit / Vegetable Beer', 'German Ale', 'German Lager', 'German Pilsner', 'Gose', 'Hefeweizen', 'Herbed / Spiced Beer', 'Irish Ale', 'Kölsch', 'Lambic / Fruit Beer', 'Light Lager',
+'Maibock', 'Milk / Sweet Stout','Oatmeal Stout', 'Oktoberfest / Märzen', 'Old Ale', 'Pale Wheat Ale', 'Porter, American', 'Porter, English',
+'Pumpkin Ale', 'Rauchbier / Smoked Beer', 'Russian Imperial Stout', 'Russian Ale', 'Rye Ale', 'Saison / Farmhouse Ale', 'Schwarzbier',
+'Scotch Ale / Wee Heavy', 'Scottish Ale','Stout', 'Strong Ale', 'Tripel', 'Vienna Lager', 'Weissbier', 'Wild Ale', 'Witbier'];
+
+
 var maltTypes = ['Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Malt Extract', 'Other malt'];
 
 var maltsDB = [
@@ -13,6 +23,9 @@ var hopsDB = [
 'Golding', 'Kenneth Golding', 'Lambic', 'Magnum', 'Mosaic', 'Mt. Hood', 'Northern Brewer', 'Nugget', 'Perle',
 'Saaz', 'Simcoe', 'Tardif de Bourgogne', 'Willamette', 'Hop Extract'
 ];
+
+var hopUse = ['Boil', 'Whirlpool', 'Dry hop', 'Other'];
+var hopForm = ['Pellet', 'Leaf', 'Extract', 'Other'];
 
 var yeastTypes = ['ale', 'wheat', 'lager'];
 var yeastForm = ['liquid', 'dry', 'both'];
@@ -33,8 +46,13 @@ var otherIngredientsDB = [
 ingredients.maltTypes = maltTypes;
 ingredients.maltNames = maltsDB;
 ingredients.hopNames = hopsDB;
+ingredients.hopUse = hopUse;
+ingredients.hopForm = hopForm;
 ingredients.yeastTypes = yeastTypes;
 ingredients.yeastForms = yeastForm;
 ingredients.yeastSuppliers = yeastSupplier;
 ingredients.yeastsNames = yeastsDB;
 ingredients.otherIngredientNames = otherIngredientsDB;
+
+ingredients.recipeTypes = recipeTypes;
+ingredients.beerStyles = beerStyles;
