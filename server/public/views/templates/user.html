@@ -23,7 +23,7 @@
               <th>Beer Style</th>
               <th>Edit Recipe?</th>
               <th>Delete Recipe?</th>
-              <th>Brew the Recipe?</th>
+              <th>Brew Recipe?</th>
             </thead>
             <!--** LOAD RECIPES IN DB ONTO DOM **-->
             <tbody>
@@ -54,10 +54,10 @@
               <th></th>
               <th>Recipe Name</th>
               <th>Brewing Stage</th>
-              <th>Review Previous Stages?</th>
-              <th>Delete?</th>
-              <th>Bottle?</th>
-              <th>Drink?</th>
+              <th>Review Notes?</th>
+              <th>Delete Notes?</th>
+              <th>Bottle Batch?</th>
+              <th>Drink Batch?</th>
             </thead>
             <!--** NEED FUNCTION - LOAD USER'S BATCHES IN DATABASE & DISPLAY BATCH STAGE **-->
             <!-- LOAD RECIPES IN DB ONTO DOM -->
@@ -85,6 +85,9 @@
     </div>
     <div layout="row" layout-align="center center">
       <md-button ng-disabled="true"><i class="fa fa-cog fa-2x"></i> User Settings</md-button>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button ng-disabled="true"><i class="fa fa-beer fa-2x"></i> Brewing Resources</md-button>
     </div>
     <div layout="row" layout-align="center center">
       <img ng-src="../../assets/img/drinkingGuy.jpg" alt="Drinking guy icon" width="200" height="200">
