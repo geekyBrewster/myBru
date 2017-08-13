@@ -1,4 +1,5 @@
 <div ng-include="'views/partials/nav.html'"></div>
+
 <div class="container" ng-init="uc.displayBrewStatus()" layout="row" flex>
   <div id="recipe_ls" layout="column" flex="60">
     <div layout="row">
@@ -9,10 +10,11 @@
             <h2>Prepared Br&uuml; Recipes</h2>
           </div>
           <div layout="column" flex="40">
-             <!--** NEED BUTTON FUNCTION - CREATE NEW RECIPE **-->
+            <!-- BUTTON TO CREATE NEW RECIPE -->
             <md-button class="md-raised md-primary" ng-click="uc.newRecipe()">Prep New Recipe</md-button>
           </div>
         </div>
+        <!-- LIST RECIPES ALREADY PREPARED. EDIT AND BREW FROM THIS LIST. -->
         <div>
           <table id="preparedRecipes">
             <thead>
@@ -29,7 +31,7 @@
                 <td><i class="fa fa-beer"></i></td>
                 <td>{{recipe.recipeName}}</td>
                 <td>{{recipe.beerStyle}}</td>
-                <td><md-button><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
+                <td><md-button ng-disabled="true"><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
                 <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>
               </tr>
@@ -38,7 +40,9 @@
         </div>
       </div>
     </div>
+
     <!-- LEFT SIDE: BOTTOM STATUS OF BREWS -->
+    <!--** NEED TO SORT THIS LIST TO SHOW BATCHES IN PROGRESS AND NOT INCLUDE RECIPES **-->
     <div layout="row">
       <div layout="column" flex>
         <div>
@@ -56,13 +60,13 @@
               <th>Drink?</th>
             </thead>
             <!--** NEED FUNCTION - LOAD USER'S BATCHES IN DATABASE & DISPLAY BATCH STAGE **-->
-            <!--** LOAD RECIPES IN DB ONTO DOM **-->
+            <!-- LOAD RECIPES IN DB ONTO DOM -->
             <tbody>
               <tr ng-repeat="recipe in uc.allRecipes.data">
                 <td><i class="fa fa-beer"></i></td>
                 <td>{{recipe.recipeName}}</td>
                 <td>{{recipe.batchStatus}}</td>
-                <td><md-button><i class="fa fa-2x fa-eye"></i></md-button></td>
+                <td><md-button ng-disabled="true"><i class="fa fa-2x fa-eye"></i></md-button></td>
                 <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>
                 <td><md-button class="md-primary" ng-click="uc.drinkBatch(recipe._id)">Prost!</md-button></td>
@@ -80,7 +84,7 @@
       <img ng-src="../../assets/img/calendar.png" width="200px" height="200px" alt="calendar icon">
     </div>
     <div layout="row" layout-align="center center">
-      <p><i class="fa fa-cog fa-2x"></i> User Settings</p>
+      <md-button ng-disabled="true"><i class="fa fa-cog fa-2x"></i> User Settings</md-button>
     </div>
     <div layout="row" layout-align="center center">
       <img ng-src="../../assets/img/drinkingGuy.jpg" alt="Drinking guy icon" width="200" height="200">
