@@ -3,16 +3,21 @@ var Schema = mongoose.Schema;
 
 // Mongoose Schema
 var HopSchema = new Schema ({
-  hopType: {type: String, required: true},
+  hopType: String,
+  hopName: String,
   hopAmt: Number,
-  hopTime: Number,
+  hopForm: String,
+  hopUse: String,
+  hopTimeBrew: Number,
+  hopTimeDry: Number,
   hopAdded: {type: Boolean, default: false}
 });
 
 var MaltSchema = new Schema ({
   maltName: {type: String, required: true},
   maltType: {type: String, default: 'base'},
-  maltAmt: Number,
+  maltAmtLbs: Number,
+  maltAmtOz: Number,
   maltAdded: {type: Boolean, default: false}
 });
 
@@ -76,7 +81,8 @@ var RecipeSchema = new Schema({
     procedure: String,
     batchSize: {type: Number, default: 5},
     boilLength: Number,
-    mashLength: String,
+    mashLength: Number,
+    mashTemp: Number,
     originalGravity: Number,
     finalGravity: Number,
     recipeNotes: String,

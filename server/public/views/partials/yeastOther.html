@@ -1,5 +1,120 @@
-<h2 class="md-display-2">Add Yeast and Other Ingredients</h2>
+<div id="yeastBlock" layout="row" flex>
 
-<p>Yeast data goes here</p>
+  <!--IMAGE-->
+  <div layout="column" layout-align="start center" flex="15">
+    <img id="yeastIcon" ng-src="../../assets/img/yeastIcon.jpg" alt="yeastIcon">
+  </div>
 
-<p>Other ingredients added here</p>
+  <!--YEAST INPUTS-->
+  <div layout="column" flex="40">
+    <md-content>
+      <div layout="row" flex>
+
+        <!-- Yeast Supplier dropdown menu & text input for yeast type -->
+        <md-input-container style="margin-right: 10px;">
+          <label>Yeast Supplier</label>
+          <md-select ng-model="rc.yeastSupplier">
+            <md-option ng-repeat="yeastSupplier in rc.ingredients.yeastSuppliers" value="{{yeastSupplier}}">{{yeastSupplier}}</md-option>
+          </md-select>
+        </md-input-container>
+
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Yeast Type:</label>
+          <input type="search" ng-model="rc.yeastType" />
+        </md-input-container>
+      </div>
+      <!-- Yeast rehydrate checkbox and Add Button -->
+      <div layout="row" flex>
+        <div layout="column" layout-align="center start" flex="50">
+          <md-input-container>
+            <label>Rehydrate?</label>
+            <input type="text" placeholder="Yes or No" ng-model="rc.rehydrate" />
+          </md-input-container>
+        </div>
+        <div layout="column" layout-align="center end" flex="50">
+          <md-button class="md-fab md-primary" ng-click="rc.addYeast(rc.yeastSupplier, rc.yeastType, rc.rehydrate)">Add</md-button>
+        </div>
+      </div>
+    </md-content>
+  </div>
+
+  <!--YEAST - LIST OF ADDITIONS -->
+  <div layout="column" flex="45">
+    <table id="yeastTable">
+      <tr>
+        <th>Supplier</th>
+        <th>Type</th>
+        <th>Rehydrate?</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="yeast in rc.yeasts">
+        <td>{{yeast.yeastSupplier}}</td>
+        <td>{{yeast.yeastType}}</td>
+        <td>{{yeast.rehydrate}}</td>
+        <td><md-button ng-disabled="true">Edit</md-button></td>
+        <td><md-button ng-disabled="true">Delete</md-button></td>
+      </tr>
+    </table>
+  </div>
+</div> <!-- END OF YEAST BLOCK -->
+
+<hr>
+
+<div id="ingredientBlock" layout="row" flex>
+
+  <!--IMAGE-->
+  <div layout="column" layout-align="center center" flex="15">
+    <i class="fa fa-5x fa-puzzle-piece" aria-hidden="true"></i>
+  </div>
+
+  <!--OTHER ADDITIONS - TEXT INPUTS-->
+  <div layout="column" layout-align="start start" flex="40">
+    <md-content>
+      <div layout="row" flex>
+        <div layout="column" flex="40">
+          <md-input-container class="md-block" flex>
+            <label>Other Ingredient Type:</label>
+            <input type="text" ng-model="rc.ingredientType" />
+          </md-input-container>
+        </div>
+        <div layout="column" flex="40">
+          <md-input-container class="md-block" flex>
+            <label>Ingredient Amount:</label>
+            <input type="text" ng-model="rc.ingredientAmt" />
+          </md-input-container>
+        </div>
+        <div layout="column" layout-align="center end" flex>
+          <md-button class="md-fab md-primary" ng-click="rc.addIngredient(rc.ingredientType, rc.ingredientAmt, rc.ingredientNotes)">Add</md-button>
+        </div>
+      </div>
+      <div layout="row" flex>
+        <md-input-container class="md-block" flex>
+          <label>Addition Notes:</label>
+          <input type="text" ng-model="rc.ingredientNotes" />
+        </md-input-container>
+      </div>
+    </md-content>
+  </div>
+
+  <!--Other Additions - LIST OF ADDITIONS -->
+  <div layout="column" flex="45">
+    <table id="ingredientTable">
+      <tr>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Notes</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr ng-repeat="ingredient in rc.otherIngredients">
+        <td>{{ingredient.ingredientAmt}}</td>
+        <td>{{ingredient.ingredientType}}</td>
+        <td>{{ingredient.ingredientNotes}}</td>
+        <td><md-button ng-disabled="true">Edit</md-button></td>
+        <td><md-button ng-disabled="true">Delete</md-button></td>
+      </tr>
+    </table>
+  </div>
+
+</div> <!-- End of ingredient block -->

@@ -19,9 +19,9 @@ var maltsDB = [
 ];
 
 var hopsDB = [
-'Amarillo', 'Cascade', 'Centennial', 'Chinook', 'Citra', ' Crystal', 'CTZ', 'Fuggle',
-'Golding', 'Kenneth Golding', 'Lambic', 'Magnum', 'Mosaic', 'Mt. Hood', 'Northern Brewer', 'Nugget', 'Perle',
-'Saaz', 'Simcoe', 'Tardif de Bourgogne', 'Willamette', 'Hop Extract'
+'Amarillo', 'Cascade', 'Centennial', 'Chinook', 'Citra', ' Crystal', 'Fuggle',
+'Golding', 'Magnum', 'Mosaic', 'Mt. Hood', 'Northern Brewer', 'Nugget', 'Perle',
+'Saaz', 'Simcoe', 'Willamette', 'Hop Extract'
 ];
 
 var hopUse = ['Boil', 'Whirlpool', 'Dry hop', 'Other'];

@@ -1,85 +1,92 @@
 <div id="recipeDetailsBlock" class="md-inline-form">
-    <md-content layout-padding>
-      <div>
-        <form name="recipeDetails">
+  <md-content layout-padding>
+    <div>
+      <form name="recipeDetails">
         <!-- FIRST ROW: RECIPE NAME & TYPE, BEER STYLE, BATCH SIZE -->
-          <div layout-gt-sm="row">
-            <md-input-container style="margin-right: 10px;">
-              <label>Beer Style</label>
-              <md-select ng-model="rc.beerStyle">
-                  <md-option ng-repeat="beerStyle in rc.ingredients.beerStyles" value="{{beerStyle}}">{{beerStyle}}</md-option>
-              </md-select>
-            </md-input-container>
+        <div layout-gt-sm="row">
+          <md-input-container style="margin-right: 10px;">
+            <label>Beer Style</label>
+            <md-select ng-model="rc.beerStyle">
+              <md-option ng-repeat="beerStyle in rc.ingredients.beerStyles" value="{{beerStyle}}">{{beerStyle}}</md-option>
+            </md-select>
+          </md-input-container>
 
-            <md-input-container class="md-block" flex-gt-xs>
-              <label>Recipe Name</label>
-              <input ng-model="rc.recipeName">
-            </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Recipe Name</label>
+            <input ng-model="rc.recipeName">
+          </md-input-container>
 
-            <md-input-container style="margin-right: 10px;">
-              <label>Recipe Type</label>
-              <md-select ng-model="rc.recipeType">
-                  <md-option ng-repeat="recipeType in rc.ingredients.recipeTypes" value="{{recipeType}}">{{recipeType}}</md-option>
-              </md-select>
-            </md-input-container>
+          <md-input-container style="margin-right: 10px;">
+            <label>Recipe Type</label>
+            <md-select ng-model="rc.recipeType">
+              <md-option ng-repeat="recipeType in rc.ingredients.recipeTypes" value="{{recipeType}}">{{recipeType}}</md-option>
+            </md-select>
+          </md-input-container>
 
-            <md-input-container>
-              <label>Batch Size (in gallons):</label>
-              <input type="text" placeholder="Enter number of gallons" ng-model="rc.batchSize" />
+          <md-input-container>
+            <label>Batch Size (in gallons):</label>
+            <input type="text" placeholder="Enter number of gallons" ng-model="rc.batchSize" />
+          </md-input-container>
+        </div>
+
+        <!-- SECOND ROW: BOIL & MASH TIMINGS, GRAVITY MEASUREMENTS & SOURCE -->
+        <div layout-gt-sm="row">
+          <md-input-container>
+            <label>Boil Length:</label>
+            <input type="text" placeholder="Enter length in minutes" ng-model="rc.boilLength" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Mash Length</label>
+            <input type="text" placeholder="Enter length in minutes" ng-model="rc.mashLength" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Mash Temperature:</label>
+            <input type="text" placeholder="Enter temp in Fahrenheit" ng-model="rc.mashTemp" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Original Gravity:</label>
+            <input type="text" ng-model="rc.originalGravity" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Final Gravity:</label>
+            <input type="text" ng-model="rc.finalGravity" />
+          </md-input-container>
+
+          <md-input-container>
+            <label>Recipe Source:</label>
+            <input type="text" ng-model="rc.recipeSrc" />
+          </md-input-container>
+        </div>
+
+        <!-- THIRD ROW - TEXTAREA INPUTS FOR RECIPE DECRIPTION, PROCEDURE & NOTES -->
+        <div layout="row" id="recipeTextArea">
+          <div layout="column" flex="33">
+            <md-input-container class="md-block">
+              <label>Recipe Description</label>
+              <textarea ng-model="rc.recipeDescription" md-maxlength="700" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+          <div layout="column" flex="33">
+            <md-input-container class="md-block">
+              <label>Procedure</label>
+              <textarea ng-model="rc.procedure" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+          <div layout="column" flex="33">
+            <md-input-container class="md-block">
+              <label>Additional Notes</label>
+              <textarea ng-model="rc.recipeNotes" md-maxlength="600" rows="5" md-select-on-focus></textarea>
             </md-input-container>
           </div>
 
-      <!-- SECOND ROW: BOIL & MASH TIMINGS, GRAVITY MEASUREMENTS & SOURCE -->
-          <div layout-gt-sm="row">
-            <md-input-container>
-              <label>Boil Length:</label>
-              <input type="text" placeholder="Enter length in minutes" ng-model="rc.boilLength" />
-            </md-input-container>
+        </div>
 
-            <md-input-container>
-              <label>Mash Length</label>
-              <input type="text" placeholder="Enter length in minutes" ng-model="rc.mashLength" />
-            </md-input-container>
-
-            <md-input-container>
-              <label>Mash Temperature:</label>
-              <input type="text" placeholder="Enter temp in Fahrenheit" ng-model="rc.mashTemp" />
-            </md-input-container>
-
-            <md-input-container>
-              <label>Original Gravity:</label>
-              <input type="text" ng-model="rc.originalGravity" />
-            </md-input-container>
-
-            <md-input-container>
-              <label>Final Gravity:</label>
-              <input type="text" ng-model="rc.finalGravity" />
-            </md-input-container>
-
-            <md-input-container>
-            <label>Recipe Source:</label>
-            <input type="text" ng-model="rc.recipeSrc" />
-            </md-input-container>
-            </div>
-
-        <!-- TEXTAREA INPUTS FOR RECIPE DECRIPTION, PROCEDURE & NOTES -->
-          <md-input-container class="md-block">
-            <label>Recipe Description</label>
-            <textarea ng-model="rc.recipeDescription" md-maxlength="500" rows="5" md-select-on-focus></textarea>
-          </md-input-container>
-
-          <md-input-container class="md-block">
-            <label>Procedure</label>
-            <textarea ng-model="rc.procedure" md-maxlength="900" rows="5" md-select-on-focus></textarea>
-          </md-input-container>
-
-          <md-input-container class="md-block">
-            <label>Additional Notes</label>
-            <textarea ng-model="rc.recipeNotes" md-maxlength="5-0" rows="5" md-select-on-focus></textarea>
-          </md-input-container>
-
-        </form>
-      </div>
-    </md-content>
+      </form>
+    </div>
+  </md-content>
 
 </div> <!-- END OF CONTAINER -->

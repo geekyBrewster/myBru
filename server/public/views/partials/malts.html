@@ -1,7 +1,7 @@
 <div id="maltBlock" layout="row" flex>
 
   <!--IMAGE-->
-  <div layout="column" layout-align="start center" flex="20">
+  <div layout="column" layout-align="start center" flex="15">
     <img id="maltIcon" ng-src="../../assets/img/grainIcon.jpg" alt="">
   </div>
 
@@ -10,11 +10,11 @@
     <md-content>
       <div layout="row" layout-align="start start" flex>
 
-        <!-- Malt type pulldown menu -->
+        <!-- PULLDOWN MENU FOR MALT TYPE AND TEXT INPUT FOR MALT NAME -->
         <md-input-container class="md-block">
           <label>Malt Type</label>
           <md-select ng-model="rc.maltType">
-              <md-option ng-repeat="maltType in rc.ingredients.maltTypes" value="{{maltType}}">{{maltType}}</md-option>
+            <md-option ng-repeat="maltType in rc.ingredients.maltTypes" value="{{maltType}}">{{maltType}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -23,6 +23,8 @@
           <input type="text" ng-model="rc.maltName" />
         </md-input-container>
       </div>
+
+      <!-- ROW TO ADD MALT AMOUNTS W/ INPUTS FOR LARGE AMTS AND SMALLER AMTS -->
       <div layout="row" flex>
         <div layout="column" flex="75">
           <md-input-container>
@@ -36,8 +38,9 @@
           </md-input-container>
         </div>
 
+        <!-- BUTTON TO ADD MALT TO LIST -->
         <div layout="column" layout-align="end end" flex>
-          <md-button class="md-fab md-primary" ng-click="rc.addMalt(rc.maltType, rc.maltName, rc.maltAmtLbx, rc.maltAmtOz)">Add</md-button>
+          <md-button class="md-fab md-primary" ng-click="rc.addMalt(rc.maltType, rc.maltName, rc.maltAmtLbs, rc.maltAmtOz)">Add</md-button>
         </div>
 
       </div>
@@ -45,7 +48,7 @@
   </div>
 
   <!--MALTS - LIST OF ADDITIONS -->
-  <div layout="column" flex="40">
+  <div layout="column" flex="45">
     <table id="maltTable">
       <thead>
         <tr>

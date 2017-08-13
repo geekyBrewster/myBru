@@ -1,6 +1,6 @@
 <div ng-include="'views/partials/nav.html'"></div>
-
 <div class="container" ng-cloak flex>
+
   <!-- RECIPE HEADER ROW -->
   <div layout="row" flex>
     <div layout="column" layout-align="center start" flex="50">
@@ -8,10 +8,11 @@
     </div>
     <div layout="column" layout-align="center end" flex="50">
       <md-button class="md-raised md-primary" ng-click="rc.saveRecipe(rc.recipeName, rc.beerStyle, rc.recipeType, rc.procedure,
-      rc.batchSize, rc.boilLength, rc.mashLength, rc.originalGravity, rc.finalGravity, rc.recipeDescription,
-       rc.recipeNotes, rc.recipeSrc)">Save Recipe</md-button>
+      rc.batchSize, rc.boilLength, rc.mashLength, rc.mashTemp, rc.originalGravity, rc.finalGravity, rc.recipeDescription,
+      rc.recipeNotes, rc.recipeSrc)">Save Recipe</md-button>
     </div>
   </div>
+
   <!-- TABS TO ENTER RECIPE DETAILS AND INGREDIENTS -->
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>

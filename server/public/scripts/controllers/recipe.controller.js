@@ -17,12 +17,13 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
-  vm.addMalt = function(maltType, maltName, maltAmt){
+  vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz){
     // Push single malt object into malts[]
     var singleMalt = {
       maltType: maltType,
       maltName: maltName,
-      maltAmt: maltAmt,
+      maltAmtLbs: maltAmtLbs,
+      maltAmtOz: maltAmtOz,
       maltAdded: false
     };
     // console.log("Single malt: ", singleMalt);
@@ -36,12 +37,16 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
 
 //** HOP FUNCTIONS **/
   // addHop() button function
-  vm.addHop = function(hopType, hopAmt, hopTime){
+  vm.addHop = function(hopType, hopName, hopForm, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
     // Push single hop object into hops[]
     var singleHop = {
       hopType: hopType,
+      hopName: hopName,
       hopAmt: hopAmt,
-      hopTime: hopTime,
+      hopForm: hopForm,
+      hopUse: hopUse,
+      hopTimeBrew: hopTimeBrew,
+      hopTimeDry: hopTimeDry,
       hopAdded: false
     };
     // console.log("Single hop: ", singleHop);
@@ -88,8 +93,8 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
   };
 
 //SAVE RECIPE - ON CLICK
-  vm.saveRecipe = function(name, style, recipeType, procedure, batchSize,
-    boilLength, mashLength, originalGravity, finalGravity, description, notes, recipeSrc){
+  vm.saveRecipe = function(name, style, recipeType, procedure, batchSize, boilLength,
+    mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
     vm.recipe = {
       username: vm.userObject.userName,
@@ -101,6 +106,7 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
       batchSize: batchSize,
       boilLength: boilLength,
       mashLength: mashLength,
+      mashTemp: mashTemp,
       originalGravity: originalGravity,
       finalGravity: finalGravity,
       recipeNotes: notes,
