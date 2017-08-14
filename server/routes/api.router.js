@@ -6,7 +6,7 @@ var request = require('request');
 // API Key is environment variables in Heroku
 var api_key = process.env.API_KEY || require('../config.js').api_key;
 
-//--** DATA REQUEST TO BREWERYDB API **--//
+//--** DATA REQUESTS TO BREWERY.DB API **--//
 
 // GET REQUEST FOR HOP DATA
 router.get('/hops', function(req, res){

@@ -43,7 +43,6 @@ var categoryIDs = [];
   console.log('Going to get beer styles data.');
   $http.get('/data/styles/')
     .then(function(response){
-      console.log('Full beer style response: ', response);
       beerStyles = response.data.data;
       console.log("dataArray styles: ", beerStyles);
     });
@@ -54,20 +53,27 @@ var categoryIDs = [];
   console.log('Going to get category ID data.');
   $http.get('/data/categories/')
     .then(function(response){
-      console.log('All categories response: ', response);
       categoryIDs = response.data.data;
       console.log("dataArray categories: ", categoryIDs);
     });
 }; // end of GET styles
 
+
+//CALL FUNCTIONS TO RETRIEVE DATA FROM API
+getYeasts();
+getMalts();
+getHops();
+getStyles();
+getCategories();
+
 //Merge Categories w/ Beer Styles and return new array
+
 
   return {
     hopApiData : hopData,
     yeastApiData : yeastData,
     maltApiData : maltData,
     beerStylesApiData : beerStyles
-
   };
 
 }); //end of data controller

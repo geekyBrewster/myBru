@@ -15,12 +15,14 @@ myApp.factory('RecipeService', function($http, $location){
       $mdMenu.open(ev);
     },
 
-    //RETRIEVE ALL RECIPES IN THE DATABASE
+    //RETRIEVE ALL RECIPES IN THE DATABASE (Promise chaining)
     getAllRecipes : function(){
-      $http.get('/recipe/all').then(function(response){
+      return $http.get('/recipe/all').then(function(response){
         console.log('Retrieving ALL recipes from DB: ', response.data);
         allRecipes.data = response.data;
+
         console.log('All recipes: ', allRecipes);
+        return response;
       });
     },
 
