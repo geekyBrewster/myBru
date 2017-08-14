@@ -31,9 +31,9 @@ router.get('/malts', function(req, res){
 });
 
 // GET REQUEST FOR YEAST
-router.get('/yeast', function(req, res){
+router.get('/yeasts', function(req, res){
   var dataRequested = 'yeasts';
-  var url = 'https://api.brewerydb.com/v2/' + dataRequested + '/?key=' + api_key ;
+  var url = 'https://api.brewerydb.com/v2/' + dataRequested + '/?key=' + api_key +'&p=2' ;
   request(url, function (error, response, body) {
     console.log('error:', error); // Print the error if one occurred
     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received

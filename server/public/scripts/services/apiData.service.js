@@ -21,12 +21,13 @@ var categoryIDs = [];
 /** GET YEAST -- Call to BreweryDB API to fetch yeast info **/
  getYeasts = function() {
   console.log('Going to get yeast data.');
-  $http.get('/data/yeast/')
-    .then(function(response){
-      yeastData = response.data.data;
-      console.log("dataArray yeasts: ", yeastData);
-    });
-}; // end of GET yeast
+      $http.get('/data/yeasts')
+        .then(function(response){
+          //console.log("Full yeast response: ", response); //response.data - need currentPage, data, numberOfPages, totalResults
+          yeastData = response.data.data;
+          console.log("dataArray yeasts: ", yeastData);
+        });
+      }; // end of GET yeast
 
 /** GET MALTS -- Call to BreweryDB API to fetch fermentables info **/
  getMalts = function() {
@@ -61,9 +62,9 @@ var categoryIDs = [];
 
 //CALL FUNCTIONS TO RETRIEVE DATA FROM API
 getYeasts();
-getMalts();
-getHops();
-getStyles();
+//getMalts();
+//getHops();
+//getStyles();
 getCategories();
 
 //Merge Categories w/ Beer Styles and return new array
