@@ -16,9 +16,8 @@ myApp.factory('RecipeService', function($http, $location){
     },
 
     //RETRIEVE ALL RECIPES IN THE DATABASE
-    getAllRecipes : function(username){
-      console.log('User name to find recipes for: ', username);
-      $http.get('/recipe/all/' + username).then(function(response){
+    getAllRecipes : function(){
+      $http.get('/recipe/all').then(function(response){
         console.log('Retrieving recipes from DB: ', response.data);
         allRecipes.data = response.data;
         console.log('All recipes: ', allRecipes);

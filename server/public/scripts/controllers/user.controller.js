@@ -9,7 +9,6 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   vm.batchesInProgress = [];
 
 //Add user authentication
- //if(req.isAuthenticated( )) {
    //Prep New Recipe -- On click
    vm.newRecipe = function(){
      //Switch to recipe.html using $location.path(/recipe)
@@ -20,7 +19,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
    vm.loadData = function(){
      //GET user's recipes
      //console.log('User ID to grab recipes for: ', vm.userObject._id);
-     vm.recipeService.getAllRecipes(vm.userObject.userName);
+     vm.recipeService.getAllRecipes();
      console.log("Retrieving recipes: ", vm.allRecipes);
    };
 
@@ -40,13 +39,23 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
        $location.path('/drink');
    };
 
+   //Delete Recipe -- on click
+   vm.deleteSelectedRecipe = function(name, id, ev){
+     //Confirm user wants to delete that recipe
+     var confirm = $mdDialog.confirm()
+       .title('Are you sure you\'d like to delete: ' + name + ' ?')
+       .ok('You betcha')
+       .cancel('Not right now');
 
+     //Delete the recipe from DB
+     $mdDialog.show(confirm).then(vm.recipeService.deleteRecipe(id));
+     console.log('Deleted id: ', id);
 
+     //Update DOM
+     vm.recipeService.getAllRecipes();
+     console.log(vm.allRecipes);
+   };
 
-
-
-
-// } //-end of if authenticated
 
 
 
@@ -70,22 +79,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
     console.log('Non-recipe recipes: ', vm.batchesInProgress);
   };
 */
-  //Delete Recipe -- on click
-  vm.deleteSelectedRecipe = function(name, id, ev){
-    //Confirm user wants to delete that recipe
-    var confirm = $mdDialog.confirm()
-      .title('Are you sure you\'d like to delete: ' + name + ' ?')
-      .ok('You betcha')
-      .cancel('Not right now');
 
-    //Delete the recipe from DB
-    $mdDialog.show(confirm).then(vm.recipeService.deleteRecipe(id));
-    console.log('Deleted id: ', id);
-
-    //Update DOM
-    vm.recipeService.getAllRecipes();
-    console.log(vm.allRecipes);
-  };
 
 
 
