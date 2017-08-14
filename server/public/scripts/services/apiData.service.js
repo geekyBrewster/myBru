@@ -1,65 +1,73 @@
-myApp.controller('ApiController', function($http){
-  var dc = this;
-  console.log('Controller connected');
-//GET REQUEST - Hop data
+myApp.factory('ApiDataService', function($http){
+  console.log('API Data Service Loaded');
 
 // Objects that will store our various sets of data
-dc.hopData = [];
-dc.yeastData = [];
-dc.maltData = [];
-dc.beerStyles = [];
-dc.categoryIDs = [];
+var hopData = [];
+var yeastData = [];
+var maltData = [];
+var beerStyles = [];
+var categoryIDs = [];
 
 /** GET HOPS -- Call to BreweryDB API to fetch hops info **/
- dc.getHops = function() {
+ getHops = function() {
   console.log('Going to get hop data.');
   $http.get('/data/hops/')
     .then(function(response){
-      dc.hopData = response.data.data;
-      console.log("dataArray hops: ", dc.hopData);
+      hopData = response.data.data;
+      console.log("dataArray hops: ", hopData);
     });
 }; // end of GET hops
 
 /** GET YEAST -- Call to BreweryDB API to fetch yeast info **/
- dc.getYeasts = function() {
+ getYeasts = function() {
   console.log('Going to get yeast data.');
   $http.get('/data/yeast/')
     .then(function(response){
-      dc.yeastData = response.data.data;
-      console.log("dataArray: ", dc.yeastData);
+      yeastData = response.data.data;
+      console.log("dataArray yeasts: ", yeastData);
     });
 }; // end of GET yeast
 
 /** GET MALTS -- Call to BreweryDB API to fetch fermentables info **/
- dc.getMalts = function() {
+ getMalts = function() {
   console.log('Going to get fermentables data.');
   $http.get('/data/malts/')
     .then(function(response){
-      dc.maltData = response.data.data;
-      console.log("dataArray: ", dc.maltData);
+      maltData = response.data.data;
+      console.log("dataArray malts: ", maltData);
     });
 }; // end of GET malts
 
 /** GET STYLES -- Call to BreweryDB API to fetch beer styles info **/
- dc.getStyles = function() {
+ getStyles = function() {
   console.log('Going to get beer styles data.');
   $http.get('/data/styles/')
     .then(function(response){
       console.log('Full beer style response: ', response);
-      dc.beerStyles = response.data.data;
-      console.log("dataArray: ", dc.beerStyles);
+      beerStyles = response.data.data;
+      console.log("dataArray styles: ", beerStyles);
     });
 }; // end of GET styles
 
 /** GET CATEGORIES -- Call to BreweryDB API to fetch category IDs for beer styles **/
- dc.getCategories = function() {
+ getCategories = function() {
   console.log('Going to get category ID data.');
   $http.get('/data/categories/')
     .then(function(response){
       console.log('All categories response: ', response);
-      dc.categoryIDs = response.data.data;
-      console.log("dataArray categories: ", dc.categoryIDs);
+      categoryIDs = response.data.data;
+      console.log("dataArray categories: ", categoryIDs);
     });
 }; // end of GET styles
+
+//Merge Categories w/ Beer Styles and return new array
+
+  return {
+    hopApiData : hopData,
+    yeastApiData : yeastData,
+    maltApiData : maltData,
+    beerStylesApiData : beerStyles
+
+  };
 
 }); //end of data controller

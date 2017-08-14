@@ -49,8 +49,6 @@ myApp.factory('RecipeService', function($http, $location){
     }
 
 
-
-
   }; //end of return
 
 }); //end of service

@@ -4,8 +4,8 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
+  vm.apiService = ApiDataService;
   vm.ingredients = ingredients;
-  // console.log(vm.ingredients);
 
   //DATA CONTAINERS
   vm.malts = [];
