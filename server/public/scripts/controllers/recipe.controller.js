@@ -11,13 +11,13 @@ myApp.controller('RecipeController', function(UserService, RecipeService, ApiDat
   vm.ingredients = ingredients;
   vm.recipe = {};
   vm.allRecipes = RecipeService.allRecipes;
+  vm.beerStylesApi = vm.apiService.beerStylesData;
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
-
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
