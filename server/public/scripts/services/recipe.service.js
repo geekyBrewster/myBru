@@ -1,4 +1,4 @@
-myApp.factory('RecipeService', function($http, $location){
+myApp.factory('RecipeService', function($http, $location, $mdToast){
   console.log('RecipeService Loaded');
 
   var originatorEv;
@@ -46,8 +46,21 @@ myApp.factory('RecipeService', function($http, $location){
       $http.delete('/recipe/' + id).then(function(response){
         console.log('Recipe deleted');
       });
-    }
+    },
 
+    //Show "Recipe Saved" Toast Notification
+    showSaveToast : function(){
+        var toast = $mdToast.simple()
+          .textContent('Recipe Saved!')
+          .action('Okay')
+          .position('top right' );
+
+      $mdToast.show(toast).then(function(response){
+        if ( response == 'ok') {
+          $location.path('/user');
+        }
+      });
+    }
 
 
 

@@ -116,16 +116,9 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
       vm.recipeService.getAllRecipes();
       console.log('After updating: ', vm.allRecipes);
 
-      //Return to main menu
-      $location.path('/user');
+      //Pop up toast notification
+      vm.recipeService.showSaveToast();
     };
-
-    //GET RECIPE DATA FROM SERVER
-    // GET REQUEST FOR ALL RECIPES
-    vm.recipeService.getAllRecipes();
-    // APPEND REQUIRED RECIPE DATA TO DOM
-
-
 
 
 

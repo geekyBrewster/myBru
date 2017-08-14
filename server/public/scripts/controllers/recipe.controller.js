@@ -1,4 +1,4 @@
-myApp.controller('RecipeController', function(UserService, RecipeService, $http, $location) {
+myApp.controller('RecipeController', function(UserService, RecipeService, $http, $location, $scope, $mdToast) {
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
@@ -131,9 +131,12 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
     vm.recipeService.getAllRecipes(vm.userObject.userName);
     console.log(vm.allRecipes);
 
-    //Return to main menu
-    $location.path('/user');
+    //Pop up toast notification
+    vm.recipeService.showSaveToast();
+
   }; //end of saveRecipe
+
+
 
   //GET data using recipe.service
   vm.recipeService.getAllRecipes(vm.userObject.userName);

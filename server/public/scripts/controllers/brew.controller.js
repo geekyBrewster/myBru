@@ -51,10 +51,10 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
     vm.recipeService.getAllRecipes();
     console.log('After updating: ', vm.allRecipes);
 
-    //Return to main menu
-    $location.path('/user');
+    //Pop up toast notification
+    vm.recipeService.showSaveToast();
 
-  }; //end of save brew notes
+  }; //end of save brew notes function
 
   //GET data using recipe.service
   vm.recipeService.getAllRecipes();
