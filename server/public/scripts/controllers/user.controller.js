@@ -8,35 +8,53 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   var selectedID;
   vm.batchesInProgress = [];
 
-  //Prep New Recipe -- On click
-  vm.newRecipe = function(){
-    //Switch to recipe.html using $location.path(/recipe)
-    $location.path('/recipe');
-  };
+//Add user authentication
+ //if(req.isAuthenticated( )) {
+   //Prep New Recipe -- On click
+   vm.newRecipe = function(){
+     //Switch to recipe.html using $location.path(/recipe)
+     $location.path('/recipe');
+   };
 
-  //GET data using recipe.service to display on DOM
-  vm.recipeService.getAllRecipes();
-  console.log("Retrieving recipes: ", vm.allRecipes);
+   //Load the data that needs to be displayed on the DOM
+   vm.loadData = function(){
+     //GET user's recipes
+     //console.log('User ID to grab recipes for: ', vm.userObject._id);
+     vm.recipeService.getAllRecipes(vm.userObject.userName);
+     console.log("Retrieving recipes: ", vm.allRecipes);
+   };
 
-  //Brew existing recipe -- On click
-  vm.brewBatch = function(id){
-    //retreive selected recipe
-    vm.recipeService.getRecipeById(id);
-    //Switch to brew.html
-      $location.path('/brew');
-  };
+   //Brew existing recipe -- On click
+   vm.brewBatch = function(id){
+     //retreive selected recipe
+     vm.recipeService.getRecipeById(id);
+     //Switch to brew.html
+       $location.path('/brew');
+   };
 
-  //Brew existing recipe -- On click
-  vm.drinkBatch = function(id){
-    //retreive selected recipe
-    vm.recipeService.getRecipeById(id);
-    //Switch to brew.html
-      $location.path('/drink');
-  };
+   //Brew existing recipe -- On click
+   vm.drinkBatch = function(id){
+     //retreive selected recipe
+     vm.recipeService.getRecipeById(id);
+     //Switch to brew.html
+       $location.path('/drink');
+   };
+
+
+
+
+
+
+
+// } //-end of if authenticated
+
+
+
+
 /*
   //Display recipes in progress -- HOW DO I DO THE COMPARISON LOGIC HERE
   --**-- I'M ALSO GETTING AN EMPTY SEARCH ARRAY --**--
-  
+
   vm.displayBrewStatus = function(){
     console.log('Time to sort recipes!!');
     var arrayToSort = vm.allRecipes.data;

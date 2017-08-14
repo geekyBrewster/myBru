@@ -28,10 +28,11 @@ router.post('/', function(req, res){
 }); //end of POST
 
 //GET -- SEND ALL RECIPES TO CLIENT
-router.get('/all', function(req, res) {
+router.get('/all/:username', function(req, res) {
   console.log('in recipe GET');
+  console.log('Username to use for DB query: ', req.params.username);
   // find (select) all documents in our collection
-  Recipe.find({}, function(err, data) {
+  Recipe.find({'username': req.params.username}, function(err, data) {
     console.log('start GET');
     if(err) {
       console.log('find error:', err);

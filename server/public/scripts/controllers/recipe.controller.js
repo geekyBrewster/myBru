@@ -128,7 +128,7 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
       }
     });
     //GET data using recipe.service
-    vm.recipeService.getAllRecipes();
+    vm.recipeService.getAllRecipes(vm.userObject.userName);
     console.log(vm.allRecipes);
 
     //Return to main menu
@@ -136,7 +136,7 @@ myApp.controller('RecipeController', function(UserService, RecipeService, $http,
   }; //end of saveRecipe
 
   //GET data using recipe.service
-  vm.recipeService.getAllRecipes();
-  console.log(vm.allRecipes);
+  vm.recipeService.getAllRecipes(vm.userObject.userName);
+  console.log('Recipes returned:', vm.allRecipes);
 
 }); //end of controller
