@@ -8,7 +8,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   var selectedID;
   vm.batchesInProgress = [];
 
-//Add user authentication
+
    //Prep New Recipe -- On click
    vm.newRecipe = function(){
      //Switch to recipe.html using $location.path(/recipe)
@@ -18,9 +18,11 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
    //Load the data that needs to be displayed on the DOM
    vm.loadData = function(){
      //GET user's recipes
-     //console.log('User ID to grab recipes for: ', vm.userObject._id);
      vm.recipeService.getAllRecipes();
      console.log("Retrieving recipes: ", vm.allRecipes);
+
+     //Display status of any batches in progress
+     vm.displayBrewStatus(vm.allRecipes);
    };
 
    //Brew existing recipe -- On click
@@ -59,27 +61,24 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
 
 
-
-/*
   //Display recipes in progress -- HOW DO I DO THE COMPARISON LOGIC HERE
-  --**-- I'M ALSO GETTING AN EMPTY SEARCH ARRAY --**--
+  //--**-- I'M ALSO GETTING AN EMPTY SEARCH ARRAY --**--
 
-  vm.displayBrewStatus = function(){
+  vm.displayBrewStatus = function(recipes){
     console.log('Time to sort recipes!!');
-    var arrayToSort = vm.allRecipes.data;
-    console.log('REcipes to sort thru: ', arrayToSort);
+    var arrayToSort = recipes;
+    console.log('REcipes to sort thru: ', arrayToSort.data);
+
     //Step through each object
-    for(var i = 0; i < arrayToSort.length; i++){
+    /*for(var i = 0; i < arrayToSort.length; i++){
       var batchStatus = arrayToSort[i].batchStatus;
       console.log('Batch status = ', batchStatus);
       if(batchStatus !== 'Ready to Brew'){
         vm.batchesInProgress.push(arrayToSort[i]);
       }
-    }
+    }*/
     console.log('Non-recipe recipes: ', vm.batchesInProgress);
   };
-*/
-
 
 
 
