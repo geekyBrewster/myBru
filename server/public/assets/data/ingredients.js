@@ -1,25 +1,16 @@
 var ingredients = {};
 
-var recipeTypes = ['All-grain', 'Partial-grain', 'Extract', 'Brew in a Bag', 'Other'];
+//----- DATA FOR RECIPE MENU ITEMS -----//
 
-var beerStyles = ['Altbier', 'Amber / Red Ale', 'American Lager', 'American Pale Ale', 'American Pale Lager', 'Barleywine', 'Belgian / French Ale', 'Bière de Garde', 'Black Ale', 'Blonde Ale', 'Bock', 'Brown Ale',
-'California Common / Steam Beer', 'Cream Ale', 'Czech Lager', 'Czech Pilsner', 'Doppelbock', 'Double IPA', 'Dubbel', 'Dunkelweizen', 'English Ale', 'English Pale Ale', 'Extra Special Bitter (ESB)',
-'Fruit / Vegetable Beer', 'German Ale', 'German Lager', 'German Pilsner', 'Gose', 'Hefeweizen', 'Herbed / Spiced Beer', 'Irish Ale', 'Kölsch', 'Lambic / Fruit Beer', 'Light Lager',
-'Maibock', 'Milk / Sweet Stout','Oatmeal Stout', 'Oktoberfest / Märzen', 'Old Ale', 'Pale Wheat Ale', 'Porter, American', 'Porter, English',
-'Pumpkin Ale', 'Rauchbier / Smoked Beer', 'Russian Imperial Stout', 'Russian Ale', 'Rye Ale', 'Saison / Farmhouse Ale', 'Schwarzbier',
-'Scotch Ale / Wee Heavy', 'Scottish Ale','Stout', 'Strong Ale', 'Tripel', 'Vienna Lager', 'Weissbier', 'Wild Ale', 'Witbier'];
+var recipeTypes = ['', 'All-grain', 'Partial-grain', 'Extract', 'Brew in a Bag', 'Other'];
 
+var maltTypes = ['', 'Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Malt Extract', 'Other malt'];
 
-var maltTypes = ['Base malt', 'Specialty malt', 'Caramel malt', 'Roasted malt', 'Malt Extract', 'Other malt'];
+var yeastSupplier = ['', 'Danstar', 'Muntons', 'Omega', 'Safale', 'White Labs', 'Wyeast', 'Other'];
 
-var maltsDB = [
-'2 row', 'Biscuit Malt', 'Black Patent', 'CaraPils', 'Chocolate Malt', 'Crystal 10L', 'Crystal 40L',
-'Crystal 60L', 'Crystal 80L', 'Crystal 120L', 'Crystal 150L', 'Flaked Oats',
-'Munich', 'Pale Ale', 'Pilsner', 'Rye', 'Unmalted Roasted Barley', 'Vienna', 'Wheat'
-];
-
+//Common hops for the pulldown menu when adding hops
 var hopsDB = [
-'Amarillo', 'Cascade', 'Centennial', 'Chinook', 'Citra', ' Crystal', 'Fuggle',
+'','Amarillo', 'Cascade', 'Centennial', 'Chinook', 'Citra', ' Crystal', 'Fuggle',
 'Golding', 'Magnum', 'Mosaic', 'Mt. Hood', 'Northern Brewer', 'Nugget', 'Perle',
 'Saaz', 'Simcoe', 'Willamette', 'Hop Extract'
 ];
@@ -27,9 +18,23 @@ var hopsDB = [
 var hopUse = ['Boil', 'Whirlpool', 'Dry hop', 'Other'];
 var hopForm = ['Pellet', 'Leaf', 'Extract', 'Other'];
 
+
+//----- SAMPLE DATA - USED BEFORE API INCORPORATION -----//
+var beerStyles = ['Altbier', 'Amber / Red Ale', 'American Lager', 'American Pale Ale', 'American Pale Lager', 'Barleywine', 'Belgian / French Ale', 'Bière de Garde', 'Black Ale', 'Blonde Ale', 'Bock', 'Brown Ale',
+'California Common / Steam Beer', 'Cream Ale', 'Czech Lager', 'Czech Pilsner', 'Doppelbock', 'Double IPA', 'Dubbel', 'Dunkelweizen', 'English Ale', 'English Pale Ale', 'Extra Special Bitter (ESB)',
+'Fruit / Vegetable Beer', 'German Ale', 'German Lager', 'German Pilsner', 'Gose', 'Hefeweizen', 'Herbed / Spiced Beer', 'Irish Ale', 'Kölsch', 'Lambic / Fruit Beer', 'Light Lager',
+'Maibock', 'Milk / Sweet Stout','Oatmeal Stout', 'Oktoberfest / Märzen', 'Old Ale', 'Pale Wheat Ale', 'Porter, American', 'Porter, English',
+'Pumpkin Ale', 'Rauchbier / Smoked Beer', 'Russian Imperial Stout', 'Russian Ale', 'Rye Ale', 'Saison / Farmhouse Ale', 'Schwarzbier',
+'Scotch Ale / Wee Heavy', 'Scottish Ale','Stout', 'Strong Ale', 'Tripel', 'Vienna Lager', 'Weissbier', 'Wild Ale', 'Witbier'];
+
+var maltsDB = [
+'2 row', 'Biscuit Malt', 'Black Patent', 'CaraPils', 'Chocolate Malt', 'Crystal 10L', 'Crystal 40L',
+'Crystal 60L', 'Crystal 80L', 'Crystal 120L', 'Crystal 150L', 'Flaked Oats',
+'Munich', 'Pale Ale', 'Pilsner', 'Rye', 'Unmalted Roasted Barley', 'Vienna', 'Wheat'
+];
+
 var yeastTypes = ['ale', 'wheat', 'lager'];
 var yeastForm = ['liquid', 'dry', 'both'];
-var yeastSupplier = ['Danstar', 'Muntons', 'Omega', 'Safale', 'White Labs', 'Wyeast', 'Other'];
 
 var yeastsDB = [
 'Wyeast 3787 Trappist High Gravity', 'Wyeast 1968 London ESB', 'Danstar Munich Wheat Beer', 'Muntons Ale Dry Yeast',
@@ -43,6 +48,7 @@ var otherIngredientsDB = [
 'Muntons DME Light', 'Whirlfloc Tablets', 'Vanilla Beans', 'Honey', 'Coffee Beans', 'Fizz Drops'
 ];
 
+//------ BUILD INGREDIENTS DATA OBJECT ------//
 ingredients.maltTypes = maltTypes;
 ingredients.maltNames = maltsDB;
 ingredients.hopTypes = hopsDB;

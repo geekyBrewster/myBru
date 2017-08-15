@@ -1,7 +1,7 @@
 myApp.factory('ApiDataService', function($http){
   console.log('API Data Service Loaded');
 
-// Objects that will store our various sets of data
+// Object storing our various sets of data
   var beerData = {};
 
   return {

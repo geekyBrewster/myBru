@@ -2,6 +2,8 @@
 // https://www.northernbrewer.com/connect/2011/08/common-off-flavors/
 // http://draftmag.com/13-beer-off-flavors/
 
+//----- OFF FLAVORS DATA OBJECT FOR PULLDOWN MENU -----//
+
 var offFlavorsDB = [
   { offFlavorName: 'Acetaldehyde',
     offFlavorDescription:
