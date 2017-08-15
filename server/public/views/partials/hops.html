@@ -94,7 +94,7 @@
         <td>{{hop.hopTimeBrew}}</td>
         <td>{{hop.hopTimeDry}}</td>
         <td><md-button ng-disabled="true">Edit</md-button></td>
-        <td><md-button ng-disabled="true">Delete</md-button></td>
+        <td><md-button ng-click="rc.deleteHop(hop.hopType, hop.hopName)">Delete</md-button></td>
       </tr>
     </table>
   </div>

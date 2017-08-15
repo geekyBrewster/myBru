@@ -126,6 +126,20 @@ vm.filteredBeerStyles = function(categoryName){
     // Appends to DOM via vm.hops
   };
 
+  // Remove selected hop from the hops[]
+  vm.deleteHop = function(hopType, hopName){
+    //console.log('Looking to delete malt: ', hopName);
+    //console.log('Looking to remove it from: ', vm.hops);
+    for(var i = 0; i < vm.hops.length; i++){
+      if(hopType == vm.hops[i].hopType && hopName == vm.hops[i].hopName){
+        console.log('Going to remove: ', vm.hops[i]);
+        vm.hops.splice(i,1);
+      } else {
+        //console.log('This is not the ingredient object I\'m looking for.');
+      }
+    }
+  };
+
 //** YEAST FUNCTIONS **/
   // addYeast() button function
   vm.addYeast = function(yeastSupplier, yeastType, rehydrate){
@@ -142,6 +156,20 @@ vm.filteredBeerStyles = function(categoryName){
     // Appends to DOM via vm.yeasts
   };
 
+  // Remove selected yeast from the yeasts[]
+  vm.deleteYeast = function(yeastType){
+    //console.log('Looking to delete malt: ', yeastType);
+    //console.log('Looking to remove it from: ', vm.hops);
+    for(var i = 0; i < vm.yeasts.length; i++){
+      if(yeastType == vm.yeasts[i].yeastType){
+        console.log('Going to remove: ', vm.yeasts[i]);
+        vm.yeasts.splice(i,1);
+      } else {
+        //console.log('This is not the ingredient object I\'m looking for.');
+      }
+    }
+  };
+
 //** OTHER INGREDIENTS FUNCTIONS **/
   // addIngredient() button function
   vm.addIngredient = function(ingredientType, ingredientAmt, ingredientNotes){
@@ -156,6 +184,20 @@ vm.filteredBeerStyles = function(categoryName){
     vm.otherIngredients.push(singleIngredient);
     //console.log('ingredients array: ', vm.otherIngredients);
     // Appends to DOM via vm.yeasts
+  };
+
+  // Remove selected yeast from the yeasts[]
+  vm.deleteIngredient = function(ingredientType){
+    console.log('Looking to delete malt: ', ingredientType);
+    //console.log('Looking to remove it from: ', vm.hops);
+    for(var i = 0; i < vm.otherIngredients.length; i++){
+      if(ingredientType == vm.otherIngredients[i].ingredientType){
+        console.log('Going to remove: ', vm.otherIngredients[i]);
+        vm.otherIngredients.splice(i,1);
+      } else {
+        //console.log('This is not the ingredient object I\'m looking for.');
+      }
+    }
   };
 
 //SAVE RECIPE - ON CLICK

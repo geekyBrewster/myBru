@@ -53,7 +53,7 @@
         <td>{{yeast.yeastType}}</td>
         <td>{{yeast.rehydrate}}</td>
         <td><md-button ng-disabled="true">Edit</md-button></td>
-        <td><md-button ng-disabled="true">Delete</md-button></td>
+        <td><md-button ng-click="rc.deleteYeast(yeast.yeastType)">Delete</md-button></td>
       </tr>
     </table>
   </div>
@@ -112,7 +112,7 @@
         <td>{{ingredient.ingredientType}}</td>
         <td>{{ingredient.ingredientNotes}}</td>
         <td><md-button ng-disabled="true">Edit</md-button></td>
-        <td><md-button ng-disabled="true">Delete</md-button></td>
+        <td><md-button ng-click="rc.deleteIngredient(ingredient.ingredientType)">Delete</md-button></td>
       </tr>
     </table>
   </div>
