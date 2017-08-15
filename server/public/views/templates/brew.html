@@ -76,6 +76,7 @@
       <div layout="row">
         <table id="ingredientTable">
           <tr>
+            <th></th>
             <th>Ingredient</th>
             <th>Amount</th>
             <th>Timing</th>
@@ -87,28 +88,29 @@
             <td>{{malt.maltAmt}} lbs.</td>
             <td></td>
             <td></td>
-            <td><md-checkbox ng-click="bc.checkBox(malt.maltName)">Added</md-checkbox></td>
+            <td><md-checkbox ng-click="bc.checkBox('malts', malt.maltName)">Added</md-checkbox></td>
           </tr>
           <tr ng-repeat="hop in bc.recipe.data.hops">
+            <td>{{hop.hopName}}</td>
             <td>{{hop.hopType}}</td>
             <td>{{hop.hopAmt}} oz.</td>
             <td>at {{hop.hopTime}} min.</td>
             <td></td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox ng-click="bc.checkBox('hops', hop.hopName, hop.hopType)">Added</md-checkbox></td>
           </tr>
           <tr ng-repeat="yeast in bc.recipe.data.yeasts">
             <td>Yeast: {{yeast.yeastSupplier}}</td>
             <td>{{yeast.yeastType}}</td>
             <td></td>
             <td>Rehydrate: {{yeast.rehydrate}}</td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox ng-click="bc.checkBox('yeasts', yeast.yeastType)">Added</md-checkbox></td>
           </tr>
           <tr ng-repeat="ingredient in bc.recipe.data.otherIngredients">
             <td>{{ingredient.ingredientType}}</td>
             <td>{{ingredient.ingredientAmt}}</td>
             <td></td>
             <td>{{ingredient.ingredientNotes}}</td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox ng-click="bc.checkBox('ingredients', ingredient.ingredientType)">Added</md-checkbox></td>
           </tr>
         </table>
       </div>
