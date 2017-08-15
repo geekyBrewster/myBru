@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngMaterial', 'ngRoute']);
+var myApp = angular.module('myApp', ['ngMaterial', 'ngRoute', 'xeditable']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -52,6 +52,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     .when('/drink', {
       templateUrl: '/views/templates/drink.html',
       controller: 'DrinkController as dc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        }
+      }
+    })
+    .when('/summary', {
+      templateUrl: '/views/templates/summary.html',
+      controller: 'SummaryController as dc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
