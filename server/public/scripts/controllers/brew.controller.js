@@ -16,6 +16,24 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
   // APPEND REQUIRED RECIPE DATA TO DOM
   // Figure out how to update ingredientAdded when checkbox is clicked
 
+//'ADDED' CHECKBOX FUNCTIONALITY -- this is an inelegant solution, need a better way
+  vm.checkBox = function(ingredientName){
+    //On checkbox click, change ingredient's Added status to 'true'
+    console.log('Checkbox clicked for: ', ingredientName);
+
+    //Search through all ingredient arrays to find matching name, once found change added status to true
+    for(var i = 0; i < vm.recipe.data.malts; i++){
+      console.log("hey yo");
+      if(ingredientName == vm.recipe.data.malts[i].maltName && !vm.recipe.data.malts[i].maltAdded ){
+        vm.recipe.data.malts[i].maltAdded = true;
+        console.log('Found it. Added set to true.');
+      } else {
+        console.log('Ingredient not found yet.');
+      }
+    }
+
+  }; //end checkbox function
+
 //SAVE BREW NOTES -- ON CLICK
   vm.saveBatch = function(date, brewNotes, mashNotes){
     console.log('Recipe to work with: ', vm.recipe);

@@ -87,7 +87,7 @@
             <td>{{malt.maltAmt}} lbs.</td>
             <td></td>
             <td></td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox ng-click="bc.checkBox(malt.maltName)">Added</md-checkbox></td>
           </tr>
           <tr ng-repeat="hop in bc.recipe.data.hops">
             <td>{{hop.hopType}}</td>
