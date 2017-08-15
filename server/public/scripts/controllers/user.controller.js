@@ -12,7 +12,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
    //Prep New Recipe -- On click
    vm.newRecipe = function(){
-     console.log('Beer styles loaded: ', vm.apiData.beerStyles);
+     console.log('Beer styles loaded: ', vm.apiData.beerData.styles);
      //Switch to recipe.html using $location.path(/recipe)
      $location.path('/recipe');
    };

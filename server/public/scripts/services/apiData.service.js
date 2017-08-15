@@ -14,7 +14,7 @@ myApp.factory('ApiDataService', function($http){
       return $http.get('/data/styles/')
         .then(function(response){
           beerData.styles = response.data.data;
-          console.log("dataArray styles: ", beerStyles);
+          console.log("dataArray styles: ", response.data);
           return response;
         });
     } // end of GET styles

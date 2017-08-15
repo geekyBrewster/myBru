@@ -13,15 +13,44 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.ingredients = ingredients;
   vm.recipe = {};
   vm.allRecipes = RecipeService.allRecipes;
+
+
+  //CONSTRUCT BEER STYLES PULLDOWN DATA
   vm.beerData = ApiDataService.beerData;
-  console.log('Beer styles accessible from recipe.html: ', vm.beerData);
+  //console.log('Beer styles accessible from recipe.html: ', vm.beerData);
+  vm.beerCategories = [];
+  var id = 1;
+  var category = {};
+
+  function buildBeerCategories(){
+    //for each category.id push category.name into beerCategories[]
+      //Step through the array of Objects
+      for(var i = 0; i < vm.beerData.styles.length; i++){
+        if(id == vm.beerData.styles[i].categoryId){
+          //If nothing in array for index number, push name object into categories[]
+          category = {};
+          category.name = vm.beerData.styles[i].category.name;
+          //console.log("Adding this category to array: ", vm.beerData.styles[i].category.name);
+          vm.beerCategories.push(category);
+          //increment id finder up one to search for next category id-name pair
+          id += 1;
+        } else {
+          //ignore duplicate category id-name pairs
+          //console.log("Duplicate category.id found.");
+        }
+      }
+      console.log('beer categories data: ', vm.beerCategories);
+  }
+buildBeerCategories();
+
+
+
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
-
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
