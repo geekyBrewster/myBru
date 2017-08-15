@@ -72,7 +72,7 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
 
   //SAVE FINAL PRODUCT NOTES -- ON CLICK
   vm.saveFinalProduct = function(date, rank, worthRepeating, impressions,
-    batchChanges, aroma, appearance, flavor, mouthfeel, batchNotes, suspectedCauses){
+    batchChanges, aroma, appearance, flavor, mouthfeel, batchNotes, suspectedCauses, ev){
 
     //GET RECIPE ID
       console.log('Recipe to work with: ', vm.recipe);
@@ -115,7 +115,7 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
       console.log('After updating: ', vm.allRecipes);
 
       //Pop up toast notification
-      vm.recipeService.showSaveToast();
+      vm.recipeService.showSaveNotification(ev, 'Final Brew notes');
     };
 
 

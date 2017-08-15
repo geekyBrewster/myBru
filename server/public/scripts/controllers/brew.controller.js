@@ -17,7 +17,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
   // Figure out how to update ingredientAdded when checkbox is clicked
 
 //SAVE BREW NOTES -- ON CLICK
-  vm.saveBatch = function(date, brewNotes, mashNotes){
+  vm.saveBatch = function(date, brewNotes, mashNotes, ev){
     console.log('Recipe to work with: ', vm.recipe);
     console.log('RecipeId to save: ', vm.recipe.data._id);
     console.log('Recipe batches brewed count: ', vm.recipe.data.batchesBrewed);
@@ -52,7 +52,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
     console.log('After updating: ', vm.allRecipes);
 
     //Pop up toast notification
-    vm.recipeService.showSaveToast();
+    vm.recipeService.showSaveNotification(ev, 'Brewed Batch notes');
 
   }; //end of save brew notes function
 

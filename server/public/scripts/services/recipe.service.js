@@ -1,4 +1,4 @@
-myApp.factory('RecipeService', function($http, $location, $mdToast){
+myApp.factory('RecipeService', function($http, $location, $mdToast, $mdDialog){
   console.log('RecipeService Loaded');
 
   var originatorEv;
@@ -49,18 +49,19 @@ myApp.factory('RecipeService', function($http, $location, $mdToast){
       });
     },
 
-    //Show "Recipe Saved" Toast Notification
-    showSaveToast : function(){
-        var toast = $mdToast.simple()
-          .textContent('Recipe Saved!')
-          .action('Okay')
-          .position('top right' );
+    //Show "Recipe Saved" Notification
+    showSaveNotification : function(ev, type){
+      var alert = $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(false)
+            .title(type + ' saved!')
+            .textContent('You will now be returned to the main menu.')
+            .ok('Got it!')
+            .targetEvent(ev);
 
-      $mdToast.show(toast).then(function(response){
-        if ( response == 'ok') {
+      $mdDialog.show(alert).then(function(){
           $location.path('/user');
-        }
-      });
+        });
     }
 
 

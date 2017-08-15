@@ -202,7 +202,7 @@ vm.filteredBeerStyles = function(categoryName){
 
 //SAVE RECIPE - ON CLICK
   vm.saveRecipe = function(name, style, recipeType, procedure, batchSize, boilLength,
-    mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc){
+    mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc, ev){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
     vm.recipe = {
       username: vm.userObject.userName,
@@ -240,7 +240,7 @@ vm.filteredBeerStyles = function(categoryName){
     console.log(vm.allRecipes);
 
     //Pop up toast notification
-    vm.recipeService.showSaveToast();
+    vm.recipeService.showSaveNotification(ev, 'Recipe');
 
   }; //end of saveRecipe
 
