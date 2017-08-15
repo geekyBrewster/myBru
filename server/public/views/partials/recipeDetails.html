@@ -1,5 +1,4 @@
 <div id="recipeDetailsBlock" class="md-inline-form">
-  {{rc.beerCategories}}
   <md-content layout-padding>
     <div>
       <form name="recipeDetails">
@@ -8,14 +7,14 @@
           <md-input-container style="margin-right: 10px;">
             <label>Beer Category</label>
             <md-select ng-model="rc.beerCategoryName">
-              <md-option ng-repeat="category in rc.beerCategories" value="{{category.name}}">{{category.name}}</md-option>
+              <md-option ng-repeat="category in rc.beerCategories" value="{{category.name}}" ng-click="rc.filteredBeerStyles(category.name)">{{category.name}}</md-option>
             </md-select>
           </md-input-container>
 
           <md-input-container style="margin-right: 10px;">
             <label>Beer Style</label>
             <md-select ng-model="rc.beerStyle">
-              <md-option ng-repeat="beerStyle in rc.beerData.styles" value="{{beerStyle}}">{{beerStyle.name}}</md-option>
+              <md-option ng-repeat="beerStyle in rc.filteredStyles | filter:selectedCategory" value="{{beerStyle}}">{{beerStyle.name}}</md-option>
             </md-select>
           </md-input-container>
 

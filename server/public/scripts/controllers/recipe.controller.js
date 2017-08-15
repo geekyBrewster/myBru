@@ -19,8 +19,10 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.beerData = ApiDataService.beerData;
   //console.log('Beer styles accessible from recipe.html: ', vm.beerData);
   vm.beerCategories = [];
+  vm.filteredStyles = [];
   var id = 1;
   var category = {};
+  var beerStyle = {};
 
   function buildBeerCategories(){
     //for each category.id push category.name into beerCategories[]
@@ -43,7 +45,26 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   }
 buildBeerCategories();
 
-
+vm.filteredBeerStyles = function(categoryName){
+  console.log('Category to filter by: ', categoryName);
+  //for each category.name that matches push it into filteredBeerStyles[]
+    //Step through the array of Objects
+    for(var i = 0; i < vm.beerData.styles.length; i++){
+      if(categoryName == vm.beerData.styles[i].category.name){
+        //If nothing in array for index number, push name object into categories[]
+        beerStyle = {};
+        beerStyle.name = vm.beerData.styles[i].name;
+        console.log("Adding this beer style object to array: ", beerStyle);
+        vm.filteredStyles.push(beerStyle);
+        //increment id finder up one to search for next category id-name pair
+        id += 1;
+      } else {
+        //ignore styles that don't match the category
+        console.log("This style doesn't fit the category");
+      }
+    }
+    console.log('beer categories data: ', vm.filteredStyles);
+};
 
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
