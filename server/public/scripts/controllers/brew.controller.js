@@ -30,7 +30,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
       for(var i = 0; i < searchArray.length; i++){
         if(ingredientName == searchArray[i].maltName && !searchArray[i].maltAdded ){
           searchArray[i].maltAdded = true;
-          console.log('Found it. Added set to true.');
+          console.log('Found it. maltAdded: ', searchArray[i].maltAdded);
         } else {
           console.log('Ingredient not found yet.');
         }
@@ -41,7 +41,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
       for(var j = 0; j < searchArray.length; j++){
         if(ingredientName == searchArray[j].hopName || ingredientType == searchArray[j].hopType && !searchArray[j].hopAdded ){
           searchArray[j].hopAdded = true;
-          console.log('Found it. Added set to true.');
+          console.log('Found it. hopAdded: ', searchArray[j].hopAdded);
         } else {
           console.log('Ingredient not found yet.');
         }
@@ -52,7 +52,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
       for(var k = 0; k < searchArray.length; k++){
         if(ingredientName == searchArray[k].yeastType && !searchArray[k].yeastAdded ){
           searchArray[k].yeastAdded = true;
-          console.log('Found it. Added set to true.');
+          console.log('Found it. yeastAdded: ', searchArray[k].yeastAdded );
         } else {
           console.log('Ingredient not found yet.');
         }
@@ -63,7 +63,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
       for(var l = 0; l < searchArray.length; l++){
         if(ingredientName == searchArray[l].ingredientType && !searchArray[l].ingredientAdded ){
           searchArray[l].ingredientAdded = true;
-          console.log('Found it. Added set to true.');
+          console.log('Found it. ingredientAdded: ', searchArray[l].ingredientAdded);
         } else {
           console.log('Ingredient not found yet.');
         }
@@ -89,6 +89,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
       brewNotes: brewNotes,
       mashNotes: mashNotes
     };
+    //NEED TO FIND WAY TO SEND UPDATED INGREDIENT 'ADDED' TO RECIPE OBJECT
     var dataToUpdate = {
       batchesBrewed: batchesBrewed,
       batchStatus: 'Batch brewed',
