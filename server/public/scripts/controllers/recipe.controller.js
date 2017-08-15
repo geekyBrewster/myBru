@@ -65,7 +65,7 @@ vm.filteredBeerStyles = function(categoryName){
     }
     console.log('beer categories data: ', vm.filteredStyles);
 };
-
+//-----** NEED TO CLEAR OUT THE FILTERED ARRAY WHEN YOU SELECT A NEW CATEGORY OTHERWISE STYLES APPEND IN THE ARRAY" **-------
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
@@ -89,6 +89,22 @@ vm.filteredBeerStyles = function(categoryName){
     // console.log('malt array: ', vm.malts);
     // Appends to DOM via vm.malts
   };
+
+  // Remove selected malt from the malts[]
+  vm.deleteMalt = function(maltName){
+    console.log('Looking to delete malt: ', maltName);
+    console.log('Looking to remove it from: ', vm.malts);
+    for(var i = 0; i < vm.malts.length; i++){
+      if(maltName == vm.malts[i].maltName){
+        console.log('Going to remove: ', vm.malts[i]);
+        vm.malts.splice(i,1);
+      } else {
+        console.log('This is not the ingredient object I\'m looking for.');
+      }
+    }
+  };
+
+
 
 //** HOP FUNCTIONS **/
   // addHop() button function
