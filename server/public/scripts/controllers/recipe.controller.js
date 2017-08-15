@@ -13,8 +13,8 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.ingredients = ingredients;
   vm.recipe = {};
   vm.allRecipes = RecipeService.allRecipes;
-  vm.beerStyles = ApiDataService.beerStyles;
-  console.log('Beer styles accessible from recipe.html: ', vm.beerStyles);
+  vm.beerData = ApiDataService.beerData;
+  console.log('Beer styles accessible from recipe.html: ', vm.beerData);
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
