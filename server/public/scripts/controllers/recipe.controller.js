@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-myApp.controller('RecipeController', function(UserService, RecipeService, $http, $location, $scope, $mdToast) {
-=======
-myApp.controller('RecipeController', function(UserService, RecipeService, ApiDataService, $http, $location) {
->>>>>>> ApiData
+myApp.controller('RecipeController', function($http, $location, $scope, $mdToast, UserService, RecipeService) {
+
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
