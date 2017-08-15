@@ -5,8 +5,8 @@ body, html {
   font-size: 14px;
 }
 
-div {
-  /*border: 1px solid blue;*/
+#summary div {
+  border: 1px solid blue;
 }
 .colorLogo {
   width: 100px;

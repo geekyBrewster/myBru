@@ -1,4 +1,4 @@
-myApp.controller('RecipeController', function($http, $location, $scope, $mdToast, UserService, RecipeService, ApiDataService) {
+myApp.controller('RecipeController', function($http, $location, $scope, UserService, RecipeService, ApiDataService) {
 
   console.log('RecipeController created');
 

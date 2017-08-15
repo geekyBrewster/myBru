@@ -58,9 +58,9 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
-    .when('/summary', {
+    .when('/update', {
       templateUrl: '/views/templates/summary.html',
-      controller: 'SummaryController as dc',
+      controller: 'SummaryController as sc',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();

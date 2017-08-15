@@ -6,7 +6,15 @@ myApp.controller('SummaryController', function($http, $location, UserService, Re
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
 
+  //GET data using recipe.service
+  vm.recipeService.getAllRecipes();
+  console.log(vm.allRecipes);
 
+  //PUT updated recipe data -- /update/recipe/id
+
+  //PUT updated brew batch data  -- /update/brew/id
+
+  //PUT updated drink brew data  -- /update/drink/id
 
 
 
