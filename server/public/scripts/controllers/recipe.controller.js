@@ -37,9 +37,6 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // Appends to DOM via vm.malts
   };
 
-  // search function for malt name data from API
-    // should use malt type to filter
-
 //** HOP FUNCTIONS **/
   // addHop() button function
   vm.addHop = function(hopType, hopName, hopForm, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
@@ -60,7 +57,6 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // Appends to DOM via vm.hops
   };
 
-  // search function for hop data from API
 
 //** YEAST FUNCTIONS **/
   // addYeast() button function
@@ -77,9 +73,6 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // console.log('yeast array: ', vm.yeasts);
     // Appends to DOM via vm.yeasts
   };
-
-  // search function for yeast data from API
-    // should use yeast supplier to filter
 
 //** OTHER INGREDIENTS FUNCTIONS **/
   // addIngredient() button function
@@ -140,8 +133,6 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     vm.recipeService.showSaveToast();
 
   }; //end of saveRecipe
-
-
 
   //GET data using recipe.service
   vm.recipeService.getAllRecipes(vm.userObject.userName);

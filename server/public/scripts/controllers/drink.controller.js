@@ -101,10 +101,8 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
         finalBrew: vm.finalProduct
       };
       console.log("Final Brew data: ", dataToUpdate);
-      //PUT TO /drink to update drink[] to recipe{}
 
-
-      // POST TO /brew to add batches[] to recipe{}
+      // PUT TO /brew to add drink[] to recipe{}
       $http.put('/drink/' + recipeID , dataToUpdate).then(function(response){
         console.log('Sending drink notes to server.');
         if(response){
