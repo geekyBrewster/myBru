@@ -131,7 +131,7 @@ vm.filteredBeerStyles = function(categoryName){
     //console.log('Looking to delete malt: ', hopName);
     //console.log('Looking to remove it from: ', vm.hops);
     for(var i = 0; i < vm.hops.length; i++){
-      if(hopType == vm.hops[i].hopType && hopName == vm.hops[i].hopName){
+      if(hopType == vm.hops[i].hopType || hopName == vm.hops[i].hopName){
         console.log('Going to remove: ', vm.hops[i]);
         vm.hops.splice(i,1);
       } else {
