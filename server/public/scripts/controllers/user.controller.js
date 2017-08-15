@@ -18,30 +18,33 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
    //Load the data that needs to be displayed on the DOM
    vm.loadData = function(){
      //GET user's recipes
-     vm.recipeService.getAllRecipes();
-     console.log("Retrieving recipes: ", vm.allRecipes);
+     vm.recipeService.getAllRecipes().then(function(response){
+       console.log("Retrieving recipes: ", vm.allRecipes);
 
-     //Display status of any batches in progress
-     vm.displayBrewStatus(vm.allRecipes);
+       //Display status of any batches in progress
+       vm.displayBrewStatus(vm.allRecipes);
+     });
    };
 
-   //Display recipes in progress
-   vm.displayBrewStatus = function(recipes){
-     console.log('Time to sort recipes!!');
-     var arrayToSort = recipes;
-     console.log('REcipes to sort thru: ', arrayToSort.data);
+     //Display recipes in progress
+     vm.displayBrewStatus = function(recipes){
+       console.log('Time to sort recipes!!');
+       var arrayToSort = recipes;
+       console.log('REcipes to sort thru: ', arrayToSort.data);
 
-     //Step through each object
-     for(var i = 0; i < arrayToSort.data.length; i++){
-       var batchStatus = arrayToSort.data[i].batchStatus;
-       console.log('Batch status = ', batchStatus);
-       if(batchStatus !== 'Ready to Brew'){
-         vm.batchesInProgress.push(arrayToSort.data[i]);
+       //Step through each object
+       for(var i = 0; i < arrayToSort.data.length; i++){
+         var batchStatus = arrayToSort.data[i].batchStatus;
+         console.log('Batch status = ', batchStatus);
+         if(batchStatus !== 'Ready to Brew'){
+           vm.batchesInProgress.push(arrayToSort.data[i]);
+         }
        }
-     }
-     console.log('Non-recipe recipes: ', vm.batchesInProgress);
-   };
+       console.log('Non-recipe recipes: ', vm.batchesInProgress);
+     };
 
+
+//BUTTON FUNCTIONS
    //Brew existing recipe -- On click
    vm.brewBatch = function(id){
      //retreive selected recipe

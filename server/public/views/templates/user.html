@@ -59,13 +59,13 @@
               <th>Bottle Batch?</th>
               <th>Drink Batch?</th>
             </thead>
-            <!--** NEED FUNCTION - LOAD USER'S BATCHES IN DATABASE & DISPLAY BATCH STAGE **-->
-            <!-- LOAD RECIPES IN DB ONTO DOM -->
+
+            <!-- LOAD In Progress BATCHES IN DB ONTO DOM -->
             <tbody>
-              <tr ng-repeat="recipe in uc.allRecipes.data">
+              <tr ng-repeat="batches in uc.batchesInProgress">
                 <td><i class="fa fa-beer"></i></td>
-                <td>{{recipe.recipeName}}</td>
-                <td>{{recipe.batchStatus}}</td>
+                <td>{{batches.recipeName}}</td>
+                <td>{{batches.batchStatus}}</td>
                 <td><md-button ng-disabled="true"><i class="fa fa-2x fa-eye"></i></md-button></td>
                 <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>

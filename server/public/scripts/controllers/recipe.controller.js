@@ -1,19 +1,27 @@
+<<<<<<< HEAD
 myApp.controller('RecipeController', function(UserService, RecipeService, $http, $location, $scope, $mdToast) {
+=======
+myApp.controller('RecipeController', function(UserService, RecipeService, ApiDataService, $http, $location) {
+>>>>>>> ApiData
   console.log('RecipeController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
-  vm.ingredients = ingredients;
-  // console.log(vm.ingredients);
+  vm.apiService = ApiDataService;
 
-  //DATA CONTAINERS
+
+  //INGREDIENT DATA - FROM MY DATA OBJECTS, THE DATABASE AND THE API
+  vm.ingredients = ingredients;
+  vm.recipe = {};
+  vm.allRecipes = RecipeService.allRecipes;
+  vm.beerStylesApi = vm.apiService.beerStylesData;
+
+  //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
-  vm.recipe = {};
-  vm.allRecipes = RecipeService.allRecipes;
 
 //** MALT FUNCTIONS **/
   // addMalt() button function

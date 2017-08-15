@@ -7,7 +7,7 @@
           <md-input-container style="margin-right: 10px;">
             <label>Beer Style</label>
             <md-select ng-model="rc.beerStyle">
-              <md-option ng-repeat="beerStyle in rc.ingredients.beerStyles" value="{{beerStyle}}">{{beerStyle}}</md-option>
+              <md-option ng-repeat="beerStyle in rc.beerStylesApi" value="{{beerStyle}}">{{beerStyle.name}}</md-option>
             </md-select>
           </md-input-container>
 

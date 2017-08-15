@@ -17,10 +17,18 @@ myApp.factory('RecipeService', function($http, $location, $mdToast){
 
     //RETRIEVE ALL RECIPES IN THE DATABASE (Promise chaining)
     getAllRecipes : function(){
+<<<<<<< HEAD
        return $http.get('/recipe/all').then(function(response){
           console.log('Retrieving ALL recipes from DB: ', response.data);
           allRecipes.data = response.data;
           console.log('All recipes: ', allRecipes);
+=======
+      return $http.get('/recipe/all').then(function(response){
+        console.log('Retrieving ALL recipes from DB: ', response.data);
+        allRecipes.data = response.data;
+
+        console.log('All recipes: ', allRecipes);
+>>>>>>> ApiData
         return response;
       });
     },
@@ -56,6 +64,7 @@ myApp.factory('RecipeService', function($http, $location, $mdToast){
           .action('Okay')
           .position('top right' );
 
+<<<<<<< HEAD
       $mdToast.show(toast).then(function(response){
         if ( response == 'ok') {
           $location.path('/user');
@@ -64,6 +73,8 @@ myApp.factory('RecipeService', function($http, $location, $mdToast){
     }
 
 
+=======
+>>>>>>> ApiData
   }; //end of return
 
 }); //end of service
