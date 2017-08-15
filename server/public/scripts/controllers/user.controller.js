@@ -1,16 +1,18 @@
-myApp.controller('UserController', function($http, $location, $scope, $mdDialog, UserService, RecipeService) {
+myApp.controller('UserController', function($http, $location, $scope, $mdDialog, UserService, RecipeService, ApiDataService) {
   console.log('UserController created');
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
+  vm.apiData = ApiDataService;
   var selectedID;
   vm.batchesInProgress = [];
 
 
    //Prep New Recipe -- On click
    vm.newRecipe = function(){
+     console.log('Beer styles loaded: ', vm.apiData.beerStyles);
      //Switch to recipe.html using $location.path(/recipe)
      $location.path('/recipe');
    };
@@ -23,6 +25,10 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
        //Display status of any batches in progress
        vm.displayBrewStatus(vm.allRecipes);
+
+       //CALL FUNCTION TO RETRIEVE DATA FROM API
+       vm.apiData.getStyles();  //want beerStyles.category.name & beerStyles.name for each object
+
      });
    };
 

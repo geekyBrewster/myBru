@@ -1,6 +1,7 @@
-myApp.controller('RecipeController', function($http, $location, $scope, $mdToast, UserService, RecipeService) {
+myApp.controller('RecipeController', function($http, $location, $scope, $mdToast, UserService, RecipeService, ApiDataService) {
 
   console.log('RecipeController created');
+
   var vm = this;
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
@@ -12,13 +13,15 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.ingredients = ingredients;
   vm.recipe = {};
   vm.allRecipes = RecipeService.allRecipes;
-  vm.beerStylesApi = vm.apiService.beerStylesData;
+  vm.beerStyles = ApiDataService.beerStyles;
+  console.log('Beer styles accessible from recipe.html: ', vm.beerStyles);
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
+
 
 //** MALT FUNCTIONS **/
   // addMalt() button function
@@ -56,7 +59,6 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // console.log('hop array: ', vm.hops);
     // Appends to DOM via vm.hops
   };
-
 
 //** YEAST FUNCTIONS **/
   // addYeast() button function
