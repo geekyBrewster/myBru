@@ -6,7 +6,6 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
   vm.apiData = ApiDataService;
-  var selectedID;
   vm.batchesInProgress = [];
 
 

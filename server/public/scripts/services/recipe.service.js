@@ -35,11 +35,6 @@ myApp.factory('RecipeService', function($http, $location, $mdToast, $mdDialog){
       });
     },
 
-    //LOAD SINGLE RECIPE FOR USE ON PAGE
-    loadRecipe : function(){
-      console.log("Loading data from: ", selectedRecipe);
-    },
-
     //DELETE RECIPE
     deleteRecipe : function(id){
       console.log('I will delete: ', id);

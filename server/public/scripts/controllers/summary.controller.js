@@ -5,10 +5,19 @@ myApp.controller('SummaryController', function($http, $location, $scope, $q, Use
   vm.userObject = UserService.userObject;
   vm.recipeService = RecipeService;
   vm.allRecipes = RecipeService.allRecipes;
+  vm.recipe = RecipeService.selectedRecipe;
+  var id;
 
   //GET data using recipe.service
   vm.recipeService.getAllRecipes();
-  console.log(vm.allRecipes);
+  console.log('SC is retrieving all recipes: ', vm.allRecipes);
+
+  //GET single recipe
+  vm.getRecipe = function(id){
+    console.log('Recipe ID to look for: ', id);
+    vm.recipeService.getRecipeById(id);
+  };
+
 
 
   //PUT updated recipe data -- /update/recipe/id

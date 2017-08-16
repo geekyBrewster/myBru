@@ -1,0 +1,34 @@
+<div class="singleRecipe" layout="row" flex>
+  <md-content>
+  <!-- HEADER ROW FOR A RECIPE -->
+    <div class="subtitle" layout="row" flex>
+      <div layout="column" flex="50">
+        <h2>Recipe Name: <em>{{recipe.recipeName}}</em></h2>
+      </div>
+      <div layout="column" flex>
+        <div layout="row">
+          <!-- BUTTONS TO EDIT RECIPE DETAILS -->
+          <button class="updateBtn" ng-show"recipeform.$visible" ng-click="recipeform.$show()">Update Recipe Details</button>
+          <form editable-form name="btnform" onaftersave="saveColumn()" ng-show="!btnform.$visible">
+            <div class="btn-form" ng-show="recipeform.$visible">
+              <button type="button" ng-disabled="recipeform.$waiting" ng-click="recipeform.$cancel()">Cancel</button>
+              <button type="button" ng-disabled="recipeform.$waiting" ng-click="recipeform.update()" >Save</button>
+            </div>
+          </form> <!-- END OF BUTTON FORM -->
+        </div>
+        <div layout="row" flex>
+          <!-- BUTTONS TO EDIT INGREDIENTS -->
+          <button class="updateBtn" ng-show"ingredientform.$visible" ng-click="ingredientform.$show()">Update Ingredients</button>
+          <form editable-form name="btnform" onaftersave="saveColumn()" ng-show="!btnform.$visible">
+            <div class="btn-form" ng-show="ingredientform.$visible">
+              <button type="button" ng-disabled="ingredientform.$waiting" ng-click="ingredientform.$cancel()">Cancel</button>
+              <button type="button" ng-disabled="ingredientform.$waiting" ng-click="ingredientform.update()" >Save</button>
+            </div>
+          </form> <!-- END OF BUTTON FORM -->
+        </div>
+      </div>
+    </div> <!-- end of header row -->
+
+
+  </md-content>
+</div> <!-- End of single recipe -->
