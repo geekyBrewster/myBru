@@ -11,10 +11,7 @@ myApp.controller('BrewController', function($http, $location, UserService, Recip
   vm.batch = {};
 
 //GET RECIPE DATA FROM SERVER
-  // GET REQUEST FOR SINGLE RECIPE
-  vm.recipeService.loadRecipe();
-  // APPEND REQUIRED RECIPE DATA TO DOM
-  // Figure out how to update ingredientAdded when checkbox is clicked
+  // Recipe loads when you click the "BREW" button on the main menu
 
 //SAVE BREW NOTES -- ON CLICK
   vm.saveBatch = function(date, brewNotes, mashNotes, ev){

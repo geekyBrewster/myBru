@@ -1,78 +1,247 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <!-- TABLE SUMMARY OF ALL RECIPE DATA (RECIPE, BREW NOTES, FINAL BREW NOTES)-->
 <!-- Table will be editable using Update buttons and Xeditable -->
-<div id="summary" class="container" layout="column">
-  <div class="title">
-    <h1>Summary of Recipes</h1>
-  </div>
-  <div class="singleRecipe" layout="row" flex>
-
-    <div class="recipeDetails" layout="column" flex="40">
-      <div class="recipeContainer">
-        <form class="recipeForm">
-
-          <!-- RECIPE TABLE -->
-          <table class="recipeTable">
-
-          </table>
-
-        </form>
-      </div>
-      <div class="recipeControls">
-        <button class="update">Update</button>
-      </div>
-
-    </div><!-- end of recipe details -->
-
-    <div class="brewDetails" layout="column" flex="20">
-      <div class="brewContainer">
-        <form class="brewForm">
-
-          <!-- BREWED BATCH TABLE -->
-          <table class="brewTable table table-bordered">
-            <thead>
-              <tr>
-                <td>Header Row</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Brew Date</td>
-              </tr>
-            </tbody>
-          </table>
-
-        </form>
-      </div>
-      <div class="brewControls">
-        <button class="update">Update</button>
-      </div>
-    </div><!-- end of brew details -->
-
-      <div class="drinkDetails" layout="column" flex="40">
-        <div class="drinkContainer">
-          <form class="drinkForm">
-            <!-- DRINK BREW TABLE -->
-            <table class="drinkTable table table-bordered">
-              <thead>
-                <tr>
-                  <td>Header Row</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Drink Date</td>
-                </tr>
-              </tbody>
-            </table>
-
-          </form>
+<div class="title" layout="row" flex ng-init="sc.recipeService.loadRecipe()">
+  <h1>Summary of Recipes</h1>
+</div>
+<div id="summary" class="container" layout="row">
+  <div class="recipeContainer" layout="column" flex>
+    <div class="singleRecipe" ng-repeat="recipe in sc.allRecipes.data">
+      <md-content>
+        <div class="subtitle" layout="row">
+              <h2>Recipe Name: <em>{{recipe.recipeName}}</em></h2>
         </div>
-      <div class="drinkControls">
-        <button class="update">Update</button>
-      </div>
-    </div><!-- end of drink details -->
+        <div class="recipeDetails" layout="row" flex>
+          <div class="recipeSpecifics" layout="column" flex="20">
+            <table>
+              <tr>
+                <td><h3>Recipe Specifics</h3></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Beer Style:</p>
+                  <p class="data">{{recipe.beerStyle}}</p>
+                </td>
+                <td>
+                  <p class="label">Recipe Type:</p>
+                  <p class="data">{{recipe.recipeType}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Batch Size:</p>
+                  <p class="data">{{recipe.batchSize}}</p>
+                </td>
+                <td>
+                  <p class="label">Boil Length:</p>
+                  <p class="data">{{recipe.boilLength}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Mash Length:</p>
+                  <p class="data">{{recipe.mashLength}}</p>
+                </td>
+                <td>
+                  <p class="label">Mash Temperature:</p>
+                  <p class="data">{{recipe.mashTemp}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Original Gravity:</p>
+                  <p class="data">{{recipe.originalGravity}}</p>
+                </td>
+                <td>
+                  <p class="label">Final Gravity:</p>
+                  <p class="data">{{recipe.finalGravity}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="recipeDescriptions" layout="column" flex="30">
+            <table>
+              <tr>
+                <td><h3>Recipe Decriptions</h3></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Recipe Description:</p>
+                  <p class="data">{{recipe.recipeDescription}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Procedure:</p>
+                  <p class="data">{{recipe.procedure}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Recipe Notes:</p>
+                  <p class="data">{{recipe.recipeNotes}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Recipe Source:</p>
+                  <p class="data">{{recipe.recipeSrc}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="ingredientDetails" layout="column" flex="50">
+            <table id="ingredientTable">
+              <tr>
+                <th>Ingredient</th>
+                <th></th>
+                <th>Amount</th>
+                <th>Timing</th>
+                <th>Notes</th>
+              </tr>
+              <tr ng-repeat="malt in recipe.malts">
+                <td>{{malt.maltType}}</td>
+                <td>{{malt.maltName}}</td>
+                <td>{{malt.maltAmt}} lbs.</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr ng-repeat="hop in recipe.hops">
+                <td>{{hop.hopName}}</td>
+                <td>{{hop.hopType}}</td>
+                <td>{{hop.hopAmt}} oz.</td>
+                <td>at {{hop.hopTime}} min.</td>
+                <td></td>
+              </tr>
+              <tr ng-repeat="yeast in recipe.yeasts">
+                <td>Yeast: {{yeast.yeastSupplier}}</td>
+                <td>{{yeast.yeastType}}</td>
+                <td></td>
+                <td></td>
+                <td>Rehydrate: {{yeast.rehydrate}}</td>
+              </tr>
+              <tr ng-repeat="ingredient in recipe.otherIngredients">
+                <td></td>
+                <td>{{ingredient.ingredientType}}</td>
+                <td>{{ingredient.ingredientAmt}}</td>
+                <td></td>
+                <td>{{ingredient.ingredientNotes}}</td>
+              </tr>
+            </table>
+          </div>
+        </div> <!-- end of first row -->
 
+        <div class="brewDrinkDetails" layout="row" flex>
+          <div class="brewDetails" layout="column" flex="30">
+            <table>
+              <tr>
+                <td><h3>Brew Day Notes</h3></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Brew Date:</p>
+                  <p class="data">{{recipe.batches.brewDate}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Brew Notes:</p>
+                  <p class="data">{{recipe.batches.brewNotes}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Mash Notes:</p>
+                  <p class="data">{{recipe.batches.mashNotes}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="drinkBasicDetails" layout="column" flex="35">
+            <table>
+              <tr>
+                <td><h3>Final Brew Notes</h3></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Drink Date:</p>
+                  <p class="data">{{recipe.finalBrew.drinkDate}}</p>
+                </td>
+                <td>
+                  <p class="label">Batch Rank ( 1 to 5):</p>
+                  <p class="data">{{recipe.finalBrew.batchRank}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Worth Repeating?</p>
+                  <p class="data">{{recipe.finalBrew.worthRepeating}}</p>
+                </td>
+                <td>
+                  <p class="label">Changes you'd make?</p>
+                  <p class="data">{{recipe.finalBrew.batchChanges}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Overall Impression:</p>
+                  <p class="data">{{recipe.finalBrew.batchImpressions}}</p>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="goodBadDetails" layout="column" flex="35">
+            <table>
+              <tr>
+                <td><h3>Overall Evaluation</h3></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Aroma:</p>
+                  <p class="data">{{recipe.finalBrew.aroma}}</p>
+                </td>
+                <td>
+                  <p class="label">Appearance:</p>
+                  <p class="data">{{recipe.finalBrew.appearance}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Flavor:</p>
+                  <p class="data">{{recipe.finalBrew.flavor}}</p>
+                </td>
+                <td>
+                  <p class="label">Moutfeel:</p>
+                  <p class="data">{{recipe.finalBrew.mouthfeel}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="label">Other Notes:</p>
+                  <p class="data">{{recipe.finalBrew.batchNote}}</p>
+                </td>
+                <td>
+                  <p class="label">Suspected Causes of Issues:</p>
+                  <p class="data">{{recipe.finalBrew.suspectedCauses}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td>Off Flavors (if present, listed below)</td>
+              </tr>
+              <tr ng-repeat="offFlavors in recipe.offFlavors">
+                <td>Off Flavor: {{offFlavors.offFlavorName}}</td>
+                <td>Description: {{offFlavors.offFlavorDescription}}</td>
+              </tr>
+            </table>
+          </div>
+        </div> <!-- end of second row -->
+      </md-content>
+    </div>
   </div> <!-- End of single recipe -->
 
 

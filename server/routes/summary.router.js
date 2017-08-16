@@ -7,6 +7,11 @@ var Batch = Models.Batch;
 var Recipe = Models.Recipe;
 var FinalProduct = Models.FinalBrew;
 
+//GET data using recipe.service
+vm.recipeService.getAllRecipes();
+
+
+
 //PUT -- ADD BATCH DATA TO RECIPE OBJECT IN DB
 router.put('recipe/:id', function(req, res){
   console.log('Inside PUT /update');

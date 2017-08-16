@@ -44,7 +44,7 @@ body, html {
   height: 200px;
 }
 #ingredientTable th, #ingredientTable tr {
-  width: 23%;
+  width: 18%;
   text-align: left;
 }
 #maltTable th, #maltTable tr {

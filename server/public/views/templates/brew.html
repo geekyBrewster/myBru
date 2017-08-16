@@ -1,6 +1,6 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
-<div class="container" ng-init="bc.recipeService.loadRecipe()">
+<div class="container">
   <div class="upperHalf" layout="row">
 
   <!-- LEFT SIDE: RECIPE SUMMARY -->
@@ -77,38 +77,43 @@
         <table id="ingredientTable">
           <tr>
             <th>Ingredient</th>
+            <th></th>
             <th>Amount</th>
             <th>Timing</th>
             <th>Notes</th>
             <th>Added?</th>
           </tr>
           <tr ng-repeat="malt in bc.recipe.data.malts">
+            <td>{{malt.maltType}}</td>
             <td>{{malt.maltName}}</td>
             <td>{{malt.maltAmt}} lbs.</td>
             <td></td>
             <td></td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox></md-checkbox></td>
           </tr>
           <tr ng-repeat="hop in bc.recipe.data.hops">
+            <td>{{hop.hopName}}</td>
             <td>{{hop.hopType}}</td>
             <td>{{hop.hopAmt}} oz.</td>
             <td>at {{hop.hopTime}} min.</td>
             <td></td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox></md-checkbox></td>
           </tr>
           <tr ng-repeat="yeast in bc.recipe.data.yeasts">
             <td>Yeast: {{yeast.yeastSupplier}}</td>
             <td>{{yeast.yeastType}}</td>
             <td></td>
+            <td></td>
             <td>Rehydrate: {{yeast.rehydrate}}</td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox></md-checkbox></td>
           </tr>
           <tr ng-repeat="ingredient in bc.recipe.data.otherIngredients">
+            <td></td>
             <td>{{ingredient.ingredientType}}</td>
             <td>{{ingredient.ingredientAmt}}</td>
             <td></td>
             <td>{{ingredient.ingredientNotes}}</td>
-            <td><md-checkbox>Added</md-checkbox></td>
+            <td><md-checkbox></md-checkbox></td>
           </tr>
         </table>
       </div>
