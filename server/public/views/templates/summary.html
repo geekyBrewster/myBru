@@ -1,17 +1,23 @@
 <div ng-include="'views/partials/nav.html'"></div>
+
 <!-- TABLE SUMMARY OF ALL RECIPE DATA (RECIPE, BREW NOTES, FINAL BREW NOTES)-->
 <!-- Table will be editable using Update buttons and Xeditable -->
+
 <div class="title" layout="row" flex ng-init="sc.recipeService.loadRecipe()">
   <h1>Summary of Recipes</h1>
 </div>
+
 <div id="summary" class="container" layout="row">
   <div class="recipeContainer" layout="column" flex>
+  <!-- LAYOUT FOR A SINGLE RECIPE THAT IS REPEATED FOR EACH RECIPE IN DB -->
     <div class="singleRecipe" ng-repeat="recipe in sc.allRecipes.data">
       <md-content>
         <div class="subtitle" layout="row">
               <h2>Recipe Name: <em>{{recipe.recipeName}}</em></h2>
         </div>
+        <!-- FIRST ROW: RECIPE DETAILS -->
         <div class="recipeDetails" layout="row" flex>
+          <!-- LEFT COLUMN OF FIRST ROW: RECIPE DETAILS -->
           <div class="recipeSpecifics" layout="column" flex="20">
             <table>
               <tr>
@@ -59,7 +65,9 @@
                 </td>
               </tr>
             </table>
+            <button class="updateBtn">Update Recipe Details</button>
           </div>
+          <!-- MIDDLE COLUMN OF FIRST ROW: RECIPE DESCRIPTION AND NOTES -->
           <div class="recipeDescriptions" layout="column" flex="30">
             <table>
               <tr>
@@ -91,7 +99,9 @@
                 </td>
               </tr>
             </table>
+            <button class="updateBtn">Update Recipe Notes</button>
           </div>
+          <!-- RIGHT COLUMN OF FIRST ROW: INGREDIENT DETAILS -->
           <div class="ingredientDetails" layout="column" flex="50">
             <table id="ingredientTable">
               <tr>
@@ -130,10 +140,13 @@
                 <td>{{ingredient.ingredientNotes}}</td>
               </tr>
             </table>
+            <button class="updateBtn">Update Ingredients</button>
           </div>
         </div> <!-- end of first row -->
 
+      <!-- SECOND ROW: BREWED BATCH & FINAL BEER DETAILS -->
         <div class="brewDrinkDetails" layout="row" flex>
+          <!-- LEFT COLUMN OF SECOND ROW: BREW DAY DETAILS -->
           <div class="brewDetails" layout="column" flex="30">
             <table>
               <tr>
@@ -159,7 +172,9 @@
                 </td>
               </tr>
             </table>
+            <button class="updateBtn">Update Brew Day Notes</button>
           </div>
+          <!-- MIDDLE COLUMN OF SECOND ROW: FINAL BREW BASIC DETAILS (SAME GOOD OR BAD) -->
           <div class="drinkBasicDetails" layout="column" flex="35">
             <table>
               <tr>
@@ -193,7 +208,9 @@
                 </td>
               </tr>
             </table>
+            <button class="updateBtn">Update Final Batch Notes</button>
           </div>
+          <!-- RIGHT COLUMN OF SECOND ROW: FINAL BATCH EVALUATION DETAILS INCLUDING OFF FLAVORS -->
           <div class="goodBadDetails" layout="column" flex="35">
             <table>
               <tr>
@@ -238,14 +255,11 @@
                 <td>Description: {{offFlavors.offFlavorDescription}}</td>
               </tr>
             </table>
+            <button class="updateBtn">Update Final Batch Evaluation</button>
           </div>
         </div> <!-- end of second row -->
       </md-content>
     </div>
   </div> <!-- End of single recipe -->
-
-
-
-
 
 </div> <!-- End of container -->
