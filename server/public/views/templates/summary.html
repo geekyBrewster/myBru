@@ -19,53 +19,60 @@
         <div class="recipeDetails" layout="row" flex>
           <!-- LEFT COLUMN OF FIRST ROW: RECIPE DETAILS -->
           <div class="recipeSpecifics" layout="column" flex="20">
-            <table>
-              <tr>
-                <td><h3>Recipe Specifics</h3></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="label">Beer Style:</p>
-                  <p class="data">{{recipe.beerStyle}}</p>
-                </td>
-                <td>
-                  <p class="label">Recipe Type:</p>
-                  <p class="data">{{recipe.recipeType}}</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="label">Batch Size:</p>
-                  <p class="data">{{recipe.batchSize}}</p>
-                </td>
-                <td>
-                  <p class="label">Boil Length:</p>
-                  <p class="data">{{recipe.boilLength}}</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="label">Mash Length:</p>
-                  <p class="data">{{recipe.mashLength}}</p>
-                </td>
-                <td>
-                  <p class="label">Mash Temperature:</p>
-                  <p class="data">{{recipe.mashTemp}}</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="label">Original Gravity:</p>
-                  <p class="data">{{recipe.originalGravity}}</p>
-                </td>
-                <td>
-                  <p class="label">Final Gravity:</p>
-                  <p class="data">{{recipe.finalGravity}}</p>
-                </td>
-              </tr>
-            </table>
-            <button class="updateBtn">Update Recipe Details</button>
+            <form editable-form name="tableform" onaftersave="saveRecipe()" oncancel="cancel()">
+              <table>
+                <tr>
+                  <td><h3>Recipe Specifics</h3></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="label">Beer Style:</p>
+                    <p class="data" editable-text="recipe.beerStyle" e-form="tableform">{{recipe.beerStyle}}</p>
+                  </td>
+                  <td>
+                    <p class="label">Recipe Type:</p>
+                    <p class="data" editable-text="recipe.recipeType" e-form="tableform">{{recipe.recipeType}}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="label">Batch Size:</p>
+                    <p class="data" editable-text="recipe.batchSize" e-form="tableform">{{recipe.batchSize}}</p>
+                  </td>
+                  <td>
+                    <p class="label">Boil Length:</p>
+                    <p class="data" editable-text="recipe.boilLength" e-form="tableform">{{recipe.boilLength}}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="label">Mash Length:</p>
+                    <p class="data" editable-text="recipe.mashLength" e-form="tableform">{{recipe.mashLength}}</p>
+                  </td>
+                  <td>
+                    <p class="label">Mash Temperature:</p>
+                    <p class="data" editable-text="recipe.mashTemp" e-form="tableform">{{recipe.mashTemp}}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="label">Original Gravity:</p>
+                    <p class="data" editable-text="recipe.originalGravity" e-form="tableform">{{recipe.originalGravity}}</p>
+                  </td>
+                  <td>
+                    <p class="label">Final Gravity:</p>
+                    <p class="data" editable-text="recipe.finalGravity" e-form="tableform">{{recipe.finalGravity}}</p>
+                  </td>
+                </tr>
+              </table>
+              <div class="btn-form" ng-show="tableform.$visible">
+                <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()">Cancel</button>
+                <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.update()" >Save</button>
+              </div>
+            </form>
+            <button class="updateBtn" ng-show"tableform.$visible" ng-click="tableform.$show()">Update Recipe Details</button>
+
           </div>
           <!-- MIDDLE COLUMN OF FIRST ROW: RECIPE DESCRIPTION AND NOTES -->
           <div class="recipeDescriptions" layout="column" flex="30">
