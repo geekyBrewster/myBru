@@ -11,10 +11,6 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
   vm.finalProduct = {};
   vm.view = "views/partials/defaultImage.html";
 
-  //GET RECIPE DATA FROM SERVER
-  // GET REQUEST FOR SINGLE RECIPE
-  vm.recipeService.loadRecipe();
-
   //TOGGLES NOTES FIELD DEPENDING ON RATING OF BEER
   vm.toggleNotes = function(value){
     if(!value){

@@ -14,7 +14,7 @@
           <md-input-container style="margin-right: 10px;">
             <label>Beer Style</label>
             <md-select ng-model="rc.beerStyle">
-              <md-option ng-repeat="beerStyle in rc.filteredStyles | filter:selectedCategory" value="{{beerStyle}}">{{beerStyle.name}}</md-option>
+              <md-option ng-repeat="beerStyle in rc.filteredStyles | filter:selectedCategory" value="{{beerStyle}}" ng-click="rc.saveBeerStyle(category.name, beerStyle)">{{beerStyle.name}}</md-option>
             </md-select>
           </md-input-container>
 

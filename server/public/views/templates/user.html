@@ -30,9 +30,9 @@
               <tr ng-repeat="recipe in uc.allRecipes.data">
                 <td><i class="fa fa-beer"></i></td>
                 <td>{{recipe.recipeName}}</td>
-                <td>{{recipe.beerStyle.styleName}}</td>
+                <td>{{recipe.beerStyle.styleName.name}}</td>
                 <td><md-button ng-disabled="true"><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
-                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, $event)"><i class="fa fa-2x fa-trash"></i></md-button></td>
+                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.recipeName, recipe._id, $event)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>
               </tr>
             </tbody>
@@ -67,9 +67,9 @@
                 <td>{{batches.recipeName}}</td>
                 <td>{{batches.batchStatus}}</td>
                 <td><md-button ng-disabled="true"><i class="fa fa-2x fa-eye"></i></md-button></td>
-                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.name, recipe._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
+                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(batches.name, batches._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>
-                <td><md-button class="md-primary" ng-click="uc.drinkBatch(recipe._id)">Prost!</md-button></td>
+                <td><md-button class="md-primary" ng-click="uc.drinkBatch(batches._id)">Prost!</md-button></td>
               </tr>
             </tbody>
           </table>

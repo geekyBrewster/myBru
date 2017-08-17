@@ -61,18 +61,22 @@ vm.filteredBeerStyles = function(categoryName){
         //If nothing in array for index number, push name object into categories[]
         beerStyle = {}; //clear beerStyle object
         beerStyle.name = vm.beerData.styles[i].name;
-        console.log("Adding this beer style object to array: ", beerStyle);
+        //console.log("Adding this beer style object to array: ", beerStyle);
         vm.filteredStyles.push(beerStyle);
         //increment id finder up one to search for next category id-name pair
         id += 1;
       } else {
         //ignore styles that don't match the category
-        console.log("This style doesn't fit the category");
+        //console.log("This style doesn't fit the category");
       }
     }
     console.log('beer categories data: ', vm.filteredStyles);
 };
-//-----** NEED TO CLEAR OUT THE FILTERED ARRAY WHEN YOU SELECT A NEW CATEGORY OTHERWISE STYLES APPEND IN THE ARRAY" **-------
+//Build beerStyle Data Object to save with Recipe
+vm.saveBeerStyle = function(category, name){
+  console.log('Beer category to save: ', category);
+  console.log('Beer style name to save: ', name);
+};
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
@@ -99,8 +103,8 @@ vm.filteredBeerStyles = function(categoryName){
 
   // Remove selected malt from the malts[]
   vm.deleteMalt = function(maltName){
-    console.log('Looking to delete malt: ', maltName);
-    console.log('Looking to remove it from: ', vm.malts);
+    //console.log('Looking to delete malt: ', maltName);
+    //console.log('Looking to remove it from: ', vm.malts);
     for(var i = 0; i < vm.malts.length; i++){
       if(maltName == vm.malts[i].maltName){
         console.log('Going to remove: ', vm.malts[i]);
@@ -134,7 +138,7 @@ vm.filteredBeerStyles = function(categoryName){
 
   // Remove selected hop from the hops[]
   vm.deleteHop = function(hopType, hopName){
-    //console.log('Looking to delete malt: ', hopName);
+    //console.log('Looking to delete hop: ', hopName);
     //console.log('Looking to remove it from: ', vm.hops);
     for(var i = 0; i < vm.hops.length; i++){
       if(hopType == vm.hops[i].hopType || hopName == vm.hops[i].hopName){
@@ -194,7 +198,7 @@ vm.filteredBeerStyles = function(categoryName){
 
   // Remove selected yeast from the yeasts[]
   vm.deleteIngredient = function(ingredientType){
-    console.log('Looking to delete malt: ', ingredientType);
+    console.log('Looking to delete ingredient: ', ingredientType);
     //console.log('Looking to remove it from: ', vm.hops);
     for(var i = 0; i < vm.otherIngredients.length; i++){
       if(ingredientType == vm.otherIngredients[i].ingredientType){
@@ -247,7 +251,7 @@ vm.filteredBeerStyles = function(categoryName){
     });
     //GET data using recipe.service
     vm.recipeService.getAllRecipes(vm.userObject.userName);
-    console.log(vm.allRecipes);
+    //console.log('Getting recipes after save: ', vm.allRecipes);
 
     //Pop up toast notification
     vm.recipeService.showSaveNotification(ev, 'Recipe');

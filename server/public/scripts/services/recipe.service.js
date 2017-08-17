@@ -39,7 +39,7 @@ myApp.factory('RecipeService', function($http, $location, $mdToast, $mdDialog){
     deleteRecipe : function(id){
       console.log('I will delete: ', id);
       //Create DELETE route to use recipe _id to delete that recipe
-      $http.delete('/recipe/' + id).then(function(response){
+      return $http.delete('/recipe/' + id).then(function(response){
         console.log('Recipe deleted');
       });
     },

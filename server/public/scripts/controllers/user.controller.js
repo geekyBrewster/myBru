@@ -53,6 +53,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 //BUTTON FUNCTIONS
    //Brew existing recipe -- On click
    vm.brewBatch = function(id){
+     console.log("Brew batch with id: ", id);
      //retreive selected recipe
      vm.recipeService.getRecipeById(id);
      //Switch to brew.html
@@ -61,6 +62,7 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
    //Brew existing recipe -- On click
    vm.drinkBatch = function(id){
+      console.log("Drink batch with id: ", id);
      //retreive selected recipe
      vm.recipeService.getRecipeById(id);
      //Switch to brew.html
@@ -70,25 +72,26 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
    //Delete Recipe -- on click
    vm.deleteSelectedRecipe = function(name, id, ev){
      console.log('Delete button clicked.');
-     //Confirm user wants to delete that recipe
-     var confirm = $mdDialog.confirm()
-       .title('Are you sure you\'d like to delete: ' + name + ' ?')
-       .targetEvent(ev)
-       .ok('You betcha')
-       .cancel('Not right now');
+     console.log('Deleting recipe named: ', name);
+     console.log('Deleting recipe id: ', id);
 
-     //Delete the recipe from DB
-     $mdDialog.show(confirm).then(function(id){
-       console.log('Going to deleted id: ', id);
-       vm.recipeService.deleteRecipe(id);
-     }, function(){
-       console.log('Not going to delete it.');
-     }
-   );
+       var confirm = $mdDialog.confirm()
+         .title('Are you sure you\'d like to delete: ' + name + ' ?')
+         .targetEvent(ev)
+         .ok('You betcha')
+         .cancel('Not right now');
 
-     //Update DOM
-     vm.recipeService.getAllRecipes();
-     console.log(vm.allRecipes);
+         //Delete the recipe from DB
+         $mdDialog.show(confirm).then(function(){
+           console.log('Going to deleted item and return TRUE');
+           vm.recipeService.deleteRecipe(id)
+            .then(vm.recipeService.getAllRecipes());
+
+           //Update DOM
+           console.log(vm.allRecipes);
+         });
+
+
    };
 
 vm.loadData();
