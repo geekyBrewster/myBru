@@ -70,15 +70,15 @@
           <!-- Form -->
           <form editable-form name="maltform" ng-show="maltform.$visible">
             <button type="submit" ng-disabled="maltform.$waiting" class="btn btn-primary" ng-click="rc.updateMalt()">
-              Save
+              <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
             <button type="button" ng-disabled="maltform.$waiting" ng-click="maltform.$cancel()" class="btn btn-default">
-              Cancel
+              <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!maltform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="maltform.$show()">Edit</button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteMalt(malt.maltName)">Del</button>
+          <button type="button" class="btn btn-primary" ng-click="maltform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-danger" ng-click="rc.deleteMalt(malt.maltName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>

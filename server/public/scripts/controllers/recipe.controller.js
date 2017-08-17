@@ -190,6 +190,10 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     }
   };
 
+  vm.updateYeast = function(){
+    console.log('malt array after update: ', vm.yeasts);
+  };
+
   //** OTHER INGREDIENTS FUNCTIONS **/
   // addIngredient() button function
   vm.addIngredient = function(ingredientType, ingredientAmt, ingredientNotes){
@@ -218,6 +222,10 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
         //console.log('This is not the ingredient object I\'m looking for.');
       }
     }
+  };
+
+  vm.updateIngredient = function(){
+    console.log('malt array after update: ', vm.otherIngredients);
   };
 
   //---------- BUTTON FUNCTIONS -----------//

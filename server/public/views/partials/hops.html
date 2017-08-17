@@ -86,15 +86,15 @@
           <!-- Form -->
           <form editable-form name="hopform" ng-show="hopform.$visible">
             <button type="submit" ng-disabled="hopform.$waiting" class="btn btn-primary" ng-click="rc.updateHop()">
-              Save
+              <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
             <button type="button" ng-disabled="hopform.$waiting" ng-click="hopform.$cancel()" class="btn btn-default">
-              Cancel
+              <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!hopform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="hopform.$show()">Edit</button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteHop(hop.hopType, hop.hopName)">Del</button>
+          <button type="button" class="btn btn-primary" ng-click="hopform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-danger" ng-click="rc.deleteHop(hop.hopType, hop.hopName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>
