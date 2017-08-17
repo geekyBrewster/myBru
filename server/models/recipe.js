@@ -9,7 +9,7 @@ var HopSchema = new Schema ({
   hopForm: String,
   hopUse: String,
   hopTimeBrew: Number,
-  hopTimeDry: Number,
+  hopTimeDry: String,
   hopAdded: {type: Boolean, default: false}
 });
 
