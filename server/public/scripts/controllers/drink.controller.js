@@ -82,7 +82,7 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
             .parent(angular.element(document.querySelector('#popupContainer')))
             .clickOutsideToClose(true)
             .title('Don\'t save yet!')
-            .textContent('You haven\'t ranked your final beer or entered all the other evaluation notes from this finished beer, good or bad.')
+            .textContent('Don\'t forget to RANK YOUR BREW and entered the other evaluation notes from this finished beer, good or bad.')
             .ariaLabel('Alert Dialog Demo')
             .ok('Got it!')
             .targetEvent(ev)

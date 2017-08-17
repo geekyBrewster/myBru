@@ -279,7 +279,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
             .parent(angular.element(document.querySelector('#popupContainer')))
             .clickOutsideToClose(true)
             .title('Don\'t save yet!')
-            .textContent('You haven\'t entered all your ingredients yet.')
+            .textContent('You haven\'t entered all your ingredients yet. You\'re not making beer unless you have malts, hops, yeast, and water.')
             .ariaLabel('Alert Dialog Demo')
             .ok('Got it!')
             .targetEvent(ev)
