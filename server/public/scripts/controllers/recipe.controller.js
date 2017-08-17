@@ -8,14 +8,12 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.recipeService = RecipeService;
   vm.apiService = ApiDataService;
 
-
   //INGREDIENT DATA - FROM MY DATA OBJECTS, THE DATABASE AND THE API
   vm.ingredients = ingredients;
   vm.recipe = {};
   vm.allRecipes = RecipeService.allRecipes;
 
-
-  //CONSTRUCT BEER STYLES PULLDOWN DATA
+  //-------- CONSTRUCT BEER STYLES PULLDOWN DATA -------//
   vm.beerData = ApiDataService.beerData;
   //console.log('Beer styles accessible from recipe.html: ', vm.beerData);
   vm.beerCategories = [];
@@ -31,31 +29,31 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     .then(
       function(){
         //for each category.id push category.name into beerCategories[]
-          //Step through the array of Objects
-          for(var i = 0; i < vm.beerData.styles.length; i++){
-            if(id == vm.beerData.styles[i].categoryId){
-              //If nothing in array for index number, push name object into categories[]
-              category = {};
-              category.name = vm.beerData.styles[i].category.name;
-              //console.log("Adding this category to array: ", vm.beerData.styles[i].category.name);
-              vm.beerCategories.push(category);
-              //increment id finder up one to search for next category id-name pair
-              id += 1;
-            } else {
-              //ignore duplicate category id-name pairs
-              //console.log("Duplicate category.id found.");
-            }
+        //Step through the array of Objects
+        for(var i = 0; i < vm.beerData.styles.length; i++){
+          if(id == vm.beerData.styles[i].categoryId){
+            //If nothing in array for index number, push name object into categories[]
+            category = {};
+            category.name = vm.beerData.styles[i].category.name;
+            //console.log("Adding this category to array: ", vm.beerData.styles[i].category.name);
+            vm.beerCategories.push(category);
+            //increment id finder up one to search for next category id-name pair
+            id += 1;
+          } else {
+            //ignore duplicate category id-name pairs
+            //console.log("Duplicate category.id found.");
           }
+        }
       }
     );
-      console.log('beer categories data: ', vm.beerCategories);
+    console.log('beer categories data: ', vm.beerCategories);
   }
-buildBeerCategories();
+  buildBeerCategories();
 
-vm.filteredBeerStyles = function(categoryName){
-  console.log('Category to filter by: ', categoryName);
-  //for each category.name that matches push it into filteredBeerStyles[]
-  vm.filteredStyles = []; //empty array so filtered names don't append to previous search results
+  vm.filteredBeerStyles = function(categoryName){
+    console.log('Category to filter by: ', categoryName);
+    //for each category.name that matches push it into filteredBeerStyles[]
+    vm.filteredStyles = []; //empty array so filtered names don't append to previous search results
     //Step through the array of Objects
     for(var i = 0; i < vm.beerData.styles.length; i++){
       if(categoryName == vm.beerData.styles[i].category.name){
@@ -72,25 +70,26 @@ vm.filteredBeerStyles = function(categoryName){
       }
     }
     console.log('beer categories data: ', vm.filteredStyles);
-};
-//Build beerStyle Data Object to save with Recipe
-vm.saveBeerStyle = function(category, beerStyle){
-  console.log('Beer category to save: ', category);
-  console.log('Beer style name to save: ', name);
-  beerStyleObj = {
-    beerCategory: category,
-    styleName: beerStyle.name,
   };
-  console.log('Beer style object to save to recipe: ', beerStyleObj);
-};
+  //Build beerStyle Data Object to save with Recipe
+  vm.saveBeerStyle = function(category, beerStyle){
+    console.log('Beer category to save: ', category);
+    console.log('Beer style name to save: ', name);
+    beerStyleObj = {
+      beerCategory: category,
+      styleName: beerStyle.name,
+    };
+    console.log('Beer style object to save to recipe: ', beerStyleObj);
+  };
 
+  //---------- INGREDIENT FUNCTIONS -----------//
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
   vm.malts = [];
   vm.hops = [];
   vm.yeasts = [];
   vm.otherIngredients = [];
 
-//** MALT FUNCTIONS **/
+  //** MALT FUNCTIONS **/
   // addMalt() button function
   vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz){
     // Push single malt object into malts[]
@@ -103,8 +102,7 @@ vm.saveBeerStyle = function(category, beerStyle){
     };
     // console.log("Single malt: ", singleMalt);
     vm.malts.push(singleMalt);
-    // console.log('malt array: ', vm.malts);
-    // Appends to DOM via vm.malts
+    console.log('malt array after add: ', vm.malts);
   };
 
   // Remove selected malt from the malts[]
@@ -121,16 +119,18 @@ vm.saveBeerStyle = function(category, beerStyle){
     }
   };
 
+  vm.updateMalt = function(){
+    console.log('malt array after update: ', vm.malts);
+  };
 
-//** HOP FUNCTIONS **/
+  //** HOP FUNCTIONS **/
   // addHop() button function
-  vm.addHop = function(hopType, hopName, hopForm, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
+  vm.addHop = function(hopType, hopName, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
     // Push single hop object into hops[]
     var singleHop = {
       hopType: hopType,
       hopName: hopName,
       hopAmt: hopAmt,
-      hopForm: hopForm,
       hopUse: hopUse,
       hopTimeBrew: hopTimeBrew,
       hopTimeDry: hopTimeDry,
@@ -156,7 +156,11 @@ vm.saveBeerStyle = function(category, beerStyle){
     }
   };
 
-//** YEAST FUNCTIONS **/
+  vm.updateHop = function(){
+    console.log('malt array after update: ', vm.hops);
+  };
+
+  //** YEAST FUNCTIONS **/
   // addYeast() button function
   vm.addYeast = function(yeastSupplier, yeastType, rehydrate){
     // Push single yeast object into yeasts[]
@@ -186,7 +190,7 @@ vm.saveBeerStyle = function(category, beerStyle){
     }
   };
 
-//** OTHER INGREDIENTS FUNCTIONS **/
+  //** OTHER INGREDIENTS FUNCTIONS **/
   // addIngredient() button function
   vm.addIngredient = function(ingredientType, ingredientAmt, ingredientNotes){
     // Push single yeast object into yeasts[]
@@ -216,52 +220,54 @@ vm.saveBeerStyle = function(category, beerStyle){
     }
   };
 
-//SAVE RECIPE - ON CLICK
+  //---------- BUTTON FUNCTIONS -----------//
+
+  //SAVE RECIPE - ON CLICK
   vm.saveRecipe = function(name, recipeType, procedure, batchSize, boilLength,
     mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc, ev){
-    // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
-    vm.recipe = {
-      username: vm.userObject.userName,
-      recipeName: name,
-      beerStyle: beerStyleObj,
-      recipeType: recipeType,
-      recipeDescription: description,
-      procedure: procedure,
-      batchSize: batchSize,
-      boilLength: boilLength,
-      mashLength: mashLength,
-      mashTemp: mashTemp,
-      originalGravity: originalGravity,
-      finalGravity: finalGravity,
-      recipeNotes: notes,
-      recipeSrc: recipeSrc,
-      batchesBrewed: 0,
-      batchStatus: 'Ready to Brew',
-      hops: vm.hops,
-      malts: vm.malts,
-      yeasts: vm.yeasts,
-      otherIngredients: vm.otherIngredients
-    };
-    console.log("recipe data: ", vm.recipe);
+      // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
+      vm.recipe = {
+        username: vm.userObject.userName,
+        recipeName: name,
+        beerStyle: beerStyleObj,
+        recipeType: recipeType,
+        recipeDescription: description,
+        procedure: procedure,
+        batchSize: batchSize,
+        boilLength: boilLength,
+        mashLength: mashLength,
+        mashTemp: mashTemp,
+        originalGravity: originalGravity,
+        finalGravity: finalGravity,
+        recipeNotes: notes,
+        recipeSrc: recipeSrc,
+        batchesBrewed: 0,
+        batchStatus: 'Ready to Brew',
+        hops: vm.hops,
+        malts: vm.malts,
+        yeasts: vm.yeasts,
+        otherIngredients: vm.otherIngredients
+      };
+      console.log("recipe data: ", vm.recipe);
 
-    // POST /recipe to create new Recipe object on server side
-    $http.post('/recipe', vm.recipe).then(function(response){
-      console.log('Sending recipe to server.');
-      if(response){
-        console.log('The server sent something back: ', response);
-      }
-    });
-    //GET data using recipe.service
+      // POST /recipe to create new Recipe object on server side
+      $http.post('/recipe', vm.recipe).then(function(response){
+        console.log('Sending recipe to server.');
+        if(response){
+          console.log('The server sent something back: ', response);
+        }
+      });
+      //GET data using recipe.service
+      vm.recipeService.getAllRecipes(vm.userObject.userName);
+      //console.log('Getting recipes after save: ', vm.allRecipes);
+
+      //Pop up toast notification
+      vm.recipeService.showSaveNotification(ev, 'Recipe');
+
+    }; //end of saveRecipe
+
+    //GET ALL RECIPE DATA
     vm.recipeService.getAllRecipes(vm.userObject.userName);
-    //console.log('Getting recipes after save: ', vm.allRecipes);
-
-    //Pop up toast notification
-    vm.recipeService.showSaveNotification(ev, 'Recipe');
-
-  }; //end of saveRecipe
-
-  //GET data using recipe.service
-  vm.recipeService.getAllRecipes(vm.userObject.userName);
-  console.log('Recipes returned:', vm.allRecipes);
+    console.log('Recipes returned:', vm.allRecipes);
 
 }); //end of controller

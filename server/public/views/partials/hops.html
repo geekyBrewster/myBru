@@ -1,11 +1,11 @@
 <div id="hopBlock" layout="row" flex>
   <!--IMAGE -*- LEFTMOST COLUMN -->
-  <div layout="column" layout-align="start center" flex="15">
+  <div layout="column" layout-align="start center" flex="10">
     <img id="hopIcon" ng-src="../../assets/img/hopIcon.jpg" alt="Hop icon">
   </div>
 
   <!-- HOP INPUTS -*- MIDDLE COLUMN -->
-  <div layout="column" flex="40">
+  <div layout="column" flex="30">
     <md-content>
       <div layout="row" flex>
 
@@ -16,67 +16,56 @@
             <md-option ng-repeat="hopType in rc.ingredients.hopTypes" value="{{hopType}}">{{hopType}}</md-option>
           </md-select>
         </md-input-container>
-
+      </div>
+      <div layout="row" flex>
         <!-- PULLDOWN MENU FOR COMMON HOPS & SEARCH BAR FOR MORE SPECIFIC ONES-->
-        <md-input-container class="md-block" flex-gt-xs>
+        <md-input-container class="md-block" flex>
           <label>Enter hop name:</label>
           <input type="text" ng-model="rc.hopName" />
         </md-input-container>
       </div>
 
-      <!-- SEPARATE ROW WITH INPUTS FOR HOP USE & FORM -->
+      <!-- SEPARATE ROW WITH INPUTS FOR HOP USE & AMOUNT -->
       <div layout="row" flex>
-        <div layout="column" flex="75">
-          <div layout="row">
-            <md-input-container class="md-block">
-              <label>Hop Use</label>
-              <md-select ng-model="rc.hopUse">
-                <md-option ng-repeat="hopUse in rc.ingredients.hopUse" value="{{hopUse}}">{{hopUse}}</md-option>
-              </md-select>
-            </md-input-container>
+        <md-input-container class="md-block">
+          <label>Hop Use</label>
+          <md-select ng-model="rc.hopUse">
+            <md-option ng-repeat="hopUse in rc.ingredients.hopUse" value="{{hopUse}}">{{hopUse}}</md-option>
+          </md-select>
+        </md-input-container>
 
-            <md-input-container class="md-block">
-              <label>Hop Form</label>
-              <md-select ng-model="rc.hopForm">
-                <md-option ng-repeat="hopForm in rc.ingredients.hopForm" value="{{hopForm}}">{{hopForm}}</md-option>
-              </md-select>
-            </md-input-container>
-          </div>
-          <!-- COLUMN WITH INPUTS FOR HOP AMT & TIMINGS (BREW & DRY HOPPING) -->
-          <md-input-container>
-            <label>Hop Amount:</label>
-            <input type="text" placeholder="Enter weight in ounces" ng-model="rc.hopAmt" />
-          </md-input-container>
+        <md-input-container>
+          <label>Hop Amount:</label>
+          <input type="text" placeholder="Enter weight in ounces" ng-model="rc.hopAmt" />
+        </md-input-container>
+      </div>
 
-          <md-input-container>
-            <label>Hop Timing - Brewing:</label>
-            <input type="text" placeholder="Min. from end of boil" ng-model="rc.hopTimeBrew" />
-          </md-input-container>
+      <!-- ROW WITH INPUTS FOR HOP AMT & TIMINGS (BREW & DRY HOPPING) -->
+      <div layout="row" flex>
+        <md-input-container>
+          <label>Hop Timing - Brewing:</label>
+          <input type="text" placeholder="Min. from end of boil" ng-model="rc.hopTimeBrew" />
+        </md-input-container>
 
-          <md-input-container>
-            <label>Hop Timing or Notes - Dry Hop:</label>
-            <input type="text" placeholder="When to dry hop?" ng-model="rc.hopTimeDry" />
-          </md-input-container>
-        </div>
+        <md-input-container>
+          <label>Hop Timing or Notes - Dry Hop:</label>
+          <input type="text" placeholder="When to dry hop?" ng-model="rc.hopTimeDry" />
+        </md-input-container>
 
         <!-- BUTTON TO ADD HOP TO LIST -->
-        <div layout="column" layout-align="center center" flex>
-          <md-button class="md-fab md-primary" ng-click="rc.addHop(rc.hopType, rc.hopName, rc.hopForm, rc.hopUse, rc.hopAmt, rc.hopTimeBrew, rc.hopTimeDry)">Add</md-button>
-        </div>
-
+        <md-button class="md-fab md-primary" ng-click="rc.addHop(rc.hopType, rc.hopName, rc.hopUse, rc.hopAmt, rc.hopTimeBrew, rc.hopTimeDry)">Add</md-button>
       </div>
     </md-content>
   </div>
 
   <!--HOPS - LIST OF ADDITIONS -->
-  <div layout="column" flex="45">
+  <div layout="column" flex="60">
     <table id="hopTable">
       <thead>
         <tr>
           <th>Type</th>
           <th>Name</th>
           <th>Amount</th>
-          <th>Form</th>
           <th>Use</th>
           <th>Time in Brew</th>
           <th>Dry Hop Time</th>
@@ -86,15 +75,28 @@
       </thead>
 
       <tr ng-repeat="hop in rc.hops">
-        <td>{{hop.hopType}}</td>
-        <td>{{hop.hopName}}</td>
-        <td>{{hop.hopAmt}} oz.</td>
-        <td>{{hop.hopForm}}</td>
-        <td>{{hop.hopUse}}</td>
-        <td>{{hop.hopTimeBrew}}</td>
-        <td>{{hop.hopTimeDry}}</td>
-        <td><md-button ng-disabled="true">Edit</md-button></td>
-        <td><md-button ng-click="rc.deleteHop(hop.hopType, hop.hopName)">Delete</md-button></td>
+        <td><span editable-text="hop.hopType" e-name="type" e-form="hopform">{{hop.hopType}}</span></td>
+        <td><span editable-text="hop.hopName" e-name="type" e-form="hopform">{{hop.hopName}}</span></td>
+        <td><span editable-text="hop.hopAmt" e-name="type" e-form="hopform">{{hop.hopAmt}} oz.</span></td>
+        <td><span editable-text="hop.hopUse" e-name="type" e-form="hopform">{{hop.hopUse}}</span></td>
+        <td><span editable-text="hop.hopTimeBrew" e-name="type" e-form="hopform">{{hop.hopTimeBrew}} min.</span></td>
+        <td><span editable-text="hop.hopTimeDry" e-name="type" e-form="hopform">{{hop.hopTimeDry}}</span></td>
+        <!-- Edit buttons -->
+        <td>
+          <!-- Form -->
+          <form editable-form name="hopform" ng-show="hopform.$visible">
+            <button type="submit" ng-disabled="hopform.$waiting" class="btn btn-primary" ng-click="rc.updateHop()">
+              Save
+            </button>
+            <button type="button" ng-disabled="hopform.$waiting" ng-click="hopform.$cancel()" class="btn btn-default">
+              Cancel
+            </button>
+          </form>
+          <div class="buttons" ng-show="!hopform.$visible">
+          <button type="button" class="btn btn-primary" ng-click="hopform.$show()">Edit</button>
+          <button type="button" class="btn btn-danger" ng-click="rc.deleteHop(hop.hopType, hop.hopName)">Del</button>
+          </div>
+        </td>
       </tr>
     </table>
   </div>
