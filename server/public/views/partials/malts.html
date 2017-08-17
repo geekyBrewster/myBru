@@ -7,6 +7,7 @@
 
   <!--MALT INPUTS-->
   <div layout="column" flex="30">
+    <form name="maltForm">
     <md-content>
       <div layout="row" layout-align="start start" flex>
 
@@ -29,12 +30,12 @@
         <div layout="column" flex="75">
           <md-input-container>
             <label>Malt Amount:</label>
-            <input type="text" placeholder="Enter weight in pounds" ng-model="rc.maltAmtLbs" />
+            <input type="number" placeholder="Enter weight in pounds" ng-model="rc.maltAmtLbs" />
           </md-input-container>
 
           <md-input-container>
             <label>Smaller Malt Amounts:</label>
-            <input type="text" placeholder="Enter weight in ounces" ng-model="rc.maltAmtOz" />
+            <input type="number" placeholder="Enter weight in ounces" ng-model="rc.maltAmtOz" />
           </md-input-container>
         </div>
 
@@ -45,6 +46,7 @@
 
       </div>
     </md-content>
+    </form>
   </div>
 
   <!--MALTS - LIST OF ADDITIONS -->

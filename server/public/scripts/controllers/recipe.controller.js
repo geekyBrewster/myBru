@@ -93,42 +93,17 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   // addMalt() button function
   vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz, ev){
 
-    // Validation - checks to make sure maltAmtLbs & maltAmtOz are numbers
-    function validateInput (input1, input2, ev){
-      if(!isFinite(parseFloat(input1)) || !isFinite(parseFloat(input2))){
-        console.log('Input 1 is: ', parseFloat(input1) );
-        console.log('Input 2 is: ', parseFloat(input2) );
-        console.log('One of the inputs is NOT a number!');
-        //Alert user
-            $mdDialog.show(
-              $mdDialog.alert()
-                .clickOutsideToClose(true)
-                .title('Malt amounts need to be a number.')
-                .textContent('Please make sure you\'ve entered numbers for malt amounts, either pounds, ounces, or both.')
-                .ok('Got it!')
-                .targetEvent(ev)
-            );
-
-      } else if (isFinite(parseFloat(input1)) && isFinite(parseFloat(input2))) {
-        console.log('This input is fine.');
-        console.log('Input 1 is: ', parseFloat(input1) );
-        console.log('Input 2 is: ', parseFloat(input2) );
-        // Create single malt object, then push into malts[]
-        var singleMalt = {
-          maltType: maltType,
-          maltName: maltName,
-          maltAmtLbs: maltAmtLbs,
-          maltAmtOz: maltAmtOz,
-          maltAdded: false
-        };
-        // console.log("Single malt: ", singleMalt);
-        vm.malts.push(singleMalt);
-        console.log('malt array after add: ', vm.malts);
-
-      }
-    }
-    validateInput(maltAmtLbs, maltAmtOz, ev);
-
+    // Create single malt object, then push into malts[]
+    var singleMalt = {
+      maltType: maltType,
+      maltName: maltName,
+      maltAmtLbs: maltAmtLbs,
+      maltAmtOz: maltAmtOz,
+      maltAdded: false
+    };
+    // console.log("Single malt: ", singleMalt);
+    vm.malts.push(singleMalt);
+    //console.log('malt array after add: ', vm.malts);
 
   }; //end of add Malt
 
