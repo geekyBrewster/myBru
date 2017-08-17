@@ -25,22 +25,28 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   var beerStyle = {};
 
   function buildBeerCategories(){
-    //for each category.id push category.name into beerCategories[]
-      //Step through the array of Objects
-      for(var i = 0; i < vm.beerData.styles.length; i++){
-        if(id == vm.beerData.styles[i].categoryId){
-          //If nothing in array for index number, push name object into categories[]
-          category = {};
-          category.name = vm.beerData.styles[i].category.name;
-          //console.log("Adding this category to array: ", vm.beerData.styles[i].category.name);
-          vm.beerCategories.push(category);
-          //increment id finder up one to search for next category id-name pair
-          id += 1;
-        } else {
-          //ignore duplicate category id-name pairs
-          //console.log("Duplicate category.id found.");
-        }
+    //CALL FUNCTION TO RETRIEVE DATA FROM API
+    vm.apiService.getStyles()
+    .then(
+      function(){
+        //for each category.id push category.name into beerCategories[]
+          //Step through the array of Objects
+          for(var i = 0; i < vm.beerData.styles.length; i++){
+            if(id == vm.beerData.styles[i].categoryId){
+              //If nothing in array for index number, push name object into categories[]
+              category = {};
+              category.name = vm.beerData.styles[i].category.name;
+              //console.log("Adding this category to array: ", vm.beerData.styles[i].category.name);
+              vm.beerCategories.push(category);
+              //increment id finder up one to search for next category id-name pair
+              id += 1;
+            } else {
+              //ignore duplicate category id-name pairs
+              //console.log("Duplicate category.id found.");
+            }
+          }
       }
+    );
       console.log('beer categories data: ', vm.beerCategories);
   }
 buildBeerCategories();
@@ -103,7 +109,6 @@ vm.filteredBeerStyles = function(categoryName){
       }
     }
   };
-
 
 
 //** HOP FUNCTIONS **/

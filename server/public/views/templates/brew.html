@@ -77,12 +77,14 @@
         <table id="ingredientTable">
           <tr>
             <th>Ingredient</th>
+            <th></th>
             <th>Amount</th>
             <th>Timing</th>
             <th>Notes</th>
             <th>Added?</th>
           </tr>
           <tr ng-repeat="malt in bc.recipe.data.malts">
+            <td>{{malt.maltType}}</td>
             <td>{{malt.maltName}}</td>
             <td>{{malt.maltAmt}} lbs.</td>
             <td></td>
@@ -91,6 +93,7 @@
           </tr>
           <tr ng-repeat="hop in bc.recipe.data.hops">
             <td>{{hop.hopType}}</td>
+            <td>{{hop.hopName}}</td>
             <td>{{hop.hopAmt}} oz.</td>
             <td>at {{hop.hopTime}} min.</td>
             <td></td>
