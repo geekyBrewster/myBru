@@ -93,6 +93,23 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   // addMalt() button function
   vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz, ev){
 
+    //Number validation - to add zero in place of null entries
+    if(maltAmtLbs == null){
+      maltAmtLbs = 0;
+      console.log('Setting maltAmtLbs to: ', maltAmtLbs);
+    } else {
+      maltAmtLbs = maltAmtLbs;
+      console.log('Setting maltAmtLbs to: ', maltAmtLbs);
+    }
+
+    if(maltAmtOz == null){
+      maltAmtOz = 0;
+      console.log('Setting maltAmtOz to: ', maltAmtOz);
+    } else {
+      maltAmtOz = maltAmtOz;
+      console.log('Setting maltAmtOz to: ', maltAmtOz);
+    }
+
     // Create single malt object, then push into malts[]
     var singleMalt = {
       maltType: maltType,
@@ -128,6 +145,25 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   //** HOP FUNCTIONS **/
   // addHop() button function
   vm.addHop = function(hopType, hopName, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
+
+    //Validation - to add content in place of null entries
+    if(hopTimeDry == null){
+      hopTimeDry = "N/A";
+      console.log('Setting hopTimeDry to: ', hopTimeDry);
+    } else {
+      hopTimeDry = hopTimeDry;
+      console.log('Setting hopTimeDry to: ', hopTimeDry);
+    }
+
+    if(hopTimeBrew == null){
+      hopTimeBrew = 0;
+      console.log('Setting maltAmtOz to: ', hopTimeBrew);
+    } else {
+      hopTimeBrew = hopTimeBrew;
+      console.log('Setting maltAmtOz to: ', hopTimeBrew);
+    }
+
+
     // Push single hop object into hops[]
     var singleHop = {
       hopType: hopType,
