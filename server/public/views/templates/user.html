@@ -30,7 +30,7 @@
               <tr ng-repeat="recipe in uc.allRecipes.data">
                 <td><i class="fa fa-beer"></i></td>
                 <td>{{recipe.recipeName}}</td>
-                <td>{{recipe.beerStyle.styleName.name}}</td>
+                <td>{{recipe.beerStyle.styleName}}</td>
                 <td><md-button ng-disabled="true"><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
                 <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.recipeName, recipe._id, $event)"><i class="fa fa-2x fa-trash"></i></md-button></td>
                 <td><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>

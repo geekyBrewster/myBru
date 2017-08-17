@@ -23,6 +23,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   var id = 1;
   var category = {};
   var beerStyle = {};
+  var beerStyleObj = {};
 
   function buildBeerCategories(){
     //CALL FUNCTION TO RETRIEVE DATA FROM API
@@ -73,9 +74,14 @@ vm.filteredBeerStyles = function(categoryName){
     console.log('beer categories data: ', vm.filteredStyles);
 };
 //Build beerStyle Data Object to save with Recipe
-vm.saveBeerStyle = function(category, name){
+vm.saveBeerStyle = function(category, beerStyle){
   console.log('Beer category to save: ', category);
   console.log('Beer style name to save: ', name);
+  beerStyleObj = {
+    beerCategory: category,
+    styleName: beerStyle.name,
+  };
+  console.log('Beer style object to save to recipe: ', beerStyleObj);
 };
 
   //DATA CONTAINERS FOR STORAGE OF USER ENTERED VALUES
@@ -211,17 +217,13 @@ vm.saveBeerStyle = function(category, name){
   };
 
 //SAVE RECIPE - ON CLICK
-  vm.saveRecipe = function(name, beerCategory, beerStyleName, recipeType, procedure, batchSize, boilLength,
+  vm.saveRecipe = function(name, recipeType, procedure, batchSize, boilLength,
     mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc, ev){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
-    var beerStyle = {
-      beerCategory: beerCategory,
-      styleName: beerStyleName
-    };
     vm.recipe = {
       username: vm.userObject.userName,
       recipeName: name,
-      beerStyle: beerStyle,
+      beerStyle: beerStyleObj,
       recipeType: recipeType,
       recipeDescription: description,
       procedure: procedure,
