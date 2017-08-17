@@ -93,7 +93,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   // addMalt() button function
   vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz, ev){
 
-    //Number validation - to add zero in place of null entries
+    //Validation - to add content in place of null entries
     if(maltAmtLbs == null){
       maltAmtLbs = 0;
       console.log('Setting maltAmtLbs to: ', maltAmtLbs);
@@ -271,44 +271,61 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   //SAVE RECIPE - ON CLICK
   vm.saveRecipe = function(name, recipeType, procedure, batchSize, boilLength,
     mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc, ev){
-      // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
-      vm.recipe = {
-        username: vm.userObject.userName,
-        recipeName: name,
-        beerStyle: beerStyleObj,
-        recipeType: recipeType,
-        recipeDescription: description,
-        procedure: procedure,
-        batchSize: batchSize,
-        boilLength: boilLength,
-        mashLength: mashLength,
-        mashTemp: mashTemp,
-        originalGravity: originalGravity,
-        finalGravity: finalGravity,
-        recipeNotes: notes,
-        recipeSrc: recipeSrc,
-        batchesBrewed: 0,
-        batchStatus: 'Ready to Brew',
-        hops: vm.hops,
-        malts: vm.malts,
-        yeasts: vm.yeasts,
-        otherIngredients: vm.otherIngredients
-      };
-      console.log("recipe data: ", vm.recipe);
 
-      // POST /recipe to create new Recipe object on server side
-      $http.post('/recipe', vm.recipe).then(function(response){
-        console.log('Sending recipe to server.');
-        if(response){
-          console.log('The server sent something back: ', response);
-        }
-      });
-      //GET data using recipe.service
-      vm.recipeService.getAllRecipes(vm.userObject.userName);
-      //console.log('Getting recipes after save: ', vm.allRecipes);
+      //Valdiation -- Ensuring key ingredients have been added, mainly malts, hops & yeast
+      if(vm.malts.length == 0 || vm.hops.length == 0 || vm.yeasts.length == 0 ){
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Don\'t save yet!')
+            .textContent('You haven\'t entered all your ingredients yet.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Got it!')
+            .targetEvent(ev)
+        );
+      } else {
 
-      //Pop up toast notification
-      vm.recipeService.showSaveNotification(ev, 'Recipe');
+        // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
+        vm.recipe = {
+          username: vm.userObject.userName,
+          recipeName: name,
+          beerStyle: beerStyleObj,
+          recipeType: recipeType,
+          recipeDescription: description,
+          procedure: procedure,
+          batchSize: batchSize,
+          boilLength: boilLength,
+          mashLength: mashLength,
+          mashTemp: mashTemp,
+          originalGravity: originalGravity,
+          finalGravity: finalGravity,
+          recipeNotes: notes,
+          recipeSrc: recipeSrc,
+          batchesBrewed: 0,
+          batchStatus: 'Ready to Brew',
+          hops: vm.hops,
+          malts: vm.malts,
+          yeasts: vm.yeasts,
+          otherIngredients: vm.otherIngredients
+        };
+        console.log("recipe data: ", vm.recipe);
+
+        // POST /recipe to create new Recipe object on server side
+        $http.post('/recipe', vm.recipe).then(function(response){
+          console.log('Sending recipe to server.');
+          if(response){
+            console.log('The server sent something back: ', response);
+          }
+        });
+        //GET data using recipe.service
+        vm.recipeService.getAllRecipes(vm.userObject.userName);
+        //console.log('Getting recipes after save: ', vm.allRecipes);
+
+        //Pop up toast notification
+        vm.recipeService.showSaveNotification(ev, 'Recipe');
+
+      } //end of if-else for validation
 
     }; //end of saveRecipe
 
