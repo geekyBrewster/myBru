@@ -6,7 +6,7 @@
         <div layout-gt-sm="row">
           <md-input-container style="margin-right: 10px;">
             <label>Beer Category</label>
-            <md-select ng-model="rc.beerCategoryName">
+            <md-select ng-model="rc.beerCategory">
               <md-option ng-repeat="category in rc.beerCategories" value="{{category.name}}" ng-click="rc.filteredBeerStyles(category.name)">{{category.name}}</md-option>
             </md-select>
           </md-input-container>

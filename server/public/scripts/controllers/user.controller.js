@@ -69,15 +69,22 @@ myApp.controller('UserController', function($http, $location, $scope, $mdDialog,
 
    //Delete Recipe -- on click
    vm.deleteSelectedRecipe = function(name, id, ev){
+     console.log('Delete button clicked.');
      //Confirm user wants to delete that recipe
      var confirm = $mdDialog.confirm()
        .title('Are you sure you\'d like to delete: ' + name + ' ?')
+       .targetEvent(ev)
        .ok('You betcha')
        .cancel('Not right now');
 
      //Delete the recipe from DB
-     $mdDialog.show(confirm).then(vm.recipeService.deleteRecipe(id));
-     console.log('Deleted id: ', id);
+     $mdDialog.show(confirm).then(function(id){
+       console.log('Going to deleted id: ', id);
+       vm.recipeService.deleteRecipe(id);
+     }, function(){
+       console.log('Not going to delete it.');
+     }
+   );
 
      //Update DOM
      vm.recipeService.getAllRecipes();

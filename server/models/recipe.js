@@ -41,6 +41,11 @@ var OffFlavorSchema = new Schema ({
   causedBy: Array
 });
 
+var beerStyleSchema = new Schema ({
+  beerCategory: String,
+  styleName: String
+});
+
 var FinalProductSchema = new Schema ({
   //FROM BOTTLE.HTML
     //bottleDate: {type: Date, default: Date.now},
@@ -75,7 +80,7 @@ var RecipeSchema = new Schema({
   //FROM RECIPE.HTML
     username: {type: String, required: true},
     recipeName: {type: String, required: true},
-    beerStyle: {type: String, required: true},
+    beerStyle: [beerStyleSchema],
     recipeType: String,
     recipeDescription: String,
     procedure: String,

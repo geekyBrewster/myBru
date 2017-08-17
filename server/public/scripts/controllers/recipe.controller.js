@@ -54,11 +54,12 @@ buildBeerCategories();
 vm.filteredBeerStyles = function(categoryName){
   console.log('Category to filter by: ', categoryName);
   //for each category.name that matches push it into filteredBeerStyles[]
+  vm.filteredStyles = []; //empty array so filtered names don't append to previous search results
     //Step through the array of Objects
     for(var i = 0; i < vm.beerData.styles.length; i++){
       if(categoryName == vm.beerData.styles[i].category.name){
         //If nothing in array for index number, push name object into categories[]
-        beerStyle = {};
+        beerStyle = {}; //clear beerStyle object
         beerStyle.name = vm.beerData.styles[i].name;
         console.log("Adding this beer style object to array: ", beerStyle);
         vm.filteredStyles.push(beerStyle);
@@ -206,13 +207,17 @@ vm.filteredBeerStyles = function(categoryName){
   };
 
 //SAVE RECIPE - ON CLICK
-  vm.saveRecipe = function(name, style, recipeType, procedure, batchSize, boilLength,
+  vm.saveRecipe = function(name, beerCategory, beerStyleName, recipeType, procedure, batchSize, boilLength,
     mashLength, mashTemp, originalGravity, finalGravity, description, notes, recipeSrc, ev){
     // BUILD DATA OBJECT w/ rest of data TO SEND TO SERVER
+    var beerStyle = {
+      beerCategory: beerCategory,
+      styleName: beerStyleName
+    };
     vm.recipe = {
       username: vm.userObject.userName,
       recipeName: name,
-      beerStyle: style,
+      beerStyle: beerStyle,
       recipeType: recipeType,
       recipeDescription: description,
       procedure: procedure,
