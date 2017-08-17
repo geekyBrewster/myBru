@@ -4,7 +4,7 @@
   <div class="recipeHalf" layout="row">
 
     <!-- LEFT SIDE: RECIPE SUMMARY -->
-    <div class="leftSide" layout="column" layout-padding flex="40">
+    <div class="leftSide" layout="column" layout-padding flex="35">
       <div layout="row" flex="none">
         <h2>Brew Br&uuml; - {{bc.recipe.data.recipeName}}</h2>
       </div>
@@ -91,7 +91,7 @@
               <td>{{hop.hopName}}</td>
               <td>{{hop.hopAmt}} oz.</td>
               <td>at {{hop.hopTimeBrew}} min.</td>
-              <td>at {{hop.hopTimeDry}} min.</td>
+              <td>{{hop.hopTimeDry}}</td>
               <td><md-checkbox></md-checkbox></td>
             </tr>
             <tr ng-repeat="yeast in bc.recipe.data.yeasts">
