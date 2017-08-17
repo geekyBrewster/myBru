@@ -4,34 +4,49 @@
   <div class="recipeHalf" layout="row">
 
     <!-- LEFT SIDE: RECIPE SUMMARY -->
-    <div class="leftSide" layout="column" layout-padding flex="50">
+    <div class="leftSide" layout="column" layout-padding flex="40">
       <div layout="row" flex="none">
         <h2>Brew Br&uuml; - {{bc.recipe.data.recipeName}}</h2>
       </div>
       <div layout="row" flex="nogrow">
-        <div layout="column" flex="25">
-          <h3>Beer Style:</h3>
-          <p>{{bc.recipe.data.beerStyle.beerCategory}}</p>
-          <p>{{bc.recipe.data.beerStyle.styleName}}</p>
+        <div layout="column" flex="50">
+          <p class="tableHeader">Beer Style:</p>
+          <p class="tableData">{{bc.recipe.data.beerStyle.beerCategory}}</p>
+          <p class="tableData">{{bc.recipe.data.beerStyle.styleName}}</p>
         </div>
-        <div layout="column" flex="25">
-          <h3>Recipe Type:</h3>
-          <p>{{bc.recipe.data.recipeType}}</p>
-        </div>
-        <div layout="column" flex="25">
-          <h3>Boil Length:</h3>
-          <p>{{bc.recipe.data.boilLength}}</p>
-        </div>
-        <div layout="column" flex="25">
-          <h3>Mash Length and Temperature:</h3>
-          <p>{{bc.recipe.data.mashLength}}</p>
-          <p>{{bc.recipe.data.mashTemp}}</p>
-        </div>
+        <div layout="column" flex="50">
+          <table>
+            <tr>
+              <td class="tableHeader">Recipe Type:</td>
+            </tr>
+            <tr>
+              <td class="tableData">{{bc.recipe.data.recipeType}}</td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Boil Length:</td>
+            </tr>
+            <tr>
+              <td class="tableData">{{bc.recipe.data.boilLength}} min.</td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Mash Length:</td>
+            </tr>
+            <tr>
+              <td class="tableData">{{bc.recipe.data.mashLength}} min.</td>
+            </tr>
+            <tr>
+              <td class="tableHeader">Mash Temp:</td>
+            </tr>
+            <tr>
+              <td class="tableData">{{bc.recipe.data.mashTemp}} deg. F</td>
+            </tr>
+          </table>
       </div>
-          <div layout="row" flex="none">
-              <h3>Procedure: </h3>
-              <p>{{bc.recipe.data.procedure}}</p>
-          </div>
+    </div>
+      <div layout="row" flex="none">
+        <h3>Procedure: </h3>
+        <p>{{bc.recipe.data.procedure}}</p>
+      </div>
     </div>
 
 
@@ -66,8 +81,8 @@
             <tr ng-repeat="malt in bc.recipe.data.malts">
               <td>{{malt.maltType}}</td>
               <td>{{malt.maltName}}</td>
-              <td>{{malt.maltAmt}} lbs.</td>
-              <td></td>
+              <td>{{malt.maltAmtLbs}} lbs.</td>
+              <td>{{malt.maltAmtOz}} oz.</td>
               <td></td>
               <td><md-checkbox></md-checkbox></td>
             </tr>
@@ -75,8 +90,8 @@
               <td>{{hop.hopType}}</td>
               <td>{{hop.hopName}}</td>
               <td>{{hop.hopAmt}} oz.</td>
-              <td>at {{hop.hopTime}} min.</td>
-              <td></td>
+              <td>at {{hop.hopTimeBrew}} min.</td>
+              <td>at {{hop.hopTimeDry}} min.</td>
               <td><md-checkbox></md-checkbox></td>
             </tr>
             <tr ng-repeat="yeast in bc.recipe.data.yeasts">
