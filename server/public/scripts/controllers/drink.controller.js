@@ -75,6 +75,20 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
       console.log('RecipeId to save: ', vm.recipe.data._id);
       var recipeID = vm.recipe.data._id;
 
+      //Validation -- making sure user has entered a brew date before saving
+      if(rank == null){
+        $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Don\'t save yet!')
+            .textContent('You haven\'t ranked your final beer or entered all the other evaluation notes from this finished beer, good or bad.')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Got it!')
+            .targetEvent(ev)
+        );
+      } else {
+
     //BUILD DATA OBJECT TO SEND TO SERVER
       vm.finalProduct = {
         drinkDate: date,
@@ -112,7 +126,9 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
 
       //Pop up toast notification
       vm.recipeService.showSaveNotification(ev, 'Final Brew notes');
-    };
+
+    } //end of if-else validation for date entry
+  }; //end of save function
 
 
 
