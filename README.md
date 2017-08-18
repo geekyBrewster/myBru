@@ -49,7 +49,7 @@ In a terminal window, navigate to the project folder once saved on your computer
 
 ## Documentation
 
-[myBrü scope](https://docs.google.com/document/d/1G-U4Ecg2o8vz_yvpmWmPfJ059p1O-GeDMtsYIxcvDes/edit?usp=sharing)
+[myBrü scope](https://docs.google.com/document/d/13it_NFDXFKLkB8nwPpTXvBecL3lib6bdZx1J1Cq0Vz0/pub)
 
 ### Completed Features
 
