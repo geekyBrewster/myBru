@@ -1,0 +1,19 @@
+/*---- CONTAINS THE STYLING FOR THE BREW & DRINK PAGES ----*/
+
+/*-- BREW PAGE --*/
+
+
+
+/*-- DRINK PAGE - BASE PAGE --*/
+#doDrink {
+  width: 300px;
+  height: 300px;
+}
+#dontDrink {
+  width: 300px;
+  height: 300px;
+}
+
+/*-- DRINK PAGE - GOOD BEER --*/
+
+/*-- DRINK PAGE - BAD BEER --*/
