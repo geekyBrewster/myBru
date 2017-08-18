@@ -56,10 +56,14 @@
           <tr>
             <th>Off Flavor</th>
             <th>Description</th>
+            <th>Delete?</th>
           </tr>
           <tr ng-repeat="offFlavor in dc.offFlavorArray">
             <td>{{offFlavor.offFlavorName}}</td>
             <td>{{offFlavor.offFlavorDescription}}</td>
+            <td>
+              <button type="button" ng-click="dc.deleteOffFlavor(offFlavor.offFlavorName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </td>
           </tr>
         </table>
       </div>

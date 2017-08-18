@@ -66,6 +66,20 @@ myApp.controller('DrinkController', function($http, $location, UserService, Reci
     //APPENDS TO DOM via offFlavorArray
   };
 
+  // DELETE OFF FLAVOR from list offFlavorArray[]
+  vm.deleteOffFlavor = function(offFlavorName){
+    console.log('Looking to delete off flavor: ', offFlavorName);
+    console.log('Looking to remove it from: ', vm.offFlavorArray);
+    for(var i = 0; i < vm.offFlavorArray.length; i++){
+      if(offFlavorName == vm.offFlavorArray[i].offFlavorName){
+        console.log('Going to remove: ', vm.offFlavorArray[i]);
+        vm.offFlavorArray.splice(i,1);
+      } else {
+        console.log('This is not the off flavor object I\'m looking for.');
+      }
+    }
+  };
+
   //SAVE FINAL PRODUCT NOTES -- ON CLICK
   vm.saveFinalProduct = function(date, rank, worthRepeating, impressions,
     batchChanges, aroma, appearance, flavor, mouthfeel, batchNotes, suspectedCauses, ev){
