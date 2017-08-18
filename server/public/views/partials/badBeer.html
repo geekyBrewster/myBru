@@ -56,15 +56,18 @@
       </div>
 
       <div layout="row">
-        <table>
-          <tr>
-            <th>Off Flavor</th>
-            <th>Description</th>
-            <th>Delete?</th>
-          </tr>
+        <table id="offFlavorList">
+          <thead>
+            <tr>
+              <th>Off Flavor</th>
+              <th>Description</th>
+              <th>Delete?</th>
+            </tr>
+          </thead>
+
           <tr ng-repeat="offFlavor in dc.offFlavorArray">
-            <td>{{offFlavor.offFlavorName}}</td>
-            <td>{{offFlavor.offFlavorDescription}}</td>
+            <td class="offFlavorName">{{offFlavor.offFlavorName}}</td>
+            <td class="offFlavorDesc">{{offFlavor.offFlavorDescription}}</td>
             <td>
               <button type="button" ng-click="dc.deleteOffFlavor(offFlavor.offFlavorName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </td>

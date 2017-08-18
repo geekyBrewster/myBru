@@ -34,7 +34,20 @@
   width: 300px;
   height: 300px;
 }
+#rankBeerSelections, #rankBeer {
+  width: 100%;
+}
 
 /*-- DRINK PAGE - GOOD BEER --*/
 
 /*-- DRINK PAGE - BAD BEER --*/
+#offFlavorList {
+  width: 100%;
+}
+#offFlavorList th, #offFlavorList tr {
+  text-align: center;
+}
+
+#offFlavorList thead {
+  background-color: #ccc;
+}

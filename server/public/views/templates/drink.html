@@ -3,7 +3,7 @@
 <div class="container" layout="row" ng-init="dc.recipeService.loadRecipe()">
   <section class="leftSide" layout="column" flex="40">
     <div layout="row" flex="none">
-      <h2>Drink Br&uuml;</h2>
+      <h2>Brew Br&uuml; - <span class="recipeNameTitle"> {{dc.recipe.data.recipeName}}</span></h2>
     </div>
     <!-- RECIPE SUMMARY -->
     <div layout="row" flex="nogrow">
@@ -11,15 +11,7 @@
         <md-list>
           <md-list-item class="md-2-line">
             <div class="md-list-item-text">
-              <h3>Recipe Name:</h3>
-              <p>{{dc.recipe.data.recipeName}}</p>
-            </div>
-          </md-list-item>
-
-          <md-list-item class="md-2-line">
-            <div class="md-list-item-text">
               <h3>Beer Style:</h3>
-              <p>{{dc.recipe.data.beerStyle.beerCategory}}</p>
               <p>{{dc.recipe.data.beerStyle.styleName}}</p>
             </div>
           </md-list-item>
@@ -91,14 +83,13 @@
 
     <!-- MIDDLE ROW WITH VERDICT RADIO BUTTONS AND NOTES -->
     <div id="verdict" layout="row" flex>
-      <fieldset>
-        <div class="vote" layout="column" flex="50">
-          <div class="">
+        <div class="vote" layout="column" flex="30">
+          <fieldset>
             <!-- Rank beer radio buttons -->
             <form class="rankBeer">
               <p>Rank your Final Br&uuml;: </p>
 
-              <md-radio-group ng-model="dc.batchRank">
+              <md-radio-group id="rankBeerSelections" ng-model="dc.batchRank">
 
                 <md-radio-button value="5" class="md-primary" ng-click="dc.toggleNotes(true)">Outstanding</md-radio-button>
                 <md-radio-button value="4" class="md-primary" ng-click="dc.toggleNotes(true)">Exceeds Expectations</md-radio-button>
@@ -109,12 +100,6 @@
               </md-radio-group>
             </form>
           </div>
-          <div>
-
-          </div>
-
-        </div>
-      </fieldset>
       <!-- ADD ADDITIONAL NOTES ON IMPRESSION OF BATCH AND WHAT YOU'D CHANGE -->
       <fieldset>
         <div layout="column" flex>
@@ -128,7 +113,7 @@
             </md-radio-group>
           </div>
           <div layout="row">
-            <div layout="column">
+            <div layout="column" flex>
               <!-- OVERALL IMPRESSION TEXT INPUT -->
               <md-input-container class="md-block">
                 <label>Overall Impresisons</label>
