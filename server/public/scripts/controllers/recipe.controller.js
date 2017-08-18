@@ -122,15 +122,13 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     vm.malts.push(singleMalt);
     //console.log('malt array after add: ', vm.malts);
 
-    //Reset the maltForm
+    //Reset the maltForm after adding a malt
     vm.maltName = "";
     vm.maltType = "";
     vm.maltAmtLbs = "";
     vm.maltAmtOz = "";
     vm.maltForm.$setPristine();
     vm.maltForm.$setUntouched();
-
-
 
   }; //end of add Malt
 
@@ -157,7 +155,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
   vm.addHop = function(hopType, hopName, hopUse, hopAmt, hopTimeBrew, hopTimeDry){
 
     //Validation - to add content in place of null entries
-    if(hopTimeDry == null){
+    if(hopTimeDry == null || hopTimeDry == ""){
       hopTimeDry = "N/A";
       console.log('Setting hopTimeDry to: ', hopTimeDry);
     } else {
@@ -165,7 +163,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
       console.log('Setting hopTimeDry to: ', hopTimeDry);
     }
 
-    if(hopTimeBrew == null){
+    if(hopTimeBrew == null || hopTimeBrew == "" ){
       hopTimeBrew = 0;
       console.log('Setting maltAmtOz to: ', hopTimeBrew);
     } else {
@@ -173,6 +171,11 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
       console.log('Setting maltAmtOz to: ', hopTimeBrew);
     }
 
+    if(hopType == "Select"){
+      hopType = "";
+    } else {
+      hopType = hopType;
+    }
 
     // Push single hop object into hops[]
     var singleHop = {
@@ -187,7 +190,17 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // console.log("Single hop: ", singleHop);
     vm.hops.push(singleHop);
     // console.log('hop array: ', vm.hops);
-    // Appends to DOM via vm.hops
+
+    //Reset the maltForm after adding a malt
+    vm.hopType = "Select";
+    vm.hopName = "";
+    vm.hopAmt = "";
+    vm.hopUse = "";
+    vm.hopTimeBrew = "";
+    vm.hopTimeDry = "";
+    vm.hopForm.$setPristine();
+    vm.hopForm.$setUntouched();
+
   };
 
   // Remove selected hop from the hops[]
