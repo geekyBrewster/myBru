@@ -135,13 +135,16 @@
               <!-- OVERALL IMPRESSION TEXT INPUT -->
               <md-input-container class="md-block">
                 <label>Overall Impresisons</label>
-                <textarea ng-model="dc.batchImpressions" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                <textarea ng-model="dc.batchImpressions" md-maxlength="350" rows="5" md-select-on-focus
+                  placeholder="Comment on overall drinking pleasure (or displeasure) and how it matches the beer style."
+                ></textarea>
               </md-input-container>
             </div>
             <div layout="column">
               <md-input-container class="md-block">
-                <label>What would you change next time?</label>
-                <textarea ng-model="dc.batchChanges" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                <label>What to change?</label>
+                <textarea ng-model="dc.batchChanges" md-maxlength="350" rows="5" md-select-on-focus
+                  placeholder="What might you do differently w/ the next batch? Possible variations?"></textarea>
               </md-input-container>
             </div>
           </div>
