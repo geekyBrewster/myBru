@@ -1,6 +1,16 @@
 /*---- CONTAINS THE STYLING FOR THE MAIN MENU & RECIPE PAGE ----*/
 
 /*-- MAIN MENU --*/
+.menuIcon {
+  color:  #ffcc00;
+}
+
+#preparedRecipesTable, #brewStatusTable {
+  width: 100%;
+}
+.menuBrewBtn, .menuDeleteBtn, .menuEditBtn, .menuBottleBtn  {
+  text-align: center;
+}
 
 
 

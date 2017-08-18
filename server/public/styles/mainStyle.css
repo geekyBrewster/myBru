@@ -1,3 +1,6 @@
+* {
+  border: 1px solid blue;
+}
 /*---- CONTAINS THE BASE STYLING FOR ALL PAGES ----*/
 body, html {
   margin: 0;
@@ -7,11 +10,23 @@ body, html {
   word-wrap: normal;
 }
 
-div {
-  /*border: 1px solid blue;*/
-}
+
 
 /*--- STYLING FOR LOGIN / REGISTER PAGE ---*/
+.loginBtn {
+  background-color: #4040DE;
+  color: #fff;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
 .loginImage {
   width: 600px;
 }
@@ -31,12 +46,6 @@ div {
 .colorLogo {
   width: 100px;
 }
-
-
-
-
-
-
 
 
 /* STYLING FROM BASE FILE */

@@ -1,11 +1,11 @@
 <div ng-include="'views/partials/nav.html'"></div>
 
 <div class="container" layout="row" flex>
-  <div id="recipe_ls" layout="column" flex="60">
+  <div id="recipe_ls" layout="column" flex="70">
     <div layout="row">
       <div layout="column" flex>
         <!-- LEFT SIDE TOP: PREPARED RECIPES -->
-        <div layout="row" flex>
+        <div layout="row" flex="none">
           <div layout="column" flex="50">
             <h2>Prepared Br&uuml; Recipes</h2>
           </div>
@@ -15,8 +15,8 @@
           </div>
         </div>
         <!-- LIST RECIPES ALREADY PREPARED. EDIT AND BREW FROM THIS LIST. -->
-        <div>
-          <table id="preparedRecipes">
+        <div layout="row" flex>
+          <table id="preparedRecipesTable">
             <thead>
               <th></th>
               <th>Recipe Name</th>
@@ -28,12 +28,12 @@
             <!--** LOAD RECIPES IN DB ONTO DOM **-->
             <tbody>
               <tr ng-repeat="recipe in uc.allRecipes.data">
-                <td><i class="fa fa-beer"></i></td>
-                <td>{{recipe.recipeName}}</td>
-                <td>{{recipe.beerStyle.styleName}}</td>
-                <td><md-button ng-disabled="true"><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
-                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.recipeName, recipe._id, $event)"><i class="fa fa-2x fa-trash"></i></md-button></td>
-                <td><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>
+                <td class="menuIcon"><i class="fa fa-beer"></i></td>
+                <td class="menuRecipeName">{{recipe.recipeName}}</td>
+                <td class="menuBeerStyle">{{recipe.beerStyle.styleName}}</td>
+                <td class="menuEditBtn"><md-button ng-disabled="true"><i class="fa fa-2x fa-pencil-square-o"></i></md-button></td>
+                <td class="menuDeleteBtn"><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(recipe.recipeName, recipe._id, $event)"><i class="fa fa-2x fa-trash"></i></md-button></td>
+                <td class="menuBrewBtn"><md-button class="md-primary" ng-click="uc.brewBatch(recipe._id)">Brew!</md-button></td>
               </tr>
             </tbody>
           </table>
@@ -49,7 +49,7 @@
           <h2>St&aring;tus of your Br&uuml;s</h2>
         </div>
         <div>
-          <table id="brewStatus">
+          <table id="brewStatusTable">
             <thead>
               <th></th>
               <th>Recipe Name</th>
@@ -63,13 +63,13 @@
             <!-- LOAD In Progress BATCHES IN DB ONTO DOM -->
             <tbody>
               <tr ng-repeat="batches in uc.batchesInProgress">
-                <td><i class="fa fa-beer"></i></td>
-                <td>{{batches.recipeName}}</td>
-                <td>{{batches.batchStatus}}</td>
-                <td><md-button ng-disabled="true"><i class="fa fa-2x fa-eye"></i></md-button></td>
-                <td><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(batches.name, batches._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
-                <td><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>
-                <td><md-button class="md-primary" ng-click="uc.drinkBatch(batches._id)">Prost!</md-button></td>
+                <td class="menuIcon"><i class="fa fa-beer"></i></td>
+                <td class="menuRecipeName">{{batches.recipeName}}</td>
+                <td class="menuBatchStatus">{{batches.batchStatus}}</td>
+                <td class="menuEditBtn"><md-button ng-disabled="true"><i class="fa fa-2x fa-eye"></i></md-button></td>
+                <td class="menuDeleteBtn"><md-button class="md-warn" ng-click="uc.deleteSelectedRecipe(batches.name, batches._id, ev)"><i class="fa fa-2x fa-trash"></i></md-button></td>
+                <td class="menuBottleBtn"><md-button class="md-warn" ng-disabled="true">Bottle</md-button></td>
+                <td class="menuDrinkBtn"><md-button class="md-primary" ng-click="uc.drinkBatch(batches._id)">Prost!</md-button></td>
               </tr>
             </tbody>
           </table>
