@@ -1,4 +1,4 @@
-# Name of Project
+# myBrü, homebrew tracking app
 
 myBrü is a full-stack web application where homebrewers can track the details of the brewing process from recipe preparation through the actual brewing of the beer and finally to the tasting and evaluation of the final product. The brewer will be prompted to create an account where they’ll store their recipes, brewing notes, and final project notes.
 
@@ -48,7 +48,7 @@ In a terminal window, navigate to the project folder once saved on your computer
 [drinkBrew]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/drinkBru.jpg "Evaluate Batch page"
 
 ## Documentation
-
+Link to a read-only version of the scope for this project:
 [myBrü scope](https://docs.google.com/document/d/13it_NFDXFKLkB8nwPpTXvBecL3lib6bdZx1J1Cq0Vz0/pub)
 
 ### Completed Features
