@@ -91,10 +91,10 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
 
   //** MALT FUNCTIONS **/
   // addMalt() button function
-  vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz, ev){
+  vm.addMalt = function(maltType, maltName, maltAmtLbs, maltAmtOz, maltForm, ev){
 
     //Validation - to add content in place of null entries
-    if(maltAmtLbs == null){
+    if(maltAmtLbs == null || maltAmtLbs == ""){
       maltAmtLbs = 0;
       console.log('Setting maltAmtLbs to: ', maltAmtLbs);
     } else {
@@ -102,7 +102,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
       console.log('Setting maltAmtLbs to: ', maltAmtLbs);
     }
 
-    if(maltAmtOz == null){
+    if(maltAmtOz == null || maltAmtOz == ""){
       maltAmtOz = 0;
       console.log('Setting maltAmtOz to: ', maltAmtOz);
     } else {
@@ -121,6 +121,16 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // console.log("Single malt: ", singleMalt);
     vm.malts.push(singleMalt);
     //console.log('malt array after add: ', vm.malts);
+
+    //Reset the maltForm
+    vm.maltName = "";
+    vm.maltType = "";
+    vm.maltAmtLbs = "";
+    vm.maltAmtOz = "";
+    vm.maltForm.$setPristine();
+    vm.maltForm.$setUntouched();
+
+
 
   }; //end of add Malt
 

@@ -7,8 +7,9 @@
 
   <!--MALT INPUTS-->
   <div layout="column" flex="30">
-    <form name="maltForm">
+
     <md-content>
+      <ng-form name="rc.maltForm" class="malt">
       <div layout="row" layout-align="start start" flex>
 
         <!-- PULLDOWN MENU FOR MALT TYPE AND TEXT INPUT FOR MALT NAME -->
@@ -41,12 +42,11 @@
 
         <!-- BUTTON TO ADD MALT TO LIST -->
         <div layout="column" layout-align="end end" flex>
-          <md-button class="md-fab md-primary" ng-click="rc.addMalt(rc.maltType, rc.maltName, rc.maltAmtLbs, rc.maltAmtOz, $event)">Add</md-button>
+          <md-button type="submit" class="md-fab md-primary" ng-click="rc.addMalt(rc.maltType, rc.maltName, rc.maltAmtLbs, rc.maltAmtOz, $event)">Add</md-button>
         </div>
-
       </div>
+    </ng-form>
     </md-content>
-    </form>
   </div>
 
   <!--MALTS - LIST OF ADDITIONS -->
