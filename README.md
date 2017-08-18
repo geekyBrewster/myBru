@@ -38,14 +38,9 @@ In a terminal window, navigate to the project folder once saved on your computer
 
 ## Screen Shot
 
-![alt text][mainMenu]
-[mainMenu]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/mainMenu.jpg "Main Menu"
-
-![alt text][recipe]
-[recipe]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/recipe.jpg "Prep Recipe page"
-
-![alt text][drinkBrew]
-[drinkBrew]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/drinkBru.jpg "Evaluate Batch page"
+Main menu: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/mainMenu.jpg
+Prep Recipe page: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/recipe.jpg
+Evaluate Batch page: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/drinkBru.jpg
 
 ## Documentation
 Link to a read-only version of the scope for this project:
