@@ -29,18 +29,27 @@ Link to software that is required to install the app (e.g. node).
 - [Angular-xeditable](https://vitalets.github.io/angular-xeditable/)
 
 
-
 ### Installing
 
-Steps to get the development environment running.
+In a terminal window, navigate to the project folder once saved on your computer.
+- Run `npm install`
+- Make sure mongo is running in an open terminal window
+- `npm start`
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![alt text][mainMenu]
+[mainMenu]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/mainMenu.jpg "Main Menu"
+
+![alt text][recipe]
+[recipe]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/recipe.jpg "Prep Recipe page"
+
+![alt text][drinkBrew]
+[drinkBrew]: https://github.com/geekyBrewster/myBru/tree/master/server/public/assets/img/drinkBru.jpg "Evaluate Batch page"
 
 ## Documentation
 
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+[myBrü scope](https://docs.google.com/document/d/1G-U4Ecg2o8vz_yvpmWmPfJ059p1O-GeDMtsYIxcvDes/edit?usp=sharing)
 
 ### Completed Features
 
@@ -64,7 +73,8 @@ Features that you would like to add at some point in the future.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+This application requires an access key for the BreweryDB API, which can be requested from the site. Once requested, save the key API key in a `config.js` file inside the server folder and add config.js to your .gitignore file.
+
 
 ## Authors
 
@@ -73,4 +83,4 @@ Add additional notes about how to deploy this on a live system
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
+* Chris Black, Kris Szafranski
