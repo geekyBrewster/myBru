@@ -191,7 +191,7 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     vm.hops.push(singleHop);
     // console.log('hop array: ', vm.hops);
 
-    //Reset the maltForm after adding a malt
+    //Reset the hopForm after adding a hop
     vm.hopType = "Select";
     vm.hopName = "";
     vm.hopAmt = "";
@@ -234,7 +234,14 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     // console.log("Single yeast: ", singleYeast);
     vm.yeasts.push(singleYeast);
     // console.log('yeast array: ', vm.yeasts);
-    // Appends to DOM via vm.yeasts
+
+    //Reset the yeastForm after adding a yeast
+    vm.yeastType = "";
+    vm.yeastSupplier = "Select";
+    vm.rehydrate = "";
+    vm.yeastForm.$setPristine();
+    vm.yeastForm.$setUntouched();
+
   };
 
   // Remove selected yeast from the yeasts[]
@@ -268,7 +275,13 @@ myApp.controller('RecipeController', function($http, $location, $scope, $mdToast
     //console.log("Single ingredient: ", singleIngredient);
     vm.otherIngredients.push(singleIngredient);
     //console.log('ingredients array: ', vm.otherIngredients);
-    // Appends to DOM via vm.yeasts
+
+    //Reset the ingredientForm after adding a ingredient
+    vm.ingredientType = "";
+    vm.ingredientAmt = "";
+    vm.ingredientNotes = "";
+    vm.ingredientForm.$setPristine();
+    vm.ingredientForm.$setUntouched();
   };
 
   // Remove selected yeast from the yeasts[]

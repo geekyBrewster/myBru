@@ -9,6 +9,7 @@
   <!--YEAST INPUTS-->
   <div layout="column" flex="30">
     <md-content>
+    <ng-form name="rc.yeastForm" class="yeastForm">
       <div layout="row" flex>
 
         <!-- Yeast Supplier dropdown menu & text input for yeast type -->
@@ -36,6 +37,7 @@
           <md-button class="md-fab md-primary" ng-click="rc.addYeast(rc.yeastSupplier, rc.yeastType, rc.rehydrate)">Add</md-button>
         </div>
       </div>
+    </ng-form>
     </md-content>
   </div>
 
@@ -86,6 +88,7 @@
   <!--OTHER ADDITIONS - TEXT INPUTS-->
   <div layout="column" layout-align="start start" flex="40">
     <md-content>
+    <ng-form name="rc.ingredientForm" class="ingredientForm">
       <div layout="row" flex>
         <div layout="column" flex="40">
           <md-input-container class="md-block" flex>
@@ -109,6 +112,7 @@
           <input type="text" ng-model="rc.ingredientNotes" />
         </md-input-container>
       </div>
+    </ng-form>
     </md-content>
   </div>
 
