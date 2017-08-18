@@ -49,6 +49,9 @@ myApp.config(function($routeProvider, $locationProvider) {
         }
       }
     })
+    .when('/bottle', {
+      templateUrl: '/views/templates/bottle.html',
+    })
     .when('/drink', {
       templateUrl: '/views/templates/drink.html',
       controller: 'DrinkController as dc',
@@ -57,6 +60,9 @@ myApp.config(function($routeProvider, $locationProvider) {
           return UserService.getuser();
         }
       }
+    })
+    .when('/summary', {
+      templateUrl: '/views/templates/summary.html',
     })
     .otherwise({
       redirectTo: 'home'
