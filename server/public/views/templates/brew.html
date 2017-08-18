@@ -6,12 +6,11 @@
     <!-- LEFT SIDE: RECIPE SUMMARY -->
     <div class="leftSide" layout="column" layout-padding flex="35">
       <div layout="row" flex="none">
-        <h2>Brew Br&uuml; - {{bc.recipe.data.recipeName}}</h2>
+        <h2>Brew Br&uuml; - <span class="recipeNameTitle"> {{bc.recipe.data.recipeName}}</span></h2>
       </div>
       <div layout="row" flex="nogrow">
         <div layout="column" flex="50">
           <p class="tableHeader">Beer Style:</p>
-          <p class="tableData">{{bc.recipe.data.beerStyle.beerCategory}}</p>
           <p class="tableData">{{bc.recipe.data.beerStyle.styleName}}</p>
         </div>
         <div layout="column" flex="50">
@@ -44,8 +43,7 @@
       </div>
     </div>
       <div layout="row" flex="none">
-        <h3>Procedure: </h3>
-        <p>{{bc.recipe.data.procedure}}</p>
+        <p id="brewProcedureText">{{bc.recipe.data.procedure}}</p>
       </div>
     </div>
 
@@ -66,15 +64,17 @@
       </div>
       <fieldset>
         <div layout="row">
-          <table id="ingredientTable">
-            <tr>
-              <th>Ingredient</th>
-              <th></th>
-              <th>Amount</th>
-              <th>Timing</th>
-              <th>Notes</th>
-              <th>Added?</th>
-            </tr>
+          <table id="ingredientSummary">
+            <thead>
+              <tr>
+                <th>Ingredient</th>
+                <th></th>
+                <th>Amount</th>
+                <th>Timing</th>
+                <th>Notes</th>
+                <th>Added?</th>
+              </tr>
+            </thead>
             <tr ng-repeat="malt in bc.recipe.data.malts">
               <td>{{malt.maltType}}</td>
               <td>{{malt.maltName}}</td>

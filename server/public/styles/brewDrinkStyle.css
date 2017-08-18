@@ -1,8 +1,29 @@
 /*---- CONTAINS THE STYLING FOR THE BREW & DRINK PAGES ----*/
 
 /*-- BREW PAGE --*/
-
-
+.recipeNameTitle {
+  color: #9E0000;
+}
+.tableHeader {
+  font-weight: bold;
+  font-size: 1.6em;
+  text-decoration: underline;
+}
+.tableData {
+  font-size: 1.3em;
+  padding: 5px;
+}
+#ingredientSummary thead{
+  background-color: #ccc;
+  font-size: 1.1em;
+}
+#ingredientSummary th, #ingredientSummary tr {
+  width: 17%;
+  text-align: center;
+}
+#brewProcedureText {
+  font-size: 1.3em;
+}
 
 /*-- DRINK PAGE - BASE PAGE --*/
 #doDrink {
