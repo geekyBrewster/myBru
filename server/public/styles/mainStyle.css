@@ -1,5 +1,5 @@
 * {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
 /*---- CONTAINS THE BASE STYLING FOR ALL PAGES ----*/
 body, html {
@@ -10,6 +10,15 @@ body, html {
   word-wrap: normal;
 }
 
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.8em;
+  padding-left: 10px;
+}
+tables {
+  padding: 5px;
+}
 
 
 /*--- STYLING FOR LOGIN / REGISTER PAGE ---*/
@@ -64,8 +73,8 @@ body, html {
   margin-top: 14px;
 }
 
-#container {
-  margin-top: 10px;
+.container {
+  margin: 5px;
 }
 
 .container p{

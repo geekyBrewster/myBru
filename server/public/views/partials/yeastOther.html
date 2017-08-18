@@ -44,13 +44,14 @@
   <!--YEAST - LIST OF ADDITIONS -->
   <div layout="column" flex="60">
     <table id="yeastTable">
-      <tr>
-        <th>Supplier</th>
-        <th>Type</th>
-        <th>Rehydrate?</th>
-        <th></th>
-        <th></th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Type</th>
+          <th>Rehydrate?</th>
+          <th></th>
+        </tr>
+      </thead>
       <tr ng-repeat="yeast in rc.yeasts">
         <td><span editable-text="yeast.yeastSupplier" e-name="type" e-form="yeastform">{{yeast.yeastSupplier}}</span></td>
         <td><span editable-text="yeast.yeastType" e-name="type" e-form="yeastform">{{yeast.yeastType}}</span></td>
@@ -59,16 +60,16 @@
         <td>
           <!-- Form -->
           <form editable-form name="yeastform" ng-show="yeastform.$visible">
-            <button type="submit" ng-disabled="yeastform.$waiting" class="btn btn-primary" ng-click="rc.updateYeast()">
+            <button type="submit" ng-disabled="yeastform.$waiting" class="saveBtn" ng-click="rc.updateYeast()">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
-            <button type="button" ng-disabled="yeastform.$waiting" ng-click="yeastform.$cancel()" class="btn btn-default">
+            <button type="button" ng-disabled="yeastform.$waiting"  class="cancelBtn" ng-click="yeastform.$cancel()">
               <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!yeastform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="yeastform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteYeast(yeast.yeastType)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button type="button" class="editBtn" ng-click="yeastform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="deleteBtn" ng-click="rc.deleteYeast(yeast.yeastType)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>
@@ -119,13 +120,14 @@
   <!--Other Additions - LIST OF ADDITIONS -->
   <div layout="column" flex="45">
     <table id="ingredientTable">
-      <tr>
-        <th>Type</th>
-        <th>Amount</th>
-        <th>Notes</th>
-        <th></th>
-        <th></th>
-      </tr>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Notes</th>
+          <th></th>
+        </tr>
+      </thead>
       <tr ng-repeat="ingredient in rc.otherIngredients">
         <td><span editable-text="ingredient.ingredientType" e-name="type" e-form="ingredientform">{{ingredient.ingredientType}}</span></td>
         <td><span editable-text="ingredient.ingredientAmt" e-name="type" e-form="ingredientform">{{ingredient.ingredientAmt}}</span></td>
@@ -134,16 +136,16 @@
         <td>
           <!-- Form -->
           <form editable-form name="ingredientform" ng-show="ingredientform.$visible">
-            <button type="submit" ng-disabled="ingredientform.$waiting" class="btn btn-primary" ng-click="rc.updateIngredient()">
+            <button type="submit" ng-disabled="ingredientform.$waiting" class="saveBtn" ng-click="rc.updateIngredient()">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
-            <button type="button" ng-disabled="ingredientform.$waiting" ng-click="ingredientform.$cancel()" class="btn btn-default">
+            <button type="button" ng-disabled="ingredientform.$waiting" class="cancelBtn" ng-click="ingredientform.$cancel()">
               <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!ingredientform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="ingredientform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteIngredient(ingredient.ingredientType)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button type="button" class="editBtn" ng-click="ingredientform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="deleteBtn" ng-click="rc.deleteIngredient(ingredient.ingredientType)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>

@@ -9,7 +9,7 @@
           <div layout="column" flex="50">
             <h2>Prepared Br&uuml; Recipes</h2>
           </div>
-          <div layout="column" flex="40">
+          <div layout="column" layout-align="center end" flex="40">
             <!-- BUTTON TO CREATE NEW RECIPE -->
             <md-button class="md-raised md-primary" ng-click="uc.newRecipe()">Prep New Recipe</md-button>
           </div>
@@ -81,7 +81,7 @@
   <!-- RIGHT SIDE: CALENDAR, SETTINGS & IMAGE [STRETCH GOALS] -->
   <div id="recipe_rs" layout="column" flex="30">
     <div layout="row" layout-align="center center">
-      <img ng-src="../../assets/img/calendar.png" width="200px" height="200px" alt="calendar icon">
+      <img id="calendarImg" ng-src="../../assets/img/calendar.png" width="200px" height="200px" alt="calendar icon">
     </div>
     <div layout="row" layout-align="center center">
       <md-button ng-disabled="true"><i class="fa fa-cog fa-2x"></i> User Settings</md-button>

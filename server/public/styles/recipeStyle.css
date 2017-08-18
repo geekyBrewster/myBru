@@ -4,21 +4,46 @@
 .menuIcon {
   color:  #ffcc00;
 }
-
-#preparedRecipesTable, #brewStatusTable {
-  width: 100%;
-}
 .menuBrewBtn, .menuDeleteBtn, .menuEditBtn, .menuBottleBtn  {
   text-align: center;
 }
+#preparedRecipesTable, #brewStatusTable {
+  /*border: 1px solid #333;*/
+  width: 100%;
+}
+#preparedRecipesTable thead, #brewStatusTable thead {
+  background-color: #ccc;
+  font-size: 1.1em;
+}
+#calendarImg {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
 
 
 
-/*-- RECIPE --*/
+/*-- RECIPE Tab --*/
 .ingredientIcon {
   width: 75px;
 }
-
+.editBtn, .deleteBtn, .saveBtn, .cancelBtn {
+  background-color: #4040DE;
+  color: #fff;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 25px;
+  min-height: 25px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+#recipeSecondRow{
+  width: 100%;
+}
 #procedureText, #recipeDescriptionEval {
   width: 100%;
   height: 150px;
@@ -27,19 +52,47 @@
   width: 100%;
   height: 200px;
 }
-#ingredientTable th, #ingredientTable tr {
-  width: 23%;
-  text-align: left;
+#maltTable, #ingredientTable, #yeastTable, #hopTable {
+  width: 100%;
+}
+
+/*- Malt Tab -*/
+.tableMaltAmtLbs, .tableMaltAmtOz {
+  text-align: center;
 }
 #maltTable th, #maltTable tr {
   width: 16%;
-  text-align: left;
+  text-align: center;
 }
+#maltTable thead {
+  background-color: #ccc;
+  font-size: 1.1em;
+}
+
+/*- Hop Tab -*/
 #hopTable th, #hopTable tr {
-  width: 12%;
-  text-align: left;
+  width: 14%;
+  text-align: center;
 }
+#hopTable thead {
+  background-color: #ccc;
+  font-size: 1.0em;
+}
+
+/*- Yeast & Other Tab -*/
 #yeastTable th, #yeastTable tr {
   width: 23%;
-  text-align: left;
+  text-align: center;
+}
+#yeastTable thead {
+  background-color: #ccc;
+  font-size: 1.1em;
+}
+#ingredientTable th, #ingredientTable tr {
+  width: 23%;
+  text-align: center;
+}
+#ingredientTable thead {
+  background-color: #ccc;
+  font-size: 1.1em;
 }

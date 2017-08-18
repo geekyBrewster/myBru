@@ -70,8 +70,7 @@
           <th>Amount</th>
           <th>Use</th>
           <th>Time in Brew</th>
-          <th>Dry Hop Time</th>
-          <th></th>
+          <th>Dry Hop</th>
           <th></th>
         </tr>
       </thead>
@@ -87,16 +86,16 @@
         <td>
           <!-- Form -->
           <form editable-form name="hopform" ng-show="hopform.$visible">
-            <button type="submit" ng-disabled="hopform.$waiting" class="btn btn-primary" ng-click="rc.updateHop()">
+            <button type="submit" ng-disabled="hopform.$waiting" class="saveBtn" ng-click="rc.updateHop()">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
-            <button type="button" ng-disabled="hopform.$waiting" ng-click="hopform.$cancel()" class="btn btn-default">
+            <button type="button" ng-disabled="hopform.$waiting"  class="cancelBtn" ng-click="hopform.$cancel()">
               <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!hopform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="hopform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteHop(hop.hopType, hop.hopName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button type="button" class="editBtn" ng-click="hopform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="deleteBtn" ng-click="rc.deleteHop(hop.hopType, hop.hopName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>

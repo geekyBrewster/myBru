@@ -63,24 +63,24 @@
       </thead>
 
       <tr ng-repeat="malt in rc.malts">
-        <td><span editable-text="malt.maltType" e-name="type" e-form="maltform">{{malt.maltType}}</span></td>
-        <td><span editable-text="malt.maltName" e-name="type" e-form="maltform">{{malt.maltName}}</span></td>
-        <td><span editable-text="malt.maltAmtLbs" e-name="type" e-form="maltform">{{malt.maltAmtLbs}} lbs.</span></td>
-        <td><span editable-text="malt.maltAmtOz" e-name="type" e-form="maltform">{{malt.maltAmtOz}} oz.</span></td>
+        <td class="tableMaltType"><span editable-text="malt.maltType" e-name="type" e-form="maltform">{{malt.maltType}}</span></td>
+        <td class="tableMaltName"><span editable-text="malt.maltName" e-name="type" e-form="maltform">{{malt.maltName}}</span></td>
+        <td class="tableMaltAmtLbs"><span editable-text="malt.maltAmtLbs" e-name="type" e-form="maltform">{{malt.maltAmtLbs}} lbs.</span></td>
+        <td class="tableMaltAmtOz"><span editable-text="malt.maltAmtOz" e-name="type" e-form="maltform">{{malt.maltAmtOz}} oz.</span></td>
         <!-- Edit buttons -->
         <td>
           <!-- Form -->
           <form editable-form name="maltform" ng-show="maltform.$visible">
-            <button type="submit" ng-disabled="maltform.$waiting" class="btn btn-primary" ng-click="rc.updateMalt()">
+            <button type="submit" ng-disabled="maltform.$waiting" class="saveBtn" ng-click="rc.updateMalt()">
               <i class="fa fa-floppy-o" aria-hidden="true"></i>
             </button>
-            <button type="button" ng-disabled="maltform.$waiting" ng-click="maltform.$cancel()" class="btn btn-default">
+            <button type="button" ng-disabled="maltform.$waiting" ng-click="maltform.$cancel()" class=" cancelBtn">
               <i class="fa fa-ban" aria-hidden="true"></i>
             </button>
           </form>
           <div class="buttons" ng-show="!maltform.$visible">
-          <button type="button" class="btn btn-primary" ng-click="maltform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-          <button type="button" class="btn btn-danger" ng-click="rc.deleteMalt(malt.maltName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+          <button type="button" class="editBtn" ng-click="maltform.$show()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button type="button" class="deleteBtn" ng-click="rc.deleteMalt(malt.maltName)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
           </div>
         </td>
       </tr>
