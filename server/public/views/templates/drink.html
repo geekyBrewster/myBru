@@ -80,10 +80,7 @@
         <h3>Evaluate your Beer:</h3>
       </div>
       <div layout="column" flex="33">
-        <md-input-container>
-          <label>Drink Date</label>
-          <input type="date" ng-model="dc.drinkDate">
-        </md-input-container>
+        <md-datepicker ng-model="dc.drinkDate" md-placeholder="Pick Drink Date"></md-datepicker>
       </div>
       <div layout="column" layout-align="center end" flex="33">
         <md-button class="md-raised md-primary" ng-click="dc.saveFinalProduct(dc.drinkDate, dc.batchRank,
