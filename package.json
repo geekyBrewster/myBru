@@ -1,5 +1,5 @@
 {
-  "name": "express_router_lecture_angular",
+  "name": "myBru homebrew tracking app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "nodemon server/server.js",
     "start": "node server/server.js"
   },
-  "author": "Scott Bromander, Kris Szafranski",
+  "author": "Amanda Kirchner, Scott Bromander, Kris Szafranski",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.5",
@@ -19,10 +19,8 @@
     "angular-xeditable": "^0.8.0",
     "bcrypt": "^1.0.2",
     "body-parser": "^1.13.3",
-    "bootstrap": "^3.3.5",
     "express": "^4.13.1",
     "express-session": "^1.13.0",
-    "jquery": "^2.1.4",
     "mongoose": "^4.4.6",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
