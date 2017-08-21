@@ -9,6 +9,7 @@ myBrü is a full-stack web application where homebrewers can track the details o
 - Angular-xeditable for in-line editing
 - Passport for user authentication
 - BreweryDB API for ingredient and beer style info
+- Google Font and Font Awesome for text and icon styling
 - Heroku and mLabs for web deployment
 - Trello for project management
 
